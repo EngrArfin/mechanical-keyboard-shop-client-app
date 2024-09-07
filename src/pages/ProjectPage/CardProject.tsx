@@ -1,8 +1,8 @@
-import { Card } from "antd";
+import { Button, Card } from "antd";
 
 const { Meta } = Card;
 
-const CardProduct = () => {
+const CardProject = () => {
   return (
     <div>
       <Card
@@ -16,9 +16,10 @@ const CardProduct = () => {
         }
       >
         <Meta title="Europe Street beat" description="www.instagram.com" />
+        <Button>Add To Card</Button>
       </Card>
     </div>
   );
 };
 
-export default CardProduct;
+export default CardProject;

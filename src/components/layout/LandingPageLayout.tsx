@@ -1,7 +1,7 @@
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { Breadcrumb, Layout, Menu, MenuProps } from "antd";
 import HeaderPage from "../../pages/ProjectPage/HeaderPage";
-import CardProduct from "../../pages/ProjectPage/CardProduct";
+import CardProject from "../../pages/ProjectPage/CardProject";
 
 const { Header, Content, Footer } = Layout;
 
@@ -68,7 +68,7 @@ const LandingPageLayout = () => {
             }}
           >
             <HeaderPage></HeaderPage>
-            <CardProduct></CardProduct>
+            <CardProject></CardProject>
           </div>
         </Content>
         <Footer style={{ textAlign: "center" }}>
