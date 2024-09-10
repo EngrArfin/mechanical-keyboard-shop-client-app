@@ -1,4 +1,4 @@
-import { Carousel } from "antd";
+import { Button, Carousel } from "antd";
 import photo1 from "../../assets/images/header1.jpg";
 import photo2 from "../../assets/images/header2.jpg";
 import photo3 from "../../assets/images/header3.jpg";
@@ -17,22 +17,41 @@ const HeaderPage = () => {
     <Carousel autoplay>
       <div>
         <h3 style={contentStyle}>
-          <img alt="example" src={photo1} />
+          <img
+            style={{ height: "620px", width: "1555px" }}
+            alt="example"
+            src={photo1}
+          />
         </h3>
       </div>
       <div>
         <h3 style={contentStyle}>
-          <img src={photo2} alt="" />
+          <div>
+            <Button>See Product</Button>
+          </div>
+          <img
+            style={{ height: "620px", width: "1555px" }}
+            src={photo2}
+            alt=""
+          />
         </h3>
       </div>
       <div>
         <h3 style={contentStyle}>
-          <img src={photo3} alt="" />
+          <img
+            style={{ height: "620px", width: "1555px" }}
+            src={photo3}
+            alt=""
+          />
         </h3>
       </div>
       <div>
         <h3 style={contentStyle}>
-          <img src={photo4} alt="" />
+          <img
+            style={{ height: "620px", width: "1555px" }}
+            src={photo4}
+            alt=""
+          />
         </h3>
       </div>
     </Carousel>

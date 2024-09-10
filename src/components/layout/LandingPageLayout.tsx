@@ -2,6 +2,8 @@ import { ShoppingCartOutlined } from "@ant-design/icons";
 import { Breadcrumb, Layout, Menu, MenuProps } from "antd";
 import HeaderPage from "../../pages/ProjectPage/HeaderPage";
 import CardProject from "../../pages/ProjectPage/CardProject";
+import Login from "../../pages/Login";
+import Register from "../../pages/Register";
 
 const { Header, Content, Footer } = Layout;
 
@@ -15,11 +17,6 @@ const items: MenuProps["items"] = [
     label: "Profile",
   },
 ];
-
-/* const items = new Array(15).fill(null).map((_, index) => ({
-  key: index + 1,
-  label: `nav ${index + 1}`,
-})); */
 
 const LandingPageLayout = () => {
   return (
@@ -69,6 +66,8 @@ const LandingPageLayout = () => {
           >
             <HeaderPage></HeaderPage>
             <CardProject></CardProject>
+            <Login></Login>
+            <Register></Register>
           </div>
         </Content>
         <Footer style={{ textAlign: "center" }}>
