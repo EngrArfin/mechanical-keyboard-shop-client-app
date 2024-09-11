@@ -14,7 +14,17 @@ const contentStyle: React.CSSProperties = {
 
 const HeaderPage = () => {
   return (
-    <Carousel autoplay>
+    <Carousel
+      autoplay
+      style={{
+        padding: "3px",
+        borderRadius: "8px",
+        background:
+          "linear-gradient(90deg, #2e004f, #00bfae, #2e004f, #00bfae)",
+        color: "#ffffff",
+        boxShadow: "0px 4px 15px rgba(0.3, 1, 0, 0.3)",
+      }}
+    >
       <div>
         <h3 style={contentStyle}>
           <img

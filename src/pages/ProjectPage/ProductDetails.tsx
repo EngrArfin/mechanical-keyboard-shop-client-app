@@ -1,94 +1,79 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { addToCart } from "../../redux/cartSlice";
-
-interface Product {
-  id: string;
-  title: string;
-  brand: string;
-  price: number;
-  originalPrice: number;
-  discount: number;
-  rating: number;
-  promotion: string;
-  minSpend: number;
-  imageUrl: string;
-}
-
-const product: Product = {
-  id: "1",
-  title: "Goat Milk Saffron Soap, 100 gm",
-  brand: "No Brand",
-  price: 123,
-  originalPrice: 500,
-  discount: 75,
-  rating: 263,
-  promotion: "Min. spend ৳ 249",
-  minSpend: 249,
-  imageUrl: "/path-to-image/goat-milk-saffron-soap.jpg", // Replace with actual image URL
-};
+import { Button } from "antd";
+import photo4 from "../../assets/images/card1.jpg";
 
 const ProductDetails = () => {
-  const [quantity, setQuantity] = useState<number>(1);
-  const dispatch = useDispatch();
-
-  /* const handleAddToCart: React.FC = () => {
-    dispatch(addToCart({ product, quantity }));
-  }; */
-  const handleAddToCart = (): void => {
-    dispatch(addToCart({ product, quantity }));
-  };
-
-  const handleBuyNow = () => {
-    // Navigate to checkout or any buy now logic
-    console.log("Buying now", product.title);
-  };
-
   return (
-    <div className="product-details container">
-      <div className="product-image">
-        <img src={product.imageUrl} alt={product.title} className="w-full" />
-      </div>
-      <div className="product-info">
-        <h1 className="text-2xl font-semibold">{product.title}</h1>
-        <p className="text-gray-600">Brand: {product.brand}</p>
-        <div className="rating">{product.rating} Ratings</div>
-        <div className="price-info">
-          <h2 className="text-xl text-red-500">৳ {product.price}</h2>
-          <span className="line-through text-gray-400">
-            ৳ {product.originalPrice}
-          </span>
-          <span className="text-green-600 ml-2">-{product.discount}%</span>
+    <div style={{ padding: "20px", maxWidth: "1200px", margin: "auto" }}>
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <div style={{ flex: "1" }}>
+          <img src={photo4} alt="" style={{ width: "100%", height: "50%" }} />
         </div>
-        <div className="promotion">
-          <p className="text-green-600">Promotions: {product.promotion}</p>
-        </div>
-        <div className="quantity mt-4">
-          <label htmlFor="quantity" className="mr-2">
-            Quantity:
-          </label>
-          <input
-            id="quantity"
-            type="number"
-            value={quantity}
-            min={1}
-            onChange={(e) => setQuantity(parseInt(e.target.value))}
-            className="border p-1 w-12"
-          />
-        </div>
-        <div className="actions mt-4">
-          <button
-            onClick={handleBuyNow}
-            className="bg-blue-500 text-white px-4 py-2 rounded mr-4"
-          >
-            Buy Now
-          </button>
-          <button
-            onClick={handleAddToCart}
-            className="bg-yellow-500 text-white px-4 py-2 rounded"
-          >
-            Add to Cart
-          </button>
+        <div style={{ flex: "1", paddingLeft: "20px" }}>
+          <h1 style={{ fontSize: "1.5rem", fontWeight: "600" }}>
+            Digital Mechanical Keyboard
+          </h1>
+          <p style={{ color: "#4A5568" }}>
+            Brand: A4 Tech {/* product.brand */}
+          </p>
+          <div style={{ marginTop: "10px" }}>
+            {/* product.rating */} 5*** Ratings
+          </div>
+          <div style={{ marginTop: "10px" }}>
+            <h2 style={{ fontSize: "1.25rem", color: "#EF4444" }}>
+              ৳ 2500 {/* product.price */}
+            </h2>
+            <span style={{ textDecoration: "line-through", color: "#A0AEC0" }}>
+              ৳ 3000 % {/* product.originalPrice */}
+            </span>
+            <span style={{ color: "#16A34A", marginLeft: "8px" }}>
+              25% {/* -product.discount% */}
+            </span>
+          </div>
+          <div style={{ marginTop: "10px" }}>
+            <p style={{ color: "#16A34A" }}>Promotions: product.promotion</p>
+          </div>
+          <div style={{ marginTop: "16px" }}>
+            <label htmlFor="quantity" style={{ marginRight: "8px" }}>
+              Quantity:
+            </label>
+            <input
+              id="quantity"
+              type="number"
+              value="quantity"
+              min={1}
+              /* onChange={(e) => setQuantity(parseInt(e.target.value))} */
+              style={{
+                border: "1px solid #CBD5E0",
+                padding: "4px",
+                width: "48px",
+              }}
+            />
+          </div>
+          <div style={{ marginTop: "16px" }}>
+            <Button
+              /* onClick={handleBuyNow} */
+              style={{
+                backgroundColor: "#3B82F6",
+                color: "white",
+                padding: "8px 16px",
+                borderRadius: "4px",
+                marginRight: "16px",
+              }}
+            >
+              Buy Now
+            </Button>
+            <Button
+              /* onClick={handleAddToCart} */
+              style={{
+                backgroundColor: "#F59E0B",
+                color: "white",
+                padding: "8px 16px",
+                borderRadius: "4px",
+              }}
+            >
+              Add to Cart
+            </Button>
+          </div>
         </div>
       </div>
     </div>

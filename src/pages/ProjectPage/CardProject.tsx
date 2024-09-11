@@ -14,115 +14,493 @@ const CardProject = () => {
       <div style={{ display: "flex" }}>
         <Card
           hoverable
-          style={{ height: 420, width: 240, margin: 10 }}
+          style={{
+            height: 420,
+            width: 240,
+            margin: 10,
+            borderRadius: "8px",
+            background:
+              "linear-gradient(70deg, #2e004f, #00bfae, #2e004f, #00bfae)",
+            color: "#ffffff",
+            boxShadow: "0px 4px 15px rgba(0.3, 1, 0, 0.3)",
+          }}
           cover={<img style={{ height: 250 }} alt="example" src={photo1} />}
         >
           <Meta title="Europe Street beat" description="Rating" />
-          <p>Price:</p>
-          <Button style={{ marginTop: 15, marginLeft: 20 }}>Add To Card</Button>
+          <p>Price: 3000</p>
+          <Button style={{ marginTop: 15, marginLeft: 20 }}>
+            Product Details
+          </Button>
         </Card>
+
         <Card
           hoverable
-          style={{ height: 420, width: 240, margin: 10 }}
+          style={{
+            height: 420,
+            width: 240,
+            margin: 10,
+            borderRadius: "8px",
+            background:
+              "linear-gradient(70deg, #2e004f, #00bfae, #2e004f, #00bfae)",
+            color: "#ffffff",
+            boxShadow: "0px 4px 15px rgba(0.3, 1, 0, 0.3)",
+          }}
           cover={<img style={{ height: 250 }} alt="example" src={photo1} />}
         >
           <Meta title="Europe Street beat" description="Rating" />
-          <p>Price:</p>
+          <p>Price: 3000</p>
           <Button style={{ marginTop: 15, marginLeft: 20 }}>
-            Show Details
+            Product Details
           </Button>
         </Card>
         <Card
           hoverable
-          style={{ height: 420, width: 240, margin: 10 }}
+          style={{
+            height: 420,
+            width: 240,
+            margin: 10,
+            borderRadius: "8px",
+            background:
+              "linear-gradient(70deg, #2e004f, #00bfae, #2e004f, #00bfae)",
+            color: "#ffffff",
+            boxShadow: "0px 4px 15px rgba(0.3, 1, 0, 0.3)",
+          }}
           cover={<img style={{ height: 250 }} alt="example" src={photo2} />}
         >
           <Meta title="Europe Street beat" description="Rating" />
-          <p>Price:</p>
-          <Button style={{ marginTop: 15, marginLeft: 20 }}>Add To Card</Button>
+          <p>Price: 3000</p>
+          <Button style={{ marginTop: 15, marginLeft: 20 }}>
+            Product Details
+          </Button>
         </Card>
         <Card
           hoverable
-          style={{ height: 420, width: 240, margin: 10 }}
+          style={{
+            height: 420,
+            width: 240,
+            margin: 10,
+            borderRadius: "8px",
+            background:
+              "linear-gradient(70deg, #2e004f, #00bfae, #2e004f, #00bfae)",
+            color: "#ffffff",
+            boxShadow: "0px 4px 15px rgba(0.3, 1, 0, 0.3)",
+          }}
           cover={<img style={{ height: 250 }} alt="example" src={photo3} />}
         >
           <Meta title="Europe Street beat" description="Rating" />
-          <p>Price:</p>
-          <Button style={{ marginTop: 15, marginLeft: 20 }}>Add To Card</Button>
+          <p>Price: 3000</p>
+          <Button style={{ marginTop: 15, marginLeft: 20 }}>
+            Product Details
+          </Button>
         </Card>
         <Card
           hoverable
-          style={{ height: 420, width: 240, margin: 10 }}
+          style={{
+            height: 420,
+            width: 240,
+            margin: 10,
+            borderRadius: "8px",
+            background:
+              "linear-gradient(70deg, #2e004f, #00bfae, #2e004f, #00bfae)",
+            color: "#ffffff",
+            boxShadow: "0px 4px 15px rgba(0.3, 1, 0, 0.3)",
+          }}
           cover={<img style={{ height: 250 }} alt="example" src={photo4} />}
         >
           <Meta title="Europe Street beat" description="Rating" />
-          <p>Price:</p>
-          <Button style={{ marginTop: 15, marginLeft: 20 }}>Add To Card</Button>
+          <p>Price: 3000</p>
+          <Button style={{ marginTop: 15, marginLeft: 20 }}>
+            Product Details
+          </Button>
         </Card>
         <Card
           hoverable
-          style={{ height: 420, width: 240, margin: 10 }}
+          style={{
+            height: 420,
+            width: 240,
+            margin: 10,
+            borderRadius: "8px",
+            background:
+              "linear-gradient(70deg, #2e004f, #00bfae, #2e004f, #00bfae)",
+            color: "#ffffff",
+            boxShadow: "0px 4px 15px rgba(0.3, 1, 0, 0.3)",
+          }}
           cover={<img style={{ height: 250 }} alt="example" src={photo4} />}
         >
           <Meta title="Europe Street beat" description="Rating" />
-          <p>Price:</p>
-          <Button style={{ marginTop: 15, marginLeft: 20 }}>Add To Card</Button>
+          <p>Price: 3000</p>
+          <Button style={{ marginTop: 15, marginLeft: 20 }}>
+            Product Details
+          </Button>
         </Card>
       </div>
       <div style={{ display: "flex" }}>
         <Card
           hoverable
-          style={{ height: 420, width: 240, margin: 10 }}
+          style={{
+            height: 420,
+            width: 240,
+            margin: 10,
+            borderRadius: "8px",
+            background:
+              "linear-gradient(70deg, #2e004f, #00bfae, #2e004f, #00bfae)",
+            color: "#ffffff",
+            boxShadow: "0px 4px 15px rgba(0.3, 1, 0, 0.3)",
+          }}
           cover={<img style={{ height: 250 }} alt="example" src={photo1} />}
         >
           <Meta title="Europe Street beat" description="Rating" />
-          <p>Price:</p>
-          <Button style={{ marginTop: 15, marginLeft: 20 }}>Add To Card</Button>
+          <p>Price: 3000</p>
+          <Button style={{ marginTop: 15, marginLeft: 20 }}>
+            Product Details
+          </Button>
         </Card>
+
         <Card
           hoverable
-          style={{ height: 420, width: 240, margin: 10 }}
+          style={{
+            height: 420,
+            width: 240,
+            margin: 10,
+            borderRadius: "8px",
+            background:
+              "linear-gradient(70deg, #2e004f, #00bfae, #2e004f, #00bfae)",
+            color: "#ffffff",
+            boxShadow: "0px 4px 15px rgba(0.3, 1, 0, 0.3)",
+          }}
           cover={<img style={{ height: 250 }} alt="example" src={photo1} />}
         >
           <Meta title="Europe Street beat" description="Rating" />
-          <p>Price:</p>
-          <Button style={{ marginTop: 15, marginLeft: 20 }}>Add To Card</Button>
+          <p>Price: 3000</p>
+          <Button style={{ marginTop: 15, marginLeft: 20 }}>
+            Product Details
+          </Button>
         </Card>
         <Card
           hoverable
-          style={{ height: 420, width: 240, margin: 10 }}
+          style={{
+            height: 420,
+            width: 240,
+            margin: 10,
+            borderRadius: "8px",
+            background:
+              "linear-gradient(70deg, #2e004f, #00bfae, #2e004f, #00bfae)",
+            color: "#ffffff",
+            boxShadow: "0px 4px 15px rgba(0.3, 1, 0, 0.3)",
+          }}
           cover={<img style={{ height: 250 }} alt="example" src={photo2} />}
         >
           <Meta title="Europe Street beat" description="Rating" />
-          <p>Price:</p>
-          <Button style={{ marginTop: 15, marginLeft: 20 }}>Add To Card</Button>
+          <p>Price: 3000</p>
+          <Button style={{ marginTop: 15, marginLeft: 20 }}>
+            Product Details
+          </Button>
         </Card>
         <Card
           hoverable
-          style={{ height: 420, width: 240, margin: 10 }}
+          style={{
+            height: 420,
+            width: 240,
+            margin: 10,
+            borderRadius: "8px",
+            background:
+              "linear-gradient(70deg, #2e004f, #00bfae, #2e004f, #00bfae)",
+            color: "#ffffff",
+            boxShadow: "0px 4px 15px rgba(0.3, 1, 0, 0.3)",
+          }}
           cover={<img style={{ height: 250 }} alt="example" src={photo3} />}
         >
           <Meta title="Europe Street beat" description="Rating" />
-          <p>Price:</p>
-          <Button style={{ marginTop: 15, marginLeft: 20 }}>Add To Card</Button>
+          <p>Price: 3000</p>
+          <Button style={{ marginTop: 15, marginLeft: 20 }}>
+            Product Details
+          </Button>
         </Card>
         <Card
           hoverable
-          style={{ height: 420, width: 240, margin: 10 }}
+          style={{
+            height: 420,
+            width: 240,
+            margin: 10,
+            borderRadius: "8px",
+            background:
+              "linear-gradient(70deg, #2e004f, #00bfae, #2e004f, #00bfae)",
+            color: "#ffffff",
+            boxShadow: "0px 4px 15px rgba(0.3, 1, 0, 0.3)",
+          }}
           cover={<img style={{ height: 250 }} alt="example" src={photo4} />}
         >
           <Meta title="Europe Street beat" description="Rating" />
-          <p>Price:</p>
-          <Button style={{ marginTop: 15, marginLeft: 20 }}>Add To Card</Button>
+          <p>Price: 3000</p>
+          <Button style={{ marginTop: 15, marginLeft: 20 }}>
+            Product Details
+          </Button>
         </Card>
         <Card
           hoverable
-          style={{ height: 420, width: 240, margin: 10 }}
+          style={{
+            height: 420,
+            width: 240,
+            margin: 10,
+            borderRadius: "8px",
+            background:
+              "linear-gradient(70deg, #2e004f, #00bfae, #2e004f, #00bfae)",
+            color: "#ffffff",
+            boxShadow: "0px 4px 15px rgba(0.3, 1, 0, 0.3)",
+          }}
           cover={<img style={{ height: 250 }} alt="example" src={photo4} />}
         >
           <Meta title="Europe Street beat" description="Rating" />
-          <p>Price:</p>
-          <Button style={{ marginTop: 15, marginLeft: 20 }}>Add To Card</Button>
+          <p>Price: 3000</p>
+          <Button style={{ marginTop: 15, marginLeft: 20 }}>
+            Product Details
+          </Button>
+        </Card>
+      </div>
+      <div style={{ display: "flex" }}>
+        <Card
+          hoverable
+          style={{
+            height: 420,
+            width: 240,
+            margin: 10,
+            borderRadius: "8px",
+            background:
+              "linear-gradient(70deg, #2e004f, #00bfae, #2e004f, #00bfae)",
+            color: "#ffffff",
+            boxShadow: "0px 4px 15px rgba(0.3, 1, 0, 0.3)",
+          }}
+          cover={<img style={{ height: 250 }} alt="example" src={photo1} />}
+        >
+          <Meta title="Europe Street beat" description="Rating" />
+          <p>Price: 3000</p>
+          <Button style={{ marginTop: 15, marginLeft: 20 }}>
+            Product Details
+          </Button>
+        </Card>
+
+        <Card
+          hoverable
+          style={{
+            height: 420,
+            width: 240,
+            margin: 10,
+            borderRadius: "8px",
+            background:
+              "linear-gradient(70deg, #2e004f, #00bfae, #2e004f, #00bfae)",
+            color: "#ffffff",
+            boxShadow: "0px 4px 15px rgba(0.3, 1, 0, 0.3)",
+          }}
+          cover={<img style={{ height: 250 }} alt="example" src={photo1} />}
+        >
+          <Meta title="Europe Street beat" description="Rating" />
+          <p>Price: 3000</p>
+          <Button style={{ marginTop: 15, marginLeft: 20 }}>
+            Product Details
+          </Button>
+        </Card>
+        <Card
+          hoverable
+          style={{
+            height: 420,
+            width: 240,
+            margin: 10,
+            borderRadius: "8px",
+            background:
+              "linear-gradient(70deg, #2e004f, #00bfae, #2e004f, #00bfae)",
+            color: "#ffffff",
+            boxShadow: "0px 4px 15px rgba(0.3, 1, 0, 0.3)",
+          }}
+          cover={<img style={{ height: 250 }} alt="example" src={photo2} />}
+        >
+          <Meta title="Europe Street beat" description="Rating" />
+          <p>Price: 3000</p>
+          <Button style={{ marginTop: 15, marginLeft: 20 }}>
+            Product Details
+          </Button>
+        </Card>
+        <Card
+          hoverable
+          style={{
+            height: 420,
+            width: 240,
+            margin: 10,
+            borderRadius: "8px",
+            background:
+              "linear-gradient(70deg, #2e004f, #00bfae, #2e004f, #00bfae)",
+            color: "#ffffff",
+            boxShadow: "0px 4px 15px rgba(0.3, 1, 0, 0.3)",
+          }}
+          cover={<img style={{ height: 250 }} alt="example" src={photo3} />}
+        >
+          <Meta title="Europe Street beat" description="Rating" />
+          <p>Price: 3000</p>
+          <Button style={{ marginTop: 15, marginLeft: 20 }}>
+            Product Details
+          </Button>
+        </Card>
+        <Card
+          hoverable
+          style={{
+            height: 420,
+            width: 240,
+            margin: 10,
+            borderRadius: "8px",
+            background:
+              "linear-gradient(70deg, #2e004f, #00bfae, #2e004f, #00bfae)",
+            color: "#ffffff",
+            boxShadow: "0px 4px 15px rgba(0.3, 1, 0, 0.3)",
+          }}
+          cover={<img style={{ height: 250 }} alt="example" src={photo4} />}
+        >
+          <Meta title="Europe Street beat" description="Rating" />
+          <p>Price: 3000</p>
+          <Button style={{ marginTop: 15, marginLeft: 20 }}>
+            Product Details
+          </Button>
+        </Card>
+        <Card
+          hoverable
+          style={{
+            height: 420,
+            width: 240,
+            margin: 10,
+            borderRadius: "8px",
+            background:
+              "linear-gradient(70deg, #2e004f, #00bfae, #2e004f, #00bfae)",
+            color: "#ffffff",
+            boxShadow: "0px 4px 15px rgba(0.3, 1, 0, 0.3)",
+          }}
+          cover={<img style={{ height: 250 }} alt="example" src={photo4} />}
+        >
+          <Meta title="Europe Street beat" description="Rating" />
+          <p>Price: 3000</p>
+          <Button style={{ marginTop: 15, marginLeft: 20 }}>
+            Product Details
+          </Button>
+        </Card>
+      </div>
+      <div style={{ display: "flex" }}>
+        <Card
+          hoverable
+          style={{
+            height: 420,
+            width: 240,
+            margin: 10,
+            borderRadius: "8px",
+            background:
+              "linear-gradient(70deg, #2e004f, #00bfae, #2e004f, #00bfae)",
+            color: "#ffffff",
+            boxShadow: "0px 4px 15px rgba(0.3, 1, 0, 0.3)",
+          }}
+          cover={<img style={{ height: 250 }} alt="example" src={photo1} />}
+        >
+          <Meta title="Europe Street beat" description="Rating" />
+          <p>Price: 3000</p>
+          <Button style={{ marginTop: 15, marginLeft: 20 }}>
+            Product Details
+          </Button>
+        </Card>
+
+        <Card
+          hoverable
+          style={{
+            height: 420,
+            width: 240,
+            margin: 10,
+            borderRadius: "8px",
+            background:
+              "linear-gradient(70deg, #2e004f, #00bfae, #2e004f, #00bfae)",
+            color: "#ffffff",
+            boxShadow: "0px 4px 15px rgba(0.3, 1, 0, 0.3)",
+          }}
+          cover={<img style={{ height: 250 }} alt="example" src={photo1} />}
+        >
+          <Meta title="Europe Street beat" description="Rating" />
+          <p>Price: 3000</p>
+          <Button style={{ marginTop: 15, marginLeft: 20 }}>
+            Product Details
+          </Button>
+        </Card>
+        <Card
+          hoverable
+          style={{
+            height: 420,
+            width: 240,
+            margin: 10,
+            borderRadius: "8px",
+            background:
+              "linear-gradient(70deg, #2e004f, #00bfae, #2e004f, #00bfae)",
+            color: "#ffffff",
+            boxShadow: "0px 4px 15px rgba(0.3, 1, 0, 0.3)",
+          }}
+          cover={<img style={{ height: 250 }} alt="example" src={photo2} />}
+        >
+          <Meta title="Europe Street beat" description="Rating" />
+          <p>Price: 3000</p>
+          <Button style={{ marginTop: 15, marginLeft: 20 }}>
+            Product Details
+          </Button>
+        </Card>
+        <Card
+          hoverable
+          style={{
+            height: 420,
+            width: 240,
+            margin: 10,
+            borderRadius: "8px",
+            background:
+              "linear-gradient(70deg, #2e004f, #00bfae, #2e004f, #00bfae)",
+            color: "#ffffff",
+            boxShadow: "0px 4px 15px rgba(0.3, 1, 0, 0.3)",
+          }}
+          cover={<img style={{ height: 250 }} alt="example" src={photo3} />}
+        >
+          <Meta title="Europe Street beat" description="Rating" />
+          <p>Price: 3000</p>
+          <Button style={{ marginTop: 15, marginLeft: 20 }}>
+            Product Details
+          </Button>
+        </Card>
+        <Card
+          hoverable
+          style={{
+            height: 420,
+            width: 240,
+            margin: 10,
+            borderRadius: "8px",
+            background:
+              "linear-gradient(70deg, #2e004f, #00bfae, #2e004f, #00bfae)",
+            color: "#ffffff",
+            boxShadow: "0px 4px 15px rgba(0.3, 1, 0, 0.3)",
+          }}
+          cover={<img style={{ height: 250 }} alt="example" src={photo4} />}
+        >
+          <Meta title="Europe Street beat" description="Rating" />
+          <p>Price: 3000</p>
+          <Button style={{ marginTop: 15, marginLeft: 20 }}>
+            Product Details
+          </Button>
+        </Card>
+        <Card
+          hoverable
+          style={{
+            height: 420,
+            width: 240,
+            margin: 10,
+            borderRadius: "8px",
+            background:
+              "linear-gradient(70deg, #2e004f, #00bfae, #2e004f, #00bfae)",
+            color: "#ffffff",
+            boxShadow: "0px 4px 15px rgba(0.3, 1, 0, 0.3)",
+          }}
+          cover={<img style={{ height: 250 }} alt="example" src={photo4} />}
+        >
+          <Meta title="Europe Street beat" description="Rating" />
+          <p>Price: 3000</p>
+          <Button style={{ marginTop: 15, marginLeft: 20 }}>
+            Product Details
+          </Button>
         </Card>
       </div>
     </div>

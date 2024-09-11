@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+/* import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface Product {
   id: string;
@@ -39,3 +39,4 @@ const cartSlice = createSlice({
 
 export const { addToCart } = cartSlice.actions;
 export default cartSlice.reducer;
+ */

@@ -4,6 +4,7 @@ import HeaderPage from "../../pages/ProjectPage/HeaderPage";
 import CardProject from "../../pages/ProjectPage/CardProject";
 import Login from "../../pages/Login";
 import Register from "../../pages/Register";
+import ProductDetails from "../../pages/ProjectPage/ProductDetails";
 
 const { Header, Content, Footer } = Layout;
 
@@ -21,7 +22,15 @@ const items: MenuProps["items"] = [
 const LandingPageLayout = () => {
   return (
     <div>
-      <Layout>
+      <Layout
+        style={{
+          borderRadius: "8px",
+          background:
+            "linear-gradient(90deg, #2e004f, #00bfae, #2e004f, #00bfae)",
+          color: "#ffffff",
+          boxShadow: "0px 4px 15px rgba(0.3, 1, 0, 0.3)",
+        }}
+      >
         <Header style={{ display: "flex", alignItems: "center" }}>
           <div
             style={{
@@ -66,6 +75,7 @@ const LandingPageLayout = () => {
           >
             <HeaderPage></HeaderPage>
             <CardProject></CardProject>
+            <ProductDetails></ProductDetails>
             <Login></Login>
             <Register></Register>
           </div>
