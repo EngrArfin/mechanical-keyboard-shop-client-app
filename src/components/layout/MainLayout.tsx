@@ -15,14 +15,6 @@ const items: MenuProps["items"] = [
     label: "Dashboard",
   },
   {
-    key: "2",
-    label: "Profile",
-  },
-  {
-    key: "3",
-    label: "User",
-  },
-  {
     key: "4",
     label: "User Management",
     children: [

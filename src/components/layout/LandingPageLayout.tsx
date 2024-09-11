@@ -5,6 +5,10 @@ import CardProject from "../../pages/ProjectPage/CardProject";
 import Login from "../../pages/Login";
 import Register from "../../pages/Register";
 import ProductDetails from "../../pages/ProjectPage/ProductDetails";
+import ServiceAdvertisement from "../../pages/ProjectPage/ServiceAdvertisement";
+import TopFeaturedBrands from "../../pages/ProjectPage/TopFeaturedBrands";
+import CustomerReviews from "../../pages/ProjectPage/CustomerReviews";
+import WhyKeyboard from "../../pages/ProjectPage/WhyKeyboard";
 
 const { Header, Content, Footer } = Layout;
 
@@ -15,7 +19,23 @@ const items: MenuProps["items"] = [
   },
   {
     key: "2",
-    label: "Profile",
+    label: "Products",
+  },
+  {
+    key: "3",
+    label: "About Us",
+  },
+  {
+    key: "4",
+    label: "Contact Us",
+  },
+  {
+    key: "5",
+    label: "Product Management",
+  },
+  {
+    key: "6",
+    label: "Dashboard.",
   },
 ];
 
@@ -41,10 +61,14 @@ const LandingPageLayout = () => {
               justifyItems: "center",
             }}
           >
-            <h1 style={{ height: "100" }}>Mechanical Keyboard </h1>
-          </div>
-          <div style={{ color: "white" }}>
-            <ShoppingCartOutlined />
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <div>
+                <h1 style={{ height: "100" }}>Mechanical Keyboard </h1>
+              </div>
+              <div style={{ color: "white", fontSize: 32 }}>
+                <ShoppingCartOutlined />
+              </div>
+            </div>
           </div>
 
           <Menu
@@ -55,12 +79,14 @@ const LandingPageLayout = () => {
             style={{ flex: 1, minWidth: 0 }}
           />
         </Header>
+
         <Content style={{ padding: "0 48px" }}>
           <Breadcrumb
             style={{
               margin: "16px 0",
               justifyContent: "end",
               alignItems: "end",
+              color: "white",
             }}
           >
             <Breadcrumb.Item>01952487468</Breadcrumb.Item>
@@ -74,7 +100,12 @@ const LandingPageLayout = () => {
             }}
           >
             <HeaderPage></HeaderPage>
+            <ServiceAdvertisement></ServiceAdvertisement>
             <CardProject></CardProject>
+            <TopFeaturedBrands></TopFeaturedBrands>
+            <CustomerReviews></CustomerReviews>
+            <WhyKeyboard></WhyKeyboard>
+            <hr /> <hr /> <hr /> <hr />
             <ProductDetails></ProductDetails>
             <Login></Login>
             <Register></Register>

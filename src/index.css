@@ -26,3 +26,52 @@ body {
   min-height: 100vh;
   background-color: #f0f4f8; /* Light background for the app */
 }
+
+/* For Responsive  */
+
+/* Add this CSS to your stylesheet or a CSS-in-JS solution */
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card-container .ant-card {
+  flex: 1;
+  max-width: 240px;
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+  /* iPad landscape or similar */
+  .card-container .ant-card {
+    max-width: 220px;
+  }
+}
+
+@media (max-width: 992px) {
+  /* iPad portrait or similar */
+  .card-container .ant-card {
+    max-width: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Phones in landscape */
+  .card-container .ant-card {
+    max-width: 150px;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Phones in portrait */
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card-container .ant-card {
+    max-width: 100%;
+  }
+}
