@@ -102,9 +102,9 @@ const LandingPageLayout = () => {
             <HeaderPage></HeaderPage>
             <ServiceAdvertisement></ServiceAdvertisement>
             <CardProject></CardProject>
+            <WhyKeyboard></WhyKeyboard>
             <TopFeaturedBrands></TopFeaturedBrands>
             <CustomerReviews></CustomerReviews>
-            <WhyKeyboard></WhyKeyboard>
             <hr /> <hr /> <hr /> <hr />
             <ProductDetails></ProductDetails>
             <Login></Login>
