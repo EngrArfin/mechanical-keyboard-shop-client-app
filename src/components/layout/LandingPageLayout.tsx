@@ -9,6 +9,8 @@ import ServiceAdvertisement from "../../pages/ProjectPage/ServiceAdvertisement";
 import TopFeaturedBrands from "../../pages/ProjectPage/TopFeaturedBrands";
 import CustomerReviews from "../../pages/ProjectPage/CustomerReviews";
 import WhyKeyboard from "../../pages/ProjectPage/WhyKeyboard";
+import ProductReview from "../../pages/ProjectPage/ProductReview";
+import Footers from "../../pages/ProjectPage/Footers";
 
 const { Header, Content, Footer } = Layout;
 
@@ -105,10 +107,12 @@ const LandingPageLayout = () => {
             <WhyKeyboard></WhyKeyboard>
             <TopFeaturedBrands></TopFeaturedBrands>
             <CustomerReviews></CustomerReviews>
-            <hr /> <hr /> <hr /> <hr />
+
             <ProductDetails></ProductDetails>
+            <ProductReview></ProductReview>
             <Login></Login>
             <Register></Register>
+            <Footers></Footers>
           </div>
         </Content>
         <Footer style={{ textAlign: "center" }}>

@@ -55,7 +55,7 @@ const initialReviews: Review[] = [
     reviewDate: "December 05, 2024",
   },
 ];
-const CustomerReviews = () => {
+const ProductReview = () => {
   // State to store reviews
   const [reviews, setReviews] = useState<Review[]>(initialReviews);
   const [newReview, setNewReview] = useState<Partial<Review>>({
@@ -215,4 +215,4 @@ const CustomerReviews = () => {
   );
 };
 
-export default CustomerReviews;
+export default ProductReview;
