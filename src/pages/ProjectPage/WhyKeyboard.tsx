@@ -1,6 +1,6 @@
 import whyuse from "../../assets/images/whyuse.jpg";
 
-import { Collapse, CollapseProps } from "antd";
+import { Collapse, CollapseProps, Divider } from "antd";
 const text = (
   <p style={{ paddingInlineStart: 24 }}>
     Mechanical keyboards are popular for their tactile feedback, durability, and
@@ -87,20 +87,25 @@ const items: CollapseProps["items"] = [
 
 export const WhyKeyboard = () => {
   return (
-    <div style={{ display: "flex" }}>
-      <div>
-        <h1 style={{ marginTop: 10, marginLeft: 90 }}>
+    <div>
+      <Divider style={{ borderColor: "#7cb305" }}>
+        Why We Use Mechanical Keyboard ???
+      </Divider>
+      <div style={{ display: "flex" }}>
+        <div>
+          {/* <h1 style={{ marginTop: 10, marginLeft: 90 }}>
           {" "}
-          Why We Use Mechanical Keyboard!
-        </h1>
-        <img
-          style={{ height: 400, width: 500, marginLeft: 90 }}
-          src={whyuse}
-          alt=""
-        />
-      </div>
-      <div style={{ marginTop: 30, marginLeft: 20 }}>
-        <Collapse items={items} bordered={false} defaultActiveKey={["1"]} />;
+          
+        </h1> */}
+          <img
+            style={{ height: 400, width: 500, marginLeft: 90 }}
+            src={whyuse}
+            alt=""
+          />
+        </div>
+        <div style={{ marginTop: 30, marginLeft: 20 }}>
+          <Collapse items={items} bordered={false} defaultActiveKey={["1"]} />;
+        </div>
       </div>
     </div>
   );

@@ -2,15 +2,16 @@ import { ShoppingCartOutlined } from "@ant-design/icons";
 import { Breadcrumb, Layout, Menu, MenuProps } from "antd";
 import HeaderPage from "../../pages/ProjectPage/HeaderPage";
 import CardProject from "../../pages/ProjectPage/CardProject";
-import Login from "../../pages/Login";
+/* import Login from "../../pages/Login";
 import Register from "../../pages/Register";
-import ProductDetails from "../../pages/ProjectPage/ProductDetails";
-import ServiceAdvertisement from "../../pages/ProjectPage/ServiceAdvertisement";
-import TopFeaturedBrands from "../../pages/ProjectPage/TopFeaturedBrands";
-import CustomerReviews from "../../pages/ProjectPage/CustomerReviews";
-import WhyKeyboard from "../../pages/ProjectPage/WhyKeyboard";
 import ProductReview from "../../pages/ProjectPage/ProductReview";
+import ProductDetails from "../../pages/ProjectPage/ProductDetails"; */
+import ServiceAdvertisement from "../../pages/ProjectPage/ServiceAdvertisement";
+import CustomerReviews from "../../pages/ProjectPage/CustomerReviews";
+import TopFeaturedBrands from "../../pages/ProjectPage/TopFeaturedBrands";
+import WhyKeyboard from "../../pages/ProjectPage/WhyKeyboard";
 import Footers from "../../pages/ProjectPage/Footers";
+import Login from "../../pages/Login";
 
 const { Header, Content, Footer } = Layout;
 
@@ -34,10 +35,35 @@ const items: MenuProps["items"] = [
   {
     key: "5",
     label: "Product Management",
+    children: [
+      {
+        key: "11",
+        label: "Add Product",
+      },
+      {
+        key: "12",
+        label: "List Product",
+      },
+    ],
   },
   {
     key: "6",
-    label: "Dashboard.",
+    label: "Dashboard",
+    children: [
+      {
+        key: "21",
+        label: "Admin",
+      },
+      {
+        key: "22",
+        label: "User",
+      },
+    ],
+  },
+
+  {
+    key: "7",
+    label: "Login",
   },
 ];
 
@@ -107,17 +133,22 @@ const LandingPageLayout = () => {
             <WhyKeyboard></WhyKeyboard>
             <TopFeaturedBrands></TopFeaturedBrands>
             <CustomerReviews></CustomerReviews>
-
-            <ProductDetails></ProductDetails>
+            {/*  <ProductDetails></ProductDetails>
             <ProductReview></ProductReview>
-            <Login></Login>
-            <Register></Register>
             <Footers></Footers>
+            <Register></Register> */}
+            <Login></Login>
           </div>
         </Content>
-        <Footer style={{ textAlign: "center" }}>
-          Ant Design ©{new Date().getFullYear()} Created by Mechanical Keyboard
-          Shop
+        <Footer
+          style={{
+            textAlign: "center",
+            background: "linear-gradient(45deg, #2e004f, #00bfae, #2e004f)",
+            color: "#ffffff",
+            boxShadow: "0px 4px 15px rgba(0.3, 1, 0, 0.3)",
+          }}
+        >
+          <Footers></Footers>
         </Footer>
       </Layout>
     </div>

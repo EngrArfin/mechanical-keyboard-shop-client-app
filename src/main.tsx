@@ -13,15 +13,7 @@ import { Content } from "antd/es/layout/layout";
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <Layout style={{ minHeight: "100vh", backgroundColor: "#00bfae" }}>
-      <Content
-        style={{
-          borderRadius: "8px",
-          background:
-            "linear-gradient(90deg, #2e004f, #00bfae, #2e004f, #00bfae)",
-          color: "#ffffff", // White text to contrast with dark background
-          boxShadow: "0px 4px 15px rgba(0.3, 1, 0, 0.3)", // Subtle shadow for depth
-        }}
-      >
+      <Content>
         <Provider store={store}>
           <RouterProvider router={router} />
         </Provider>

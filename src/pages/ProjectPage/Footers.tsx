@@ -13,9 +13,16 @@ const Footers = () => {
   return (
     <div>
       <Footer
-        style={{ backgroundColor: "#001529", color: "#fff", padding: "40px 0" }}
+        style={{
+          margin: 10,
+          background:
+            "linear-gradient(70deg, #2e004f, #00bfae, #2e004f, #00bfae)",
+          color: "#ffffff",
+          boxShadow: "0px 4px 15px rgba(0.3, 1, 0, 0.3)",
+          padding: "40px 0",
+        }}
       >
-        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+        <div style={{ maxWidth: "1600px", margin: "0 auto" }}>
           <Row gutter={[16, 16]}>
             {/* Column 1: Logo or Company Info */}
             <Col xs={24} sm={12} md={8}>
@@ -104,8 +111,8 @@ const Footers = () => {
                   display: "block",
                 }}
               >
-                © {new Date().getFullYear()} Mechanical Keyboard Shop. All
-                rights reserved.
+                Ant Design ©{new Date().getFullYear()} Created by Mechanical
+                Keyboard Shop
               </Text>
             </Col>
           </Row>
