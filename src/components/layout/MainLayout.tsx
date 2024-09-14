@@ -1,4 +1,5 @@
 import { Layout, Menu, MenuProps } from "antd";
+import { NavLink } from "react-router-dom";
 
 /* import {
   UploadOutlined,
@@ -11,8 +12,8 @@ const { Header, Content, Footer, Sider } = Layout;
 
 const items: MenuProps["items"] = [
   {
-    key: "1",
-    label: "Dashboard",
+    key: "Dashboard",
+    label: <NavLink to="/admin/dashboard">User Dashboard</NavLink>,
   },
   {
     key: "4",
@@ -66,7 +67,7 @@ const MainLayout = () => {
             justifyItems: "center",
           }}
         >
-          <h1 style={{ height: "100" }}>Mechanical Keyboard </h1>
+          <h1 style={{ height: "100" }}> Admin Mechanical Keyboard </h1>
         </div>
         <Menu
           theme="dark"

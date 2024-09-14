@@ -2,16 +2,11 @@ import { ShoppingCartOutlined } from "@ant-design/icons";
 import { Breadcrumb, Layout, Menu, MenuProps } from "antd";
 import HeaderPage from "../../pages/ProjectPage/HeaderPage";
 import CardProject from "../../pages/ProjectPage/CardProject";
-/* import Login from "../../pages/Login";
-import Register from "../../pages/Register";
-import ProductReview from "../../pages/ProjectPage/ProductReview";
-import ProductDetails from "../../pages/ProjectPage/ProductDetails"; */
 import ServiceAdvertisement from "../../pages/ProjectPage/ServiceAdvertisement";
 import CustomerReviews from "../../pages/ProjectPage/CustomerReviews";
 import TopFeaturedBrands from "../../pages/ProjectPage/TopFeaturedBrands";
 import WhyKeyboard from "../../pages/ProjectPage/WhyKeyboard";
 import Footers from "../../pages/ProjectPage/Footers";
-import Login from "../../pages/Login";
 
 const { Header, Content, Footer } = Layout;
 
@@ -133,11 +128,6 @@ const LandingPageLayout = () => {
             <WhyKeyboard></WhyKeyboard>
             <TopFeaturedBrands></TopFeaturedBrands>
             <CustomerReviews></CustomerReviews>
-            {/*  <ProductDetails></ProductDetails>
-            <ProductReview></ProductReview>
-            <Footers></Footers>
-            <Register></Register> */}
-            <Login></Login>
           </div>
         </Content>
         <Footer

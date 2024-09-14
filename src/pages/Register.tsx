@@ -1,77 +1,164 @@
+import {
+  Button,
+  Checkbox,
+  Form,
+  Input,
+  Space,
+  Row,
+  Col,
+  Typography,
+  Card,
+} from "antd";
 import type { FormProps } from "antd";
-import { Button, Checkbox, Form, Input, Space } from "antd";
+
+const { Title } = Typography;
 
 const Register = () => {
   type FieldType = {
     username?: string;
+    email?: string;
+    phone?: string;
     password?: string;
-    remember?: string;
+    confirmPassword?: string;
+    remember?: boolean;
   };
 
+  // Handler for successful form submission
   const onFinish: FormProps<FieldType>["onFinish"] = (values) => {
     console.log("Success:", values);
   };
 
+  // Handler for failed form submission
   const onFinishFailed: FormProps<FieldType>["onFinishFailed"] = (
     errorInfo
   ) => {
     console.log("Failed:", errorInfo);
   };
+
   return (
-    <div className="p-3">
-      <Form
-        name="basic"
-        labelCol={{ span: 8 }}
-        wrapperCol={{ span: 16 }}
-        style={{ maxWidth: 600 }}
-        initialValues={{ remember: true }}
-        onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
-        autoComplete="off"
-      >
-        <Form.Item<FieldType>
-          label="Username"
-          name="username"
-          rules={[{ required: true, message: "Please input your username!" }]}
+    <Row
+      justify="center"
+      align="middle"
+      style={{ height: "100vh", backgroundColor: "#f0f2f5" }}
+    >
+      <Col xs={22} sm={16} md={12} lg={8}>
+        <Card
+          style={{
+            padding: "40px 30px",
+            boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.1)",
+            borderRadius: "10px",
+            background: "#ffffff",
+          }}
         >
-          <Input />
-        </Form.Item>
+          <Title
+            level={3}
+            style={{ textAlign: "center", marginBottom: "30px" }}
+          >
+            Register Your Account
+          </Title>
 
-        <Space.Compact>
-          <Input style={{ width: "20%" }} defaultValue="+ 88" />
-          <Input style={{ width: "80%" }} defaultValue="01952-487468" />
-        </Space.Compact>
+          <Form
+            name="registerForm"
+            layout="vertical"
+            initialValues={{ remember: true }}
+            onFinish={onFinish}
+            onFinishFailed={onFinishFailed}
+          >
+            {/* Username Field */}
+            <Form.Item<FieldType>
+              label="Username"
+              name="username"
+              rules={[
+                { required: true, message: "Please input your username!" },
+              ]}
+            >
+              <Input placeholder="Enter your username" />
+            </Form.Item>
 
-        <Form.Item<FieldType>
-          label="Password"
-          name="password"
-          rules={[{ required: true, message: "Please input your password!" }]}
-        >
-          <Input.Password />
-        </Form.Item>
-        <Form.Item<FieldType>
-          label="Password"
-          name="password"
-          rules={[{ required: true, message: "Please input your password!" }]}
-        >
-          <Input.Password />
-        </Form.Item>
+            {/* Email Field */}
+            <Form.Item<FieldType>
+              label="Email"
+              name="email"
+              rules={[
+                { required: true, message: "Please input your email!" },
+                {
+                  type: "email",
+                  message: "Please enter a valid email address!",
+                },
+              ]}
+            >
+              <Input placeholder="Enter your email" />
+            </Form.Item>
 
-        <Form.Item<FieldType>
-          name="remember"
-          valuePropName="checked"
-          wrapperCol={{ offset: 8, span: 16 }}
-        >
-          <Checkbox>Remember me</Checkbox>
-        </Form.Item>
+            {/* Phone Number Field */}
+            <Form.Item<FieldType>
+              label="Phone Number"
+              name="phone"
+              rules={[
+                { required: true, message: "Please input your phone number!" },
+              ]}
+            >
+              <Space.Compact>
+                <Input style={{ width: "20%" }} defaultValue="+88" disabled />
+                <Input
+                  style={{ width: "80%" }}
+                  placeholder="Enter your phone number"
+                />
+              </Space.Compact>
+            </Form.Item>
 
-        <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-          <Button type="primary" htmlType="submit">
-            Submit
-          </Button>
-        </Form.Item>
-      </Form>
-    </div>
+            {/* Password Field */}
+            <Form.Item<FieldType>
+              label="Password"
+              name="password"
+              rules={[
+                { required: true, message: "Please input your password!" },
+                {
+                  min: 6,
+                  message: "Password must be at least 6 characters long!",
+                },
+              ]}
+            >
+              <Input.Password placeholder="Enter your password" />
+            </Form.Item>
+
+            {/* Confirm Password Field */}
+            <Form.Item<FieldType>
+              label="Confirm Password"
+              name="confirmPassword"
+              dependencies={["password"]}
+              rules={[
+                { required: true, message: "Please confirm your password!" },
+                ({ getFieldValue }) => ({
+                  validator(_, value) {
+                    if (!value || getFieldValue("password") === value) {
+                      return Promise.resolve();
+                    }
+                    return Promise.reject(
+                      new Error("The two passwords do not match!")
+                    );
+                  },
+                }),
+              ]}
+            >
+              <Input.Password placeholder="Confirm your password" />
+            </Form.Item>
+
+            {/* Remember Me Checkbox */}
+            <Form.Item<FieldType> name="remember" valuePropName="checked">
+              <Checkbox>Remember me</Checkbox>
+            </Form.Item>
+
+            {/* Submit Button */}
+            <Form.Item>
+              <Button type="primary" htmlType="submit" block>
+                Register
+              </Button>
+            </Form.Item>
+          </Form>
+        </Card>
+      </Col>
+    </Row>
   );
 };
 
