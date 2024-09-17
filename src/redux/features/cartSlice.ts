@@ -1,4 +1,4 @@
-/* import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface Product {
   id: string;
@@ -33,10 +33,8 @@ const cartSlice = createSlice({
         state.items.push(action.payload);
       }
     },
-    // Additional reducers can be added for handling other cart operations
   },
 });
 
 export const { addToCart } = cartSlice.actions;
 export default cartSlice.reducer;
- */

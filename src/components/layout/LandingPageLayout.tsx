@@ -7,26 +7,29 @@ import CustomerReviews from "../../pages/ProjectPage/CustomerReviews";
 import TopFeaturedBrands from "../../pages/ProjectPage/TopFeaturedBrands";
 import WhyKeyboard from "../../pages/ProjectPage/WhyKeyboard";
 import Footers from "../../pages/ProjectPage/Footers";
+import { NavLink } from "react-router-dom";
+import CartPage from "../../pages/CartsProduct/CartPage";
 
 const { Header, Content, Footer } = Layout;
 
 const items: MenuProps["items"] = [
   {
-    key: "1",
-    label: "Home",
+    key: "Home",
+    label: <NavLink to="/home">Home</NavLink>,
   },
   {
-    key: "2",
-    label: "Products",
+    key: "Products",
+    label: <NavLink to="/product">Products</NavLink>,
   },
   {
-    key: "3",
-    label: "About Us",
+    key: "About",
+    label: <NavLink to="/about">About</NavLink>,
   },
   {
-    key: "4",
-    label: "Contact Us",
+    key: "Contract",
+    label: <NavLink to="/contract">Contract</NavLink>,
   },
+
   {
     key: "5",
     label: "Product Management",
@@ -57,8 +60,8 @@ const items: MenuProps["items"] = [
   },
 
   {
-    key: "7",
-    label: "Login",
+    key: "Login",
+    label: <NavLink to="/login">Login</NavLink>,
   },
 ];
 
@@ -128,6 +131,8 @@ const LandingPageLayout = () => {
             <WhyKeyboard></WhyKeyboard>
             <TopFeaturedBrands></TopFeaturedBrands>
             <CustomerReviews></CustomerReviews>
+            <hr /> <br />
+            <CartPage></CartPage>
           </div>
         </Content>
         <Footer

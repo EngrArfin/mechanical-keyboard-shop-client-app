@@ -4,21 +4,46 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import UserLayout from "../components/layout/UserLayout";
 import DashboardAdmin from "../pages/AdminPage/DashboardAdmin";
-import ProductAdd from "../pages/AdminPage/ProductAdd";
-import ProductList from "../pages/AdminPage/ProductList";
-import MainLayout from "../components/layout/MainLayout";
+import ProductAdd from "../pages/AdminPage/AddProduct";
+import ProductList from "../pages/AdminPage/ListProduct";
 import UserDashboard from "../pages/UserPage/UserDashboard";
+import LandingPageLayout from "../components/layout/LandingPageLayout";
+import CardProject from "../pages/ProjectPage/CardProject";
+import AdminLayout from "../components/layout/AdminLayout";
+import About from "../pages/About";
+import Contract from "../pages/Contract";
+import CartPage from "../pages/CartsProduct/CartPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App></App>,
   },
+  {
+    path: "/home",
+    element: <LandingPageLayout></LandingPageLayout>,
+  },
+  {
+    path: "/product",
+    element: <CardProject></CardProject>,
+  },
+  {
+    path: "/about",
+    element: <About></About>,
+  },
+  {
+    path: "/contract",
+    element: <Contract></Contract>,
+  },
+  {
+    path: "/cart",
+    element: <CartPage></CartPage>,
+  },
 
   /* Admin Dashboard */
   {
     path: "/admin",
-    element: <MainLayout></MainLayout>,
+    element: <AdminLayout></AdminLayout>,
     children: [
       {
         path: "dashboard",

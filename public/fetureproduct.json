@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "image": "https://example.com/products/keyboard-x.jpg",
+    "title": "Mechanical Keyboard X",
+    "brand": "KeyboardCo",
+    "available_quantity": 15,
+    "price": 109.99,
+    "rating": 4.8
+  },
+  {
+    "id": 2,
+    "image": "https://example.com/products/keyboard-y.jpg",
+    "title": "Gaming Keyboard Y",
+    "brand": "GamerTech",
+    "available_quantity": 8,
+    "price": 89.99,
+    "rating": 4.4
+  },
+  {
+    "id": 3,
+    "image": "https://example.com/products/mouse-z.jpg",
+    "title": "Gaming Mouse Z",
+    "brand": "MouseMaster",
+    "available_quantity": 20,
+    "price": 59.99,
+    "rating": 4.6
+  },
+  {
+    "id": 4,
+    "image": "https://example.com/products/headset-a.jpg",
+    "title": "Wireless Headset A",
+    "brand": "AudioKing",
+    "available_quantity": 12,
+    "price": 129.99,
+    "rating": 4.7
+  },
+  {
+    "id": 5,
+    "image": "https://example.com/products/monitor-b.jpg",
+    "title": "4K Monitor B",
+    "brand": "ScreenPro",
+    "available_quantity": 5,
+    "price": 399.99,
+    "rating": 4.9
+  },
+  {
+    "id": 6,
+    "image": "https://example.com/products/keyboard-rgb.jpg",
+    "title": "RGB Mechanical Keyboard",
+    "brand": "BrightKeys",
+    "available_quantity": 25,
+    "price": 149.99,
+    "rating": 4.5
+  }
+]

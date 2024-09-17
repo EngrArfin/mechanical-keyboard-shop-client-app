@@ -9,6 +9,7 @@ import {
   Card,
 } from "antd";
 import type { FormProps } from "antd";
+import { NavLink } from "react-router-dom";
 
 const { Title } = Typography;
 
@@ -97,7 +98,7 @@ const Login = () => {
               <a href="#forgot-password" style={{ marginRight: "10px" }}>
                 Forgot Password?
               </a>
-              <a href="#register">Register Now</a>
+              <NavLink to="/register">Register Now</NavLink>
             </div>
           </Form>
         </Card>

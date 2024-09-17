@@ -1,5 +1,4 @@
 import { Layout, Menu, MenuProps } from "antd";
-import { NavLink } from "react-router-dom";
 
 /* import {
   UploadOutlined,
@@ -11,10 +10,10 @@ import { createElement } from "react"; */
 const { Header, Content, Footer, Sider } = Layout;
 
 const items: MenuProps["items"] = [
-  {
+  /* {
     key: "Dashboard",
     label: <NavLink to="/admin/dashboard">User Dashboard</NavLink>,
-  },
+  }, */
   {
     key: "4",
     label: "User Management",

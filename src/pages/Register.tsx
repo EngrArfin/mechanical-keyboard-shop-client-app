@@ -10,6 +10,7 @@ import {
   Card,
 } from "antd";
 import type { FormProps } from "antd";
+import { NavLink } from "react-router-dom";
 
 const { Title } = Typography;
 
@@ -155,6 +156,10 @@ const Register = () => {
                 Register
               </Button>
             </Form.Item>
+            <div style={{ textAlign: "center" }}>
+              <p style={{ marginRight: "10px" }}>Already have an account?</p>
+              <NavLink to="/login">Login</NavLink>
+            </div>
           </Form>
         </Card>
       </Col>
