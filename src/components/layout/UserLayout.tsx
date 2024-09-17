@@ -1,4 +1,13 @@
-import { Layout, Menu, MenuProps } from "antd";
+import {
+  AppstoreOutlined,
+  HistoryOutlined,
+  InfoCircleOutlined,
+  LogoutOutlined,
+  SettingOutlined,
+  UserOutlined,
+} from "@ant-design/icons";
+import { Avatar, Layout, Menu, MenuProps } from "antd";
+import Title from "antd/es/typography/Title";
 import { NavLink, Outlet } from "react-router-dom";
 
 const { Header, Content, Footer, Sider } = Layout;
@@ -6,19 +15,61 @@ const { Header, Content, Footer, Sider } = Layout;
 const items: MenuProps["items"] = [
   {
     key: "Dashboard",
-    label: <NavLink to="/user/dashboard">User Dashboard</NavLink>,
+    label: (
+      <NavLink to="/user/dashboard">
+        <AppstoreOutlined />
+        User Dashboard
+      </NavLink>
+    ),
   },
   {
     key: "Profile",
-    label: <NavLink to="/user/profile">User Profile</NavLink>,
+    label: (
+      <NavLink to="/user/profile">
+        <UserOutlined />
+        User Profile
+      </NavLink>
+    ),
   },
   {
-    key: "User Management",
-    label: <NavLink to="/user/addproduct">User Management</NavLink>,
+    key: "Account Information",
+    label: (
+      <NavLink to="/user/account-information">
+        <InfoCircleOutlined />
+        Account Information
+      </NavLink>
+    ),
   },
   {
-    key: "4",
-    label: "User Management",
+    key: "User Address",
+    label: <NavLink to="/user/address">User Address</NavLink>,
+  },
+  {
+    key: "Order History",
+    label: (
+      <NavLink to="/user/order-history">
+        <HistoryOutlined />
+        Order History
+      </NavLink>
+    ),
+  },
+  {
+    key: "Settings",
+    label: (
+      <NavLink to="/user/settings">
+        <SettingOutlined />
+        Settings
+      </NavLink>
+    ),
+  },
+  {
+    key: "Logout",
+    label: (
+      <NavLink to="/user/logout">
+        <LogoutOutlined />
+        Logout
+      </NavLink>
+    ),
   },
 ];
 
@@ -35,6 +86,13 @@ const UserLayout = () => {
           console.log(collapsed, type);
         }}
       >
+        <div style={{ padding: "20px", textAlign: "center" }}>
+          <Avatar size={80} icon={<UserOutlined />} />
+          <Title level={4} style={{ color: "white", marginTop: "10px" }}>
+            Md Samsel Arfin
+          </Title>
+        </div>
+
         <div
           style={{
             color: "white",

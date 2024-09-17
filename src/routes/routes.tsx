@@ -14,6 +14,7 @@ import Contract from "../pages/Contract";
 import CartPage from "../pages/CartsProduct/CartPage";
 import AdminDashboard from "../pages/AdminPage/AdminDashboard";
 import UserProfile from "../pages/UserPage/UserProfile";
+import UserAddress from "../pages/UserPage/UserAddress";
 
 const router = createBrowserRouter([
   {
@@ -72,6 +73,10 @@ const router = createBrowserRouter([
       {
         path: "profile",
         element: <UserProfile></UserProfile>,
+      },
+      {
+        path: "address",
+        element: <UserAddress></UserAddress>,
       },
       {
         path: "productlist",
