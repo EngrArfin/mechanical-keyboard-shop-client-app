@@ -1,5 +1,13 @@
 import { Layout, Menu, MenuProps } from "antd";
 import { NavLink, Outlet } from "react-router-dom";
+import {
+  AppstoreAddOutlined,
+  BarChartOutlined,
+  DashboardOutlined,
+  EditOutlined,
+  ProductOutlined,
+  UserOutlined,
+} from "@ant-design/icons";
 
 /* import {
   UploadOutlined,
@@ -13,16 +21,35 @@ const { Header, Content, Footer, Sider } = Layout;
 const items: MenuProps["items"] = [
   {
     key: "Dashboard",
-    label: <NavLink to="/admin/dashboard">Dashboard</NavLink>,
-  },
-
-  {
-    key: "5",
-    label: "Dashboard",
+    label: (
+      <NavLink to="/admin/dashboard">{<DashboardOutlined />}Dashboard</NavLink>
+    ),
   },
   {
-    key: "6",
-    label: "Profile",
+    key: "Products",
+    label: (
+      <NavLink to="/admin/products">{<ProductOutlined />} Products</NavLink>
+    ),
+  },
+  {
+    key: "Users",
+    label: <NavLink to="/admin/users">{<UserOutlined />}Users</NavLink>,
+  },
+  {
+    key: "Add Product",
+    label: (
+      <NavLink to="/admin/users">{<AppstoreAddOutlined />}Add Product</NavLink>
+    ),
+  },
+  {
+    key: "Product Management",
+    label: (
+      <NavLink to="/admin/users">{<EditOutlined />}Product Management</NavLink>
+    ),
+  },
+  {
+    key: "Users",
+    label: <NavLink to="/admin/users">{<BarChartOutlined />}Reports</NavLink>,
   },
 ];
 
@@ -66,7 +93,6 @@ const AdminLayout = () => {
               minHeight: 360,
             }}
           >
-            <h2>The Main Content Here </h2>
             <Outlet></Outlet>
           </div>
         </Content>

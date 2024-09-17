@@ -3,7 +3,6 @@ import App from "../App";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import UserLayout from "../components/layout/UserLayout";
-import DashboardAdmin from "../pages/AdminPage/DashboardAdmin";
 import ProductAdd from "../pages/AdminPage/AddProduct";
 import ProductList from "../pages/AdminPage/ListProduct";
 import UserDashboard from "../pages/UserPage/UserDashboard";
@@ -13,6 +12,7 @@ import AdminLayout from "../components/layout/AdminLayout";
 import About from "../pages/About";
 import Contract from "../pages/Contract";
 import CartPage from "../pages/CartsProduct/CartPage";
+import AdminDashboard from "../pages/AdminPage/AdminDashboard";
 
 const router = createBrowserRouter([
   {
@@ -47,7 +47,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "dashboard",
-        element: <DashboardAdmin></DashboardAdmin>,
+        element: <AdminDashboard></AdminDashboard>,
       },
       {
         path: "addproduct",
