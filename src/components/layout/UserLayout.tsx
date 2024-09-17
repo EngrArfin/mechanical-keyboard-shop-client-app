@@ -1,12 +1,5 @@
 import { Layout, Menu, MenuProps } from "antd";
-import { NavLink } from "react-router-dom";
-
-/* import {
-  UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-} from "@ant-design/icons";
-import { createElement } from "react"; */
+import { NavLink, Outlet } from "react-router-dom";
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -14,6 +7,10 @@ const items: MenuProps["items"] = [
   {
     key: "Dashboard",
     label: <NavLink to="/user/dashboard">User Dashboard</NavLink>,
+  },
+  {
+    key: "Profile",
+    label: <NavLink to="/user/profile">User Profile</NavLink>,
   },
   {
     key: "User Management",
@@ -47,7 +44,7 @@ const UserLayout = () => {
             justifyItems: "center",
           }}
         >
-          <h1 style={{ height: "100" }}> User Mechanical Keyboard </h1>
+          <h1 style={{ height: "100" }}> User Profile </h1>
         </div>
         <Menu
           theme="dark"
@@ -65,7 +62,7 @@ const UserLayout = () => {
               minHeight: 360,
             }}
           >
-            <h2>The Main Content Here </h2>
+            <Outlet></Outlet>
           </div>
         </Content>
         <Footer style={{ textAlign: "center" }}>

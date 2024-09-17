@@ -13,6 +13,7 @@ import About from "../pages/About";
 import Contract from "../pages/Contract";
 import CartPage from "../pages/CartsProduct/CartPage";
 import AdminDashboard from "../pages/AdminPage/AdminDashboard";
+import UserProfile from "../pages/UserPage/UserProfile";
 
 const router = createBrowserRouter([
   {
@@ -69,8 +70,8 @@ const router = createBrowserRouter([
         element: <UserDashboard></UserDashboard>,
       },
       {
-        path: "addproduct",
-        element: <ProductAdd></ProductAdd>,
+        path: "profile",
+        element: <UserProfile></UserProfile>,
       },
       {
         path: "productlist",

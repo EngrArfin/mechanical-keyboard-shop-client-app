@@ -9,13 +9,6 @@ import {
   UserOutlined,
 } from "@ant-design/icons";
 
-/* import {
-  UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-} from "@ant-design/icons";
-import { createElement } from "react"; */
-
 const { Header, Content, Footer, Sider } = Layout;
 
 const items: MenuProps["items"] = [
@@ -38,13 +31,17 @@ const items: MenuProps["items"] = [
   {
     key: "Add Product",
     label: (
-      <NavLink to="/admin/users">{<AppstoreAddOutlined />}Add Product</NavLink>
+      <NavLink to="/admin/add-product">
+        {<AppstoreAddOutlined />}Add Product
+      </NavLink>
     ),
   },
   {
     key: "Product Management",
     label: (
-      <NavLink to="/admin/users">{<EditOutlined />}Product Management</NavLink>
+      <NavLink to="/admin/product-management">
+        {<EditOutlined />}Product Management
+      </NavLink>
     ),
   },
   {
