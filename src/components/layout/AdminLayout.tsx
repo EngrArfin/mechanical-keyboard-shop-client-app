@@ -8,6 +8,7 @@ import {
   ProductOutlined,
   UserOutlined,
 } from "@ant-design/icons";
+import AdminDashboard from "../../pages/AdminPage/AdminDashboard";
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -39,7 +40,7 @@ const items: MenuProps["items"] = [
   {
     key: "Product Management",
     label: (
-      <NavLink to="/admin/product-management">
+      <NavLink to="/admin/management">
         {<EditOutlined />}Product Management
       </NavLink>
     ),

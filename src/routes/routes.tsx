@@ -15,6 +15,9 @@ import CartPage from "../pages/CartsProduct/CartPage";
 import AdminDashboard from "../pages/AdminPage/AdminDashboard";
 import UserProfile from "../pages/UserPage/UserProfile";
 import UserAddress from "../pages/UserPage/UserAddress";
+import OrderHistory from "../pages/UserPage/OrderHistory";
+import AccountInformation from "../pages/UserPage/AccountInformation";
+import ProductManagemen from "../pages/AdminPage/ProductManagemen";
 
 const router = createBrowserRouter([
   {
@@ -56,6 +59,10 @@ const router = createBrowserRouter([
         element: <ProductAdd></ProductAdd>,
       },
       {
+        path: "management",
+        element: <ProductManagemen></ProductManagemen>,
+      },
+      {
         path: "productlist",
         element: <ProductList></ProductList>,
       },
@@ -79,8 +86,12 @@ const router = createBrowserRouter([
         element: <UserAddress></UserAddress>,
       },
       {
-        path: "productlist",
-        element: <ProductList></ProductList>,
+        path: "info",
+        element: <AccountInformation></AccountInformation>,
+      },
+      {
+        path: "history",
+        element: <OrderHistory></OrderHistory>,
       },
     ],
   },

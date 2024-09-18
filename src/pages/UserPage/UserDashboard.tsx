@@ -1,33 +1,9 @@
-import React from "react";
-import {
-  Layout,
-  Menu,
-  Breadcrumb,
-  Avatar,
-  Card,
-  Row,
-  Col,
-  List,
-  Typography,
-} from "antd";
-import {
-  UserOutlined,
-  SettingOutlined,
-  ShoppingCartOutlined,
-  LogoutOutlined,
-} from "@ant-design/icons";
+import { Layout, Breadcrumb, Card, Row, Col, List, Typography } from "antd";
 
-const { Header, Content, Footer, Sider } = Layout;
-const { Title, Text } = Typography;
+const { Header, Content } = Layout;
+const { Text } = Typography;
 
 const UserDashboard: React.FC = () => {
-  const menuItems = [
-    { key: "account", icon: <UserOutlined />, label: "Account Information" },
-    { key: "orders", icon: <ShoppingCartOutlined />, label: "Order History" },
-    { key: "settings", icon: <SettingOutlined />, label: "Settings" },
-    { key: "logout", icon: <LogoutOutlined />, label: "Logout" },
-  ];
-
   const orderData = [
     {
       orderId: "ORD123456",
@@ -45,21 +21,6 @@ const UserDashboard: React.FC = () => {
 
   return (
     <Layout style={{ minHeight: "100vh" }}>
-      <Sider>
-        <div style={{ padding: "20px", textAlign: "center" }}>
-          <Avatar size={80} icon={<UserOutlined />} />
-          <Title level={4} style={{ color: "white", marginTop: "10px" }}>
-            Md Samsel Arfin
-          </Title>
-        </div>
-        <Menu
-          theme="dark"
-          defaultSelectedKeys={["account"]}
-          mode="inline"
-          items={menuItems}
-        />
-      </Sider>
-
       <Layout>
         <Header style={{ background: "#fff", padding: 0 }}>
           <Breadcrumb style={{ padding: "16px 24px" }}>
@@ -110,10 +71,6 @@ const UserDashboard: React.FC = () => {
             </Col>
           </Row>
         </Content>
-
-        <Footer style={{ textAlign: "center" }}>
-          User Dashboard ©2024 Created by Md Samsel Arfin
-        </Footer>
       </Layout>
     </Layout>
   );

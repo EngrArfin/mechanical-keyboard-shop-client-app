@@ -2,6 +2,7 @@ import {
   AppstoreOutlined,
   HistoryOutlined,
   InfoCircleOutlined,
+  InfoOutlined,
   LogoutOutlined,
   SettingOutlined,
   UserOutlined,
@@ -34,7 +35,7 @@ const items: MenuProps["items"] = [
   {
     key: "Account Information",
     label: (
-      <NavLink to="/user/account-information">
+      <NavLink to="/user/info">
         <InfoCircleOutlined />
         Account Information
       </NavLink>
@@ -42,12 +43,17 @@ const items: MenuProps["items"] = [
   },
   {
     key: "User Address",
-    label: <NavLink to="/user/address">User Address</NavLink>,
+    label: (
+      <NavLink to="/user/address">
+        <InfoOutlined />
+        User Address
+      </NavLink>
+    ),
   },
   {
     key: "Order History",
     label: (
-      <NavLink to="/user/order-history">
+      <NavLink to="/user/history">
         <HistoryOutlined />
         Order History
       </NavLink>
@@ -96,14 +102,11 @@ const UserLayout = () => {
         <div
           style={{
             color: "white",
-            height: "4rem",
             display: "flex",
             justifyContent: "center",
             justifyItems: "center",
           }}
-        >
-          <h1 style={{ height: "100" }}> User Profile </h1>
-        </div>
+        ></div>
         <Menu
           theme="dark"
           mode="inline"

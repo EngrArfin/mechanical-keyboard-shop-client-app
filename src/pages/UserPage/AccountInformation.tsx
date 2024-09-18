@@ -11,7 +11,7 @@ type UserInfo = {
   fax?: string;
 };
 
-const UserProfile: React.FC = () => {
+const AccountInformation: React.FC = () => {
   // Initial state for user information
   const [userInfo, setUserInfo] = useState<UserInfo>({
     firstName: "Md Samsel",
@@ -21,7 +21,7 @@ const UserProfile: React.FC = () => {
     fax: "",
   });
 
-  // Handle form submission with explicit type
+  // Handle form submission
   const handleFinish = (values: UserInfo) => {
     console.log("Form values: ", values);
     setUserInfo(values);
@@ -105,7 +105,7 @@ const UserProfile: React.FC = () => {
 
           <Form.Item style={{ textAlign: "center" }}>
             <Button type="primary" htmlType="submit">
-              Continue
+              Update Information
             </Button>
           </Form.Item>
         </Form>
@@ -114,4 +114,4 @@ const UserProfile: React.FC = () => {
   );
 };
 
-export default UserProfile;
+export default AccountInformation;

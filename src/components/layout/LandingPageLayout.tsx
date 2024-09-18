@@ -49,12 +49,12 @@ const items: MenuProps["items"] = [
     label: "Dashboard",
     children: [
       {
-        key: "21",
-        label: "Admin",
+        key: "Admin",
+        label: <NavLink to="/admin">Admin</NavLink>,
       },
       {
-        key: "22",
-        label: "User",
+        key: "User",
+        label: <NavLink to="/user">User</NavLink>,
       },
     ],
   },
