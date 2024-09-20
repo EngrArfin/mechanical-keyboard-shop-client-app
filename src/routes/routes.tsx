@@ -3,7 +3,6 @@ import App from "../App";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import UserLayout from "../components/layout/UserLayout";
-import ProductAdd from "../pages/AdminPage/AddProduct";
 import ProductList from "../pages/AdminPage/ListProduct";
 import UserDashboard from "../pages/UserPage/UserDashboard";
 import LandingPageLayout from "../components/layout/LandingPageLayout";
@@ -18,6 +17,8 @@ import UserAddress from "../pages/UserPage/UserAddress";
 import OrderHistory from "../pages/UserPage/OrderHistory";
 import AccountInformation from "../pages/UserPage/AccountInformation";
 import ProductManagemen from "../pages/AdminPage/ProductManagemen";
+import AddProductAdmin from "../pages/AdminPage/AddProductAdmin";
+import ListProduct from "../pages/AdminPage/ListProduct";
 
 const router = createBrowserRouter([
   {
@@ -55,8 +56,12 @@ const router = createBrowserRouter([
         element: <AdminDashboard></AdminDashboard>,
       },
       {
-        path: "addproduct",
-        element: <ProductAdd></ProductAdd>,
+        path: "listproduct-admin",
+        element: <ListProduct></ListProduct>,
+      },
+      {
+        path: "addproduct-admin",
+        element: <AddProductAdmin></AddProductAdmin>,
       },
       {
         path: "management",

@@ -1,4 +1,4 @@
-import { Button, Carousel } from "antd";
+import { Carousel } from "antd";
 import photo1 from "../../assets/images/header1.jpg";
 import photo2 from "../../assets/images/header2.jpg";
 import photo3 from "../../assets/images/header3.jpg";
@@ -36,9 +36,6 @@ const HeaderPage = () => {
       </div>
       <div>
         <h3 style={contentStyle}>
-          <div>
-            <Button>See Product</Button>
-          </div>
           <img
             style={{ height: "620px", width: "1555px" }}
             src={photo2}
