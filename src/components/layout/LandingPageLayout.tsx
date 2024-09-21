@@ -9,6 +9,7 @@ import WhyKeyboard from "../../pages/ProjectPage/WhyKeyboard";
 import Footers from "../../pages/ProjectPage/Footers";
 import { NavLink } from "react-router-dom";
 import CartPage from "../../pages/CartsProduct/CartPage";
+import ProductDetails from "../../pages/CartsProduct/ProductDetails";
 
 const { Header, Content, Footer } = Layout;
 
@@ -92,7 +93,9 @@ const LandingPageLayout = () => {
                 <h1 style={{ height: "100" }}>Mechanical Keyboard </h1>
               </div>
               <div style={{ color: "white", fontSize: 32 }}>
-                <ShoppingCartOutlined />
+                <NavLink to="/cart">
+                  <ShoppingCartOutlined />
+                </NavLink>
               </div>
             </div>
           </div>
@@ -133,6 +136,7 @@ const LandingPageLayout = () => {
             <CustomerReviews></CustomerReviews>
             <hr /> <br />
             <CartPage></CartPage>
+            <ProductDetails></ProductDetails>
           </div>
         </Content>
         <Footer

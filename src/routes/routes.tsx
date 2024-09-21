@@ -19,6 +19,7 @@ import AccountInformation from "../pages/UserPage/AccountInformation";
 import ProductManagemen from "../pages/AdminPage/ProductManagemen";
 import AddProductAdmin from "../pages/AdminPage/AddProductAdmin";
 import ListProduct from "../pages/AdminPage/ListProduct";
+import ProductDetails from "../pages/CartsProduct/ProductDetails";
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
   {
     path: "/cart",
     element: <CartPage></CartPage>,
+  },
+  {
+    path: "/product-details",
+    element: <ProductDetails></ProductDetails>,
   },
 
   /* Admin Dashboard */

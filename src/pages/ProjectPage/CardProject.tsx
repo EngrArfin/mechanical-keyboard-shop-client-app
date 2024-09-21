@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import photo1 from "../../assets/images/card1.jpg";
 import photo2 from "../../assets/images/card2.jpg";
 import photo3 from "../../assets/images/card3.jpg";
@@ -39,7 +40,7 @@ const CardProject = () => {
           <p>Available Quantity</p>
           <p>Price: 3000</p>
           <Button style={{ marginTop: 15, marginLeft: 25 }}>
-            See Details Button
+            <NavLink to="/product-details">See Details Button</NavLink>
           </Button>
         </Card>
 
