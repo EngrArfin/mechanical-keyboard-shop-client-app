@@ -1,18 +1,8 @@
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { Breadcrumb, Layout, Menu, MenuProps } from "antd";
-import HeaderPage from "../../pages/ProjectPage/HeaderPage";
-import CardProject from "../../pages/ProjectPage/CardProject";
-import ServiceAdvertisement from "../../pages/ProjectPage/ServiceAdvertisement";
-import CustomerReviews from "../../pages/ProjectPage/CustomerReviews";
-import TopFeaturedBrands from "../../pages/ProjectPage/TopFeaturedBrands";
-import WhyKeyboard from "../../pages/ProjectPage/WhyKeyboard";
-import Footers from "../../pages/ProjectPage/Footers";
 import { NavLink } from "react-router-dom";
-import CartPage from "../../pages/CartsProduct/CartPage";
-import ProductDetails from "../../pages/CartsProduct/ProductDetails";
-import TodoContainer from "../../pages/todo/TodoContainer";
 
-const { Header, Content, Footer } = Layout;
+const { Header, Content } = Layout;
 
 const items: MenuProps["items"] = [
   {
@@ -67,7 +57,7 @@ const items: MenuProps["items"] = [
   },
 ];
 
-const LandingPageLayout = () => {
+const NavBar = () => {
   return (
     <div>
       <Layout
@@ -109,51 +99,9 @@ const LandingPageLayout = () => {
             style={{ flex: 1, minWidth: 0 }}
           />
         </Header>
-
-        <Content style={{ padding: "0 48px" }}>
-          <Breadcrumb
-            style={{
-              margin: "16px 0",
-              justifyContent: "end",
-              alignItems: "end",
-              color: "white",
-            }}
-          >
-            <Breadcrumb.Item>01952487468</Breadcrumb.Item>
-            <Breadcrumb.Item>Login</Breadcrumb.Item>
-          </Breadcrumb>
-
-          <div
-            style={{
-              minHeight: 280,
-              padding: 24,
-            }}
-          >
-            <HeaderPage></HeaderPage>
-            <ServiceAdvertisement></ServiceAdvertisement>
-            <CardProject></CardProject>
-            <WhyKeyboard></WhyKeyboard>
-            <TopFeaturedBrands></TopFeaturedBrands>
-            <CustomerReviews></CustomerReviews>
-            <hr /> <br />
-            <CartPage></CartPage>
-            <ProductDetails></ProductDetails>
-            <TodoContainer></TodoContainer>
-          </div>
-        </Content>
-        <Footer
-          style={{
-            textAlign: "center",
-            background: "linear-gradient(45deg, #2e004f, #00bfae, #2e004f)",
-            color: "#ffffff",
-            boxShadow: "0px 4px 15px rgba(0.3, 1, 0, 0.3)",
-          }}
-        >
-          <Footers></Footers>
-        </Footer>
       </Layout>
     </div>
   );
 };
 
-export default LandingPageLayout;
+export default NavBar;

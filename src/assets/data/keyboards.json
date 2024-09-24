@@ -1,0 +1,56 @@
+[
+  {
+    "productId": 10000001,
+    "productName": "Corsair K95 RGB",
+    "rating": 4.5,
+    "brand": "Corsair",
+    "availableQuantity": 15,
+    "price": 3000,
+    "image": "https://example.com/images/corsair-k95-rgb.jpg"
+  },
+  {
+    "productId": 10000002,
+    "productName": "Logitech G Pro X",
+    "rating": 4.0,
+    "brand": "Logitech",
+    "availableQuantity": 8,
+    "price": 2500,
+    "image": "https://example.com/images/logitech-g-pro-x.jpg"
+  },
+  {
+    "productId": 10000003,
+    "productName": "Razer Huntsman Elite",
+    "rating": 4.8,
+    "brand": "Razer",
+    "availableQuantity": 10,
+    "price": 3200,
+    "image": "https://example.com/images/razer-huntsman-elite.jpg"
+  },
+  {
+    "productId": 10000004,
+    "productName": "SteelSeries Apex Pro",
+    "rating": 4.7,
+    "brand": "SteelSeries",
+    "availableQuantity": 12,
+    "price": 2800,
+    "image": "https://example.com/images/steelseries-apex-pro.jpg"
+  },
+  {
+    "productId": 10000005,
+    "productName": "HyperX Alloy FPS",
+    "rating": 4.2,
+    "brand": "HyperX",
+    "availableQuantity": 20,
+    "price": 3100,
+    "image": "https://example.com/images/hyperx-alloy-fps.jpg"
+  },
+  {
+    "productId": 10000006,
+    "productName": "Ducky One 2 Mini",
+    "rating": 4.9,
+    "brand": "Ducky",
+    "availableQuantity": 5,
+    "price": 3500,
+    "image": "https://example.com/images/ducky-one-2-mini.jpg"
+  }
+]
