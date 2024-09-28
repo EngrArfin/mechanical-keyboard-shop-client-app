@@ -1,7 +1,6 @@
 import { ShoppingCartOutlined } from "@ant-design/icons";
-import { Breadcrumb, Layout, Menu, MenuProps } from "antd";
+import { Layout, Menu, MenuProps } from "antd";
 import HeaderPage from "../../pages/ProjectPage/HeaderPage";
-import CardProject from "../../pages/ProjectPage/CardProject";
 import ServiceAdvertisement from "../../pages/ProjectPage/ServiceAdvertisement";
 import CustomerReviews from "../../pages/ProjectPage/CustomerReviews";
 import TopFeaturedBrands from "../../pages/ProjectPage/TopFeaturedBrands";
@@ -10,7 +9,7 @@ import Footers from "../../pages/ProjectPage/Footers";
 import { NavLink } from "react-router-dom";
 import CartPage from "../../pages/CartsProduct/CartPage";
 import ProductDetails from "../../pages/CartsProduct/ProductDetails";
-import TodoContainer from "../../pages/todo/TodoContainer";
+import CartProjectData from "../../pages/ProjectPage/CartProjectData";
 
 const { Header, Content, Footer } = Layout;
 
@@ -111,18 +110,6 @@ const LandingPageLayout = () => {
         </Header>
 
         <Content style={{ padding: "0 48px" }}>
-          <Breadcrumb
-            style={{
-              margin: "16px 0",
-              justifyContent: "end",
-              alignItems: "end",
-              color: "white",
-            }}
-          >
-            <Breadcrumb.Item>01952487468</Breadcrumb.Item>
-            <Breadcrumb.Item>Login</Breadcrumb.Item>
-          </Breadcrumb>
-
           <div
             style={{
               minHeight: 280,
@@ -131,14 +118,11 @@ const LandingPageLayout = () => {
           >
             <HeaderPage></HeaderPage>
             <ServiceAdvertisement></ServiceAdvertisement>
-            <CardProject></CardProject>
+            <CartProjectData></CartProjectData>
             <WhyKeyboard></WhyKeyboard>
             <TopFeaturedBrands></TopFeaturedBrands>
             <CustomerReviews></CustomerReviews>
-            <hr /> <br />
             <CartPage></CartPage>
-            <ProductDetails></ProductDetails>
-            <TodoContainer></TodoContainer>
           </div>
         </Content>
         <Footer

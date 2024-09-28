@@ -1,24 +1,24 @@
-import { Row, Col, Spin } from "antd";
-import { useGetTodosQuery } from "../../redux/api/api";
-import CardProject, { TProductCardProps } from "./CardProject";
+/* import { Row, Col } from "antd"; */
+import { useGetProductsQuery } from "../../redux/api/api";
+import CardProject from "./CardProject";
+import { TProductCardProps } from "../../type";
+import { Divider, Row, Col } from "antd";
 
 const CartProjectData = () => {
-  const { data: products, isLoading } = useGetTodosQuery();
-  console.log(products);
+  const { data, isLoading } = useGetProductsQuery(undefined);
+  console.log(data);
   if (isLoading) {
-    return <Spin tip="Loading..." />;
+    return <p>Loading ...</p>;
   }
 
-  const todosToDisplay: TProductCardProps[] = products?.data || [];
-
+  const { data: products } = data;
   return (
     <div>
-      <Row gutter={[16, 16]}>
-        {todosToDisplay.map((item: TProductCardProps) => (
-          <Col key={item._id} span={8}>
-            {" "}
-            {/* Adjust span as needed for layout */}
-            <CardProject {...item} />
+      <Divider style={{ borderColor: "#7cb305" }}>Featured Products</Divider>
+      <Row gutter={[12, 12]} justify="center">
+        {products.map((product: TProductCardProps) => (
+          <Col xs={12} sm={6} md={4} lg={4} key={product?._id}>
+            <CardProject product={product} />
           </Col>
         ))}
       </Row>

@@ -6,7 +6,6 @@ import UserLayout from "../components/layout/UserLayout";
 import ProductList from "../pages/AdminPage/ListProduct";
 import UserDashboard from "../pages/UserPage/UserDashboard";
 import LandingPageLayout from "../components/layout/LandingPageLayout";
-import CardProject from "../pages/ProjectPage/CardProject";
 import AdminLayout from "../components/layout/AdminLayout";
 import About from "../pages/About";
 import Contract from "../pages/Contract";
@@ -20,6 +19,7 @@ import ProductManagemen from "../pages/AdminPage/ProductManagemen";
 import AddProductAdmin from "../pages/AdminPage/AddProductAdmin";
 import ListProduct from "../pages/AdminPage/ListProduct";
 import ProductDetails from "../pages/CartsProduct/ProductDetails";
+import CartProjectData from "../pages/ProjectPage/CartProjectData";
 
 const router = createBrowserRouter([
   {
@@ -32,7 +32,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/product",
-    element: <CardProject></CardProject>,
+    element: <CartProjectData></CartProjectData>,
   },
   {
     path: "/about",

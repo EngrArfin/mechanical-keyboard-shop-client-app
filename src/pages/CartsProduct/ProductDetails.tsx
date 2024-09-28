@@ -4,6 +4,7 @@ import photo1 from "../../assets/images/card11.jpg";
 import photo2 from "../../assets/images/card12.jpg";
 import photo3 from "../../assets/images/card13.jpg";
 import NavBar from "../NavBar";
+import { NavLink } from "react-router-dom";
 
 const relatedProducts = [
   { id: 1, name: "Mechanical Keyboard V2", price: 2600, img: photo1 },
@@ -106,7 +107,7 @@ const ProductDetails = () => {
                 </Carousel>
                 {/* Full Image Modal */}
                 <Modal
-                  visible={isModalVisible}
+                  open={isModalVisible}
                   footer={null}
                   onCancel={closeModal}
                 >
@@ -174,7 +175,7 @@ const ProductDetails = () => {
                     <Button
                       style={{ backgroundColor: "#F59E0B", color: "white" }}
                     >
-                      Add to Cart
+                      <NavLink to="/cart">Add to Cart</NavLink>
                     </Button>
                   </div>
                 </div>

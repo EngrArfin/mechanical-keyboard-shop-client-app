@@ -1,130 +1,107 @@
-import React, { useState, useEffect } from "react";
-import { Button, InputNumber, List, Typography, Divider, Alert } from "antd";
-import { DeleteOutlined } from "@ant-design/icons";
+import { DeleteOutlined, MinusOutlined, PlusOutlined } from "@ant-design/icons";
+import { Button, Card, Col, Row, InputNumber, Typography, message } from "antd";
+import React from "react";
+import { useAppDispatch } from "../../redux/hooks";
+import { updateQuantity } from "../../redux/features/cartSlice";
+import { CartItem } from "../../type";
 
 const { Text } = Typography;
 
-type CartItem = {
-  id: number;
-  title: string;
-  price: number;
-  quantity: number;
-  inStock: boolean;
-};
+interface CartDetailsProps {
+  product: CartItem; // Use the CartItem type here
+}
 
-const CartPage: React.FC = () => {
-  const [cartItems, setCartItems] = useState<CartItem[]>([
-    {
-      id: 1,
-      title: "Mechanical Keyboard X",
-      price: 109.99,
-      quantity: 1,
-      inStock: true,
-    },
-    {
-      id: 2,
-      title: "Gaming Mouse Z",
-      price: 59.99,
-      quantity: 2,
-      inStock: true,
-    },
-    {
-      id: 3,
-      title: "4K Monitor B",
-      price: 399.99,
-      quantity: 1,
-      inStock: false,
-    },
-  ]);
+const CartDetails: React.FC<CartDetailsProps> = ({ product }) => {
+  const dispatch = useAppDispatch();
 
-  const [totalPrice, setTotalPrice] = useState<number>(0);
-
-  // Update total price whenever cart items change
-  useEffect(() => {
-    const calculateTotalPrice = () => {
-      const total = cartItems.reduce(
-        (acc, item) => acc + item.price * item.quantity,
-        0
-      );
-      setTotalPrice(total);
-    };
-    calculateTotalPrice();
-  }, [cartItems]);
-
-  // Handle quantity change
-  const handleQuantityChange = (id: number, quantity: number) => {
-    const updatedCart = cartItems.map((item) =>
-      item.id === id ? { ...item, quantity } : item
-    );
-    setCartItems(updatedCart);
+  // Handle quantity change for increment/decrement/remove actions
+  const handleQuantityChange = (type: string, id: number) => {
+    const payload = { type, id: id.toString() }; // Convert id to string if required
+    dispatch(updateQuantity(payload));
   };
 
-  // Remove item from cart
-  const removeItem = (id: number) => {
-    const updatedCart = cartItems.filter((item) => item.id !== id);
-    setCartItems(updatedCart);
+  // Handle custom quantity input from InputNumber component
+  const onQuantityChange = (value: number | null) => {
+    if (value && value > 0) {
+      dispatch(
+        updateQuantity({
+          type: "custom",
+          id: product.id.toString() /* quantity: value */,
+        })
+      );
+    } else {
+      message.error("Quantity should be at least 1.");
+    }
   };
 
   return (
-    <div>
-      <Typography.Title level={2}>Cart Page</Typography.Title>
+    <Card
+      hoverable
+      className="shadow-lg"
+      style={{
+        borderRadius: "10px",
+        borderColor: "#d9d9d9",
+        marginBottom: "16px",
+      }}
+    >
+      <Row align="middle" gutter={16}>
+        {/* Product Image */}
+        <Col xs={6} sm={6} md={5}>
+          <img
+            src={product.img} // Use 'img' for product image
+            alt={product.name}
+            style={{ width: "100%", borderRadius: "8px", objectFit: "cover" }}
+          />
+        </Col>
 
-      {/* Cart Items */}
-      <List
-        bordered
-        dataSource={cartItems}
-        renderItem={(item) => (
-          <List.Item
-            actions={[
-              <InputNumber
-                min={1}
-                max={10}
-                value={item.quantity}
-                onChange={(value) => handleQuantityChange(item.id, value || 1)}
-              />,
-              <Button
-                /* type="danger" */
-                icon={<DeleteOutlined />}
-                onClick={() => removeItem(item.id)}
-              >
-                Remove
-              </Button>,
-            ]}
-          >
-            <List.Item.Meta
-              title={item.title}
-              description={`Price: $${item.price}`}
+        {/* Product Info */}
+        <Col xs={12} sm={12} md={14}>
+          <Text strong style={{ fontSize: "16px", color: "#4CAF50" }}>
+            {product.name}
+          </Text>
+          <br />
+          <Text strong style={{ fontSize: "18px", color: "#FF4D4F" }}>
+            ৳ {product.price}
+          </Text>
+        </Col>
+
+        {/* Quantity Control */}
+        <Col xs={6} sm={6} md={5} style={{ textAlign: "center" }}>
+          <Row justify="center" align="middle">
+            <Button
+              icon={<MinusOutlined />}
+              onClick={() => handleQuantityChange("decrement", product.id)}
+              disabled={product.quantity === 1}
+              style={{ backgroundColor: "#4CAF50", color: "white" }}
             />
-            <Text>Quantity: {item.quantity}</Text>
-          </List.Item>
-        )}
-      />
+            <InputNumber
+              min={1}
+              value={product.quantity}
+              onChange={onQuantityChange}
+              style={{ margin: "0 8px", width: "50px", textAlign: "center" }}
+            />
+            <Button
+              icon={<PlusOutlined />}
+              onClick={() => handleQuantityChange("increment", product.id)}
+              style={{ backgroundColor: "#4CAF50", color: "white" }}
+            />
+          </Row>
+        </Col>
 
-      <Divider />
-
-      {/* Pricing Details */}
-      <div style={{ textAlign: "right" }}>
-        <Typography.Title level={4}>
-          Total Price: ${totalPrice.toFixed(2)}
-        </Typography.Title>
-      </div>
-
-      {/* Proceed to Checkout Button */}
-      <div style={{ textAlign: "right", marginTop: "20px" }}>
-        {cartItems.some((item) => item.inStock) ? (
+        {/* Remove Button */}
+        <Col xs={24} style={{ textAlign: "center", marginTop: "12px" }}>
           <Button
+            icon={<DeleteOutlined />}
             type="primary"
-            disabled={!cartItems.some((item) => item.inStock)}
-            onClick={() => alert("Proceeding to checkout...")}
+            danger
+            onClick={() => handleQuantityChange("remove", product.id)}
           >
-            Proceed To Checkout
+            Remove
           </Button>
-        ) : (
-          <Alert message="Some products are out of stock!" type="warning" />
-        )}
-      </div>
-    </div>
+        </Col>
+      </Row>
+    </Card>
   );
 };
 
-export default CartPage;
+export default CartDetails;

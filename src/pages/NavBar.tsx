@@ -1,8 +1,8 @@
 import { ShoppingCartOutlined } from "@ant-design/icons";
-import { Breadcrumb, Layout, Menu, MenuProps } from "antd";
+import { Layout, Menu, MenuProps } from "antd";
 import { NavLink } from "react-router-dom";
 
-const { Header, Content } = Layout;
+const { Header } = Layout;
 
 const items: MenuProps["items"] = [
   {
