@@ -5,6 +5,8 @@ import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 
+import logo from "../../src/assets/icons/logo.jpg";
+
 const { Header } = Layout;
 
 const items: MenuProps["items"] = [
@@ -94,6 +96,8 @@ const NavBar = () => {
             }}
           >
             <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <img style={{ height: 10, width: 10 }} src={logo} alt="" />
+
               <div>
                 <h1 style={{ height: "100" }}>Mechanical Keyboard</h1>
               </div>

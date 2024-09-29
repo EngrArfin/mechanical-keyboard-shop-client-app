@@ -5,6 +5,7 @@ import {
   InstagramOutlined,
   GithubOutlined,
 } from "@ant-design/icons";
+import logo from "../../assets/icons/logo.jpg";
 
 const { Footer } = Layout;
 const { Text, Title } = Typography;
@@ -25,10 +26,18 @@ const Footers = () => {
         <div style={{ maxWidth: "1600px", margin: "0 auto" }}>
           <Row gutter={[16, 16]}>
             {/* Column 1: Logo or Company Info */}
-            <Col xs={24} sm={12} md={8}>
-              <Title level={4} style={{ color: "#fff" }}>
-                Mechanical Keyboard Shop
-              </Title>
+            <Col xs={28} sm={12} md={8}>
+              <div style={{ display: "flex" }}>
+                <div>
+                  <img style={{ height: 60, width: 90 }} src={logo} alt="" />
+                </div>
+                <div>
+                  <Title level={4} style={{ color: "#fff" }}>
+                    Mechanical Keyboard Shop
+                  </Title>
+                </div>
+              </div>
+
               <Text style={{ color: "#d9d9d9" }}>
                 Explore a wide range of mechanical keyboards for enthusiasts and
                 professionals. Join our community to find the perfect keyboard

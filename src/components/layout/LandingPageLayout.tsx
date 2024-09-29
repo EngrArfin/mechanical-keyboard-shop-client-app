@@ -8,7 +8,6 @@ import WhyKeyboard from "../../pages/ProjectPage/WhyKeyboard";
 import Footers from "../../pages/ProjectPage/Footers";
 import { NavLink } from "react-router-dom";
 import CartProjectData from "../../pages/ProjectPage/CartProjectData";
-import CartPage from "../../pages/ProjectPage/CartPage";
 
 const { Header, Content, Footer } = Layout;
 
@@ -116,7 +115,6 @@ const LandingPageLayout = () => {
             }}
           >
             <HeaderPage></HeaderPage>
-            <CartPage></CartPage>
             <ServiceAdvertisement></ServiceAdvertisement>
             <CartProjectData></CartProjectData>
             <WhyKeyboard></WhyKeyboard>
