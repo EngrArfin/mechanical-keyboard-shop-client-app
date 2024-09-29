@@ -7,9 +7,8 @@ import TopFeaturedBrands from "../../pages/ProjectPage/TopFeaturedBrands";
 import WhyKeyboard from "../../pages/ProjectPage/WhyKeyboard";
 import Footers from "../../pages/ProjectPage/Footers";
 import { NavLink } from "react-router-dom";
-import CartPage from "../../pages/CartsProduct/CartPage";
-import ProductDetails from "../../pages/CartsProduct/ProductDetails";
 import CartProjectData from "../../pages/ProjectPage/CartProjectData";
+import CartPage from "../../pages/ProjectPage/CartPage";
 
 const { Header, Content, Footer } = Layout;
 
@@ -117,12 +116,12 @@ const LandingPageLayout = () => {
             }}
           >
             <HeaderPage></HeaderPage>
+            <CartPage></CartPage>
             <ServiceAdvertisement></ServiceAdvertisement>
             <CartProjectData></CartProjectData>
             <WhyKeyboard></WhyKeyboard>
             <TopFeaturedBrands></TopFeaturedBrands>
             <CustomerReviews></CustomerReviews>
-            <CartPage></CartPage>
           </div>
         </Content>
         <Footer

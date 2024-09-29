@@ -7,27 +7,16 @@ export type TProductCardProps = {
   availableQuantity: number;
   price: number;
   image: string;
+  quantity: number;
 };
-
-export type TMovie = {
+export type TAllProductDataProps = {
   _id: string;
-  title: string;
-  description: string;
-  releaseDate: Date;
-  genre: string;
-  director: string;
-  cast: string;
-  slug: string;
-  viewCount: number;
-  totalRating: number;
-  isDeleted: boolean;
+  productId: string;
+  productName: string;
+  rating: number;
+  brand: string;
+  availableQuantity: number;
+  price: number;
   image: string;
+  quantity: number;
 };
-
-export interface CartItem {
-  id: number; // Product ID
-  name: string; // Product Name
-  price: number; // Product Price
-  img: string; // Product Image URL
-  quantity: number; // Product Quantity
-}

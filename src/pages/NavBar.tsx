@@ -1,6 +1,9 @@
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { Layout, Menu, MenuProps } from "antd";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/store";
 
 const { Header } = Layout;
 
@@ -21,7 +24,6 @@ const items: MenuProps["items"] = [
     key: "Contract",
     label: <NavLink to="/contract">Contract</NavLink>,
   },
-
   {
     key: "5",
     label: "Product Management",
@@ -50,7 +52,6 @@ const items: MenuProps["items"] = [
       },
     ],
   },
-
   {
     key: "Login",
     label: <NavLink to="/login">Login</NavLink>,
@@ -58,6 +59,19 @@ const items: MenuProps["items"] = [
 ];
 
 const NavBar = () => {
+  /*   const { totalQuantity } = useSelector((state: RootState) => state.products);
+   */
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const handleMenuToggle = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  // Access the cart data from Redux store
+  const cartItems = useSelector((state: RootState) => state.carts.items);
+
+  // Calculate the total quantity of items in the cart
+  const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+
   return (
     <div>
       <Layout
@@ -81,12 +95,44 @@ const NavBar = () => {
           >
             <div style={{ display: "flex", justifyContent: "space-between" }}>
               <div>
-                <h1 style={{ height: "100" }}>Mechanical Keyboard </h1>
+                <h1 style={{ height: "100" }}>Mechanical Keyboard</h1>
               </div>
-              <div style={{ color: "white", fontSize: 32 }}>
-                <NavLink to="/cart">
+              <div
+                style={{ color: "white", fontSize: 32, position: "relative" }}
+              >
+                <NavLink to="/cart" onClick={handleMenuToggle}>
                   <ShoppingCartOutlined />
                 </NavLink>
+                {/*  {cartItems.length > 0 && (
+                    <div
+                      style={{
+                        marginTop: 20,
+                        display: "flex",
+                        justifyContent: "space-between",
+                        padding: "10px 0",
+                      }}
+                    >
+                      <div style={{ color: "white" }}>{totalQuantity}</div>
+                    </div>
+                  )} */}
+
+                {cartCount > 0 && (
+                  <span
+                    style={{
+                      position: "absolute",
+                      top: "-10px",
+                      left: "20px",
+                      backgroundColor: "#ff4d4f",
+                      borderRadius: "50%",
+                      color: "white",
+                      padding: "0 6px",
+                      fontSize: "12px",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    {cartCount}
+                  </span>
+                )}
               </div>
             </div>
           </div>

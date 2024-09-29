@@ -1,70 +1,97 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-// Define the Product type
-export type TProduct = {
-  _id: string; // Unique identifier for the product
-  productId: string; // Identifier for the product
-  productName: string; // Name of the product
-  rating: number; // Rating of the product
-  brand: string; // Brand of the product
-  availableQuantity: number; // Quantity available
-  price: number; // Price of the product
-  image: string; // Image URL of the product
-};
+// Define the Product interface
+interface Product {
+  _id: string;
+  productName: string;
+  price: number;
+  availableQuantity: number;
+  image: string;
+  quantity: number; // Add quantity to track how many of each product are in the cart
+}
 
-// Define the initial state type
-type TInitialState = {
-  products: TProduct[]; // Array of products
-};
+// Define the CartState interface
+interface CartState {
+  cartItems: Product[];
+  totalQuantity: number;
+  totalPrice: number;
+}
 
-// Initial state with an empty product list
-const initialState: TInitialState = {
-  products: [],
+// Initial state
+const initialState: CartState = {
+  cartItems: [],
+  totalQuantity: 0,
+  totalPrice: 0,
 };
 
 // Create the product slice
 const productSlice = createSlice({
-  name: "product",
+  name: "products",
   initialState,
   reducers: {
-    // Action to set products from API
-    setProducts: (state, action: PayloadAction<TProduct[]>) => {
-      state.products = action.payload; // Set products to the state
-    },
-
-    // Action to add a new product
-    addProduct: (state, action: PayloadAction<Omit<TProduct, "_id">>) => {
-      const newProduct: TProduct = {
-        ...action.payload,
-        _id: Date.now().toString(), // Generate a unique ID
-      };
-      state.products.push(newProduct); // Add new product to the state
-    },
-
-    // Action to remove a product by id
-    removeProduct: (state, action: PayloadAction<string>) => {
-      state.products = state.products.filter(
-        (product) => product._id !== action.payload // Remove product based on id
+    addToCart(state, action: PayloadAction<Product>) {
+      const existingProduct = state.cartItems.find(
+        (item) => item._id === action.payload._id
       );
+      if (existingProduct) {
+        existingProduct.quantity += 1; // Increase quantity if already in cart
+      } else {
+        state.cartItems.push({ ...action.payload, quantity: 1 }); // Initialize quantity to 1
+      }
+      state.totalQuantity += 1; // Update total quantity
+      state.totalPrice += action.payload.price; // Update total price
     },
-
-    // Action to update a product's details by id
-    updateProduct: (state, action: PayloadAction<TProduct>) => {
-      const index = state.products.findIndex(
-        (product) => product._id === action.payload._id // Find product by id
+    removeFromCart(state, action: PayloadAction<string>) {
+      const productToRemove = state.cartItems.find(
+        (item) => item._id === action.payload
       );
-      if (index !== -1) {
-        state.products[index] = action.payload; // Update product details
+      if (productToRemove) {
+        state.totalQuantity -= productToRemove.quantity; // Decrease total quantity
+        state.totalPrice -= productToRemove.price * productToRemove.quantity; // Decrease total price
+        state.cartItems = state.cartItems.filter(
+          (item) => item._id !== action.payload
+        );
+      }
+    },
+    clearCart(state) {
+      state.cartItems = [];
+      state.totalQuantity = 0;
+      state.totalPrice = 0;
+    },
+    increaseQuantity(state, action: PayloadAction<string>) {
+      const productToIncrease = state.cartItems.find(
+        (item) => item._id === action.payload
+      );
+      if (
+        productToIncrease &&
+        productToIncrease.availableQuantity > productToIncrease.quantity
+      ) {
+        productToIncrease.quantity += 1; // Increase quantity
+        state.totalQuantity += 1; // Update total quantity
+        state.totalPrice += productToIncrease.price; // Update total price
+      }
+    },
+    decreaseQuantity(state, action: PayloadAction<string>) {
+      const productToDecrease = state.cartItems.find(
+        (item) => item._id === action.payload
+      );
+      if (productToDecrease && productToDecrease.quantity > 1) {
+        productToDecrease.quantity -= 1; // Decrease quantity
+        state.totalQuantity -= 1; // Update total quantity
+        state.totalPrice -= productToDecrease.price; // Update total price
       }
     },
   },
 });
 
-// Export actions
-export const { setProducts, addProduct, removeProduct, updateProduct } =
-  productSlice.actions;
+// Exporting the actions for use in components
+export const {
+  addToCart,
+  removeFromCart,
+  clearCart,
+  increaseQuantity,
+  decreaseQuantity,
+} = productSlice.actions;
 
-// Export the reducer to include in the store
+// Exporting the reducer to be used in the store
 export default productSlice.reducer;
-
-export const productReducer = productSlice.reducer;

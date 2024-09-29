@@ -10,16 +10,24 @@ export const baseApi = createApi({
         method: "GET",
       }),
     }),
-    getLogin: builder.query({
+
+    cartData: builder.query({
+      query: () => ({
+        url: "/carts",
+        method: "GET",
+      }),
+    }),
+
+    /* getLogin: builder.query({
       query: () => ({
         url: "/login",
         method: "GET",
       }),
-    }),
+    }), */
   }),
 });
 
-export const { useGetProductsQuery, useGetLoginQuery } = baseApi;
+export const { useGetProductsQuery } = baseApi;
 
 /* getTodos: builder.query({
   query: () => ({

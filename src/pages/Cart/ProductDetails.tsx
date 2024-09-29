@@ -3,7 +3,6 @@ import { useState } from "react";
 import photo1 from "../../assets/images/card11.jpg";
 import photo2 from "../../assets/images/card12.jpg";
 import photo3 from "../../assets/images/card13.jpg";
-import NavBar from "../NavBar";
 import { NavLink } from "react-router-dom";
 
 const relatedProducts = [
@@ -44,7 +43,6 @@ const ProductDetails = () => {
 
   return (
     <div>
-      <NavBar></NavBar>
       <Row
         gutter={30}
         style={{

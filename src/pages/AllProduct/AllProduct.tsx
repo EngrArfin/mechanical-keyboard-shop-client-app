@@ -1,17 +1,14 @@
-// src/components/CardProject.tsx
-import { useDispatch } from "react-redux";
-import { addToCart } from "../../redux/features/productSlice";
-import { Button, Card, Rate, Flex } from "antd";
-import { TProductCardProps } from "../../type";
+import { NavLink } from "react-router-dom";
+/* import photo2 from "../../assets/images/card2.jpg";
+import photo1 from "../../assets/images/card1.jpg";
+import photo3 from "../../assets/images/card3.jpg";
+import photo4 from "../../assets/images/card4.jpg"; */
+
+import { Button, Card, Flex, Rate } from "antd";
+import { TAllProductDataProps } from "../../type";
 const { Meta } = Card;
 
-export function CardProject({ product }: { product: TProductCardProps }) {
-  const dispatch = useDispatch();
-
-  const handleAddToCart = () => {
-    dispatch(addToCart(product));
-  };
-
+export function AllProduct({ product }: { product: TAllProductDataProps }) {
   return (
     <div>
       <div style={{ display: "flex" }}>
@@ -43,11 +40,8 @@ export function CardProject({ product }: { product: TProductCardProps }) {
           <p>Brand {product?.brand}</p>
           <p>Available Quantity {product?.availableQuantity}</p>
           <p>Price: {product?.price}</p>
-          <Button
-            style={{ marginTop: 6, marginLeft: 25 }}
-            onClick={handleAddToCart}
-          >
-            Add To Cart
+          <Button style={{ marginTop: 6, marginLeft: 25 }}>
+            <NavLink to="/product-details">See Details Product </NavLink>
           </Button>
         </Card>
       </div>
@@ -55,4 +49,4 @@ export function CardProject({ product }: { product: TProductCardProps }) {
   );
 }
 
-export default CardProject;
+export default AllProduct;

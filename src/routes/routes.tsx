@@ -9,7 +9,6 @@ import LandingPageLayout from "../components/layout/LandingPageLayout";
 import AdminLayout from "../components/layout/AdminLayout";
 import About from "../pages/About";
 import Contract from "../pages/Contract";
-import CartPage from "../pages/CartsProduct/CartPage";
 import AdminDashboard from "../pages/AdminPage/AdminDashboard";
 import UserProfile from "../pages/UserPage/UserProfile";
 import UserAddress from "../pages/UserPage/UserAddress";
@@ -18,8 +17,9 @@ import AccountInformation from "../pages/UserPage/AccountInformation";
 import ProductManagemen from "../pages/AdminPage/ProductManagemen";
 import AddProductAdmin from "../pages/AdminPage/AddProductAdmin";
 import ListProduct from "../pages/AdminPage/ListProduct";
-import ProductDetails from "../pages/CartsProduct/ProductDetails";
+import ProductDetails from "../pages/Cart/ProductDetails";
 import CartProjectData from "../pages/ProjectPage/CartProjectData";
+import CartPage from "../pages/ProjectPage/CartPage";
 
 const router = createBrowserRouter([
   {
