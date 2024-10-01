@@ -1,13 +1,13 @@
-import { ShoppingCartOutlined } from "@ant-design/icons";
-import { Layout, Menu, MenuProps } from "antd";
+import { ShoppingCartOutlined, SearchOutlined } from "@ant-design/icons";
+import { Layout, Menu, MenuProps, Input } from "antd";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
-
 import logo from "../../src/assets/icons/logo.jpg";
 
 const { Header } = Layout;
+const { Search } = Input;
 
 const items: MenuProps["items"] = [
   {
@@ -61,8 +61,6 @@ const items: MenuProps["items"] = [
 ];
 
 const NavBar = () => {
-  /*   const { totalQuantity } = useSelector((state: RootState) => state.products);
-   */
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -70,9 +68,17 @@ const NavBar = () => {
 
   // Access the cart data from Redux store
   const cartItems = useSelector((state: RootState) => state.carts.items);
-
-  // Calculate the total quantity of items in the cart
   const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+
+  // Get user authentication status from Redux store
+  const isAuthenticated = useSelector(
+    (state: RootState) => state.auth.isAuthenticated
+  );
+
+  const onSearch = (value: string) => {
+    console.log("Search term: ", value);
+    // Handle search logic here
+  };
 
   return (
     <div>
@@ -91,34 +97,46 @@ const NavBar = () => {
               color: "white",
               height: "4rem",
               display: "flex",
-              justifyContent: "center",
-              justifyItems: "center",
+              alignItems: "center",
+              justifyContent: "space-between",
+              width: "100%",
             }}
           >
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
-              <img style={{ height: 10, width: 10 }} src={logo} alt="" />
+            {/* Logo Section */}
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <img
+                style={{ height: 40, width: 40, marginRight: 10 }}
+                src={logo}
+                alt="Logo"
+              />
+              <h1 style={{ color: "white", margin: 0 }}>Mechanical Keyboard</h1>
+            </div>
 
-              <div>
-                <h1 style={{ height: "100" }}>Mechanical Keyboard</h1>
-              </div>
+            {/* Cart and Menu Section */}
+            <div style={{ display: "flex", alignItems: "center" }}>
+              {/* Search Bar Section - only visible if user is logged in */}
+              {isAuthenticated ? (
+                <div style={{ flex: 1, marginRight: 20 }}>
+                  <Search
+                    placeholder="Search products..."
+                    allowClear
+                    enterButton={<SearchOutlined />}
+                    onSearch={onSearch}
+                  />
+                </div>
+              ) : null}
+
               <div
-                style={{ color: "white", fontSize: 32, position: "relative" }}
+                style={{
+                  color: "white",
+                  fontSize: 32,
+                  position: "relative",
+                  marginRight: 20,
+                }}
               >
                 <NavLink to="/cart" onClick={handleMenuToggle}>
                   <ShoppingCartOutlined />
                 </NavLink>
-                {/*  {cartItems.length > 0 && (
-                    <div
-                      style={{
-                        marginTop: 20,
-                        display: "flex",
-                        justifyContent: "space-between",
-                        padding: "10px 0",
-                      }}
-                    >
-                      <div style={{ color: "white" }}>{totalQuantity}</div>
-                    </div>
-                  )} */}
 
                 {cartCount > 0 && (
                   <span
@@ -138,16 +156,16 @@ const NavBar = () => {
                   </span>
                 )}
               </div>
+
+              <Menu
+                theme="dark"
+                mode="horizontal"
+                defaultSelectedKeys={["Home"]}
+                items={items}
+                style={{ minWidth: 0 }}
+              />
             </div>
           </div>
-
-          <Menu
-            theme="dark"
-            mode="horizontal"
-            defaultSelectedKeys={["2"]}
-            items={items}
-            style={{ flex: 1, minWidth: 0 }}
-          />
         </Header>
       </Layout>
     </div>

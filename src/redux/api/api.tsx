@@ -17,27 +17,33 @@ export const baseApi = createApi({
         method: "GET",
       }),
     }),
-
-    /* getLogin: builder.query({
+    userData: builder.query({
       query: () => ({
-        url: "/login",
+        url: "/users",
         method: "GET",
       }),
-    }), */
+    }),
+
+    registerUser: builder.mutation({
+      query: (userData) => ({
+        url: "/auth/register",
+        method: "POST",
+        body: userData,
+      }),
+    }),
+    loginUser: builder.mutation({
+      query: (loginData) => ({
+        url: "/auth/login",
+        method: "POST",
+        body: loginData,
+      }),
+    }),
   }),
 });
 
-export const { useGetProductsQuery } = baseApi;
-
-/* getTodos: builder.query({
-  query: () => ({
-    url: "/tasks",
-    method: "GET",
-  }),
-}),
-getProducts: builder.query({
-  query: () => ({
-    url: "/products",
-    method: "GET",
-  }),
-}), */
+export const {
+  useGetProductsQuery,
+  useUserDataQuery,
+  useLoginUserMutation,
+  useRegisterUserMutation,
+} = baseApi;

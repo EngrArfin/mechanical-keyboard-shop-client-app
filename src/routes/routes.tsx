@@ -20,6 +20,7 @@ import ListProduct from "../pages/AdminPage/ListProduct";
 import ProductDetails from "../pages/Cart/ProductDetails";
 import CartProjectData from "../pages/ProjectPage/CartProjectData";
 import CartPage from "../pages/ProjectPage/CartPage";
+import Payment from "../pages/Cart/CheckoutPage";
 
 const router = createBrowserRouter([
   {
@@ -47,7 +48,23 @@ const router = createBrowserRouter([
     element: <CartPage></CartPage>,
   },
   {
+    path: "/checkout",
+    element: <Payment></Payment>,
+  },
+  {
+    path: "/login",
+    element: <Login></Login>,
+  },
+  {
+    path: "/register",
+    element: <Register></Register>,
+  },
+  /* {
     path: "/product-details",
+    element: <ProductDetails></ProductDetails>,
+  }, */
+  {
+    path: "/product/:id",
     element: <ProductDetails></ProductDetails>,
   },
 
@@ -109,15 +126,6 @@ const router = createBrowserRouter([
   {
     path: "/userdashboard",
     element: <UserLayout></UserLayout>,
-  },
-
-  {
-    path: "/login",
-    element: <Login></Login>,
-  },
-  {
-    path: "/register",
-    element: <Register></Register>,
   },
 ]);
 

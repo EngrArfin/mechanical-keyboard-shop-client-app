@@ -1,39 +1,40 @@
 import {
-  Button,
-  Checkbox,
   Form,
   Input,
-  Space,
+  Checkbox,
+  Typography,
   Row,
   Col,
-  Typography,
   Card,
+  Button,
 } from "antd";
-import type { FormProps } from "antd";
 import { NavLink } from "react-router-dom";
+import { useRegisterUserMutation } from "../redux/api/api";
+import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 
 const { Title } = Typography;
 
 const Register = () => {
-  type FieldType = {
-    username?: string;
-    email?: string;
-    phone?: string;
-    password?: string;
-    confirmPassword?: string;
-    remember?: boolean;
+  const [registerUser, { isLoading, isError, error }] =
+    useRegisterUserMutation();
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const onFinish = async (values: any) => {
+    try {
+      const result = await registerUser(values).unwrap();
+      console.log("Registration Successful:", result);
+    } catch (err) {
+      console.error("Registration Failed:", err);
+    }
   };
 
-  // Handler for successful form submission
-  const onFinish: FormProps<FieldType>["onFinish"] = (values) => {
-    console.log("Success:", values);
-  };
-
-  // Handler for failed form submission
-  const onFinishFailed: FormProps<FieldType>["onFinishFailed"] = (
-    errorInfo
-  ) => {
-    console.log("Failed:", errorInfo);
+  // Check if the error is FetchBaseQueryError and extract the message
+  const getErrorMessage = () => {
+    if (error && "data" in error) {
+      const fetchError = error as FetchBaseQueryError;
+      return fetchError.data?.message || "Registration failed";
+    }
+    return "Registration failed";
   };
 
   return (
@@ -63,10 +64,8 @@ const Register = () => {
             layout="vertical"
             initialValues={{ remember: true }}
             onFinish={onFinish}
-            onFinishFailed={onFinishFailed}
           >
-            {/* Username Field */}
-            <Form.Item<FieldType>
+            <Form.Item
               label="Username"
               name="username"
               rules={[
@@ -76,8 +75,7 @@ const Register = () => {
               <Input placeholder="Enter your username" />
             </Form.Item>
 
-            {/* Email Field */}
-            <Form.Item<FieldType>
+            <Form.Item
               label="Email"
               name="email"
               rules={[
@@ -91,25 +89,7 @@ const Register = () => {
               <Input placeholder="Enter your email" />
             </Form.Item>
 
-            {/* Phone Number Field */}
-            <Form.Item<FieldType>
-              label="Phone Number"
-              name="phone"
-              rules={[
-                { required: true, message: "Please input your phone number!" },
-              ]}
-            >
-              <Space.Compact>
-                <Input style={{ width: "20%" }} defaultValue="+88" disabled />
-                <Input
-                  style={{ width: "80%" }}
-                  placeholder="Enter your phone number"
-                />
-              </Space.Compact>
-            </Form.Item>
-
-            {/* Password Field */}
-            <Form.Item<FieldType>
+            <Form.Item
               label="Password"
               name="password"
               rules={[
@@ -123,41 +103,26 @@ const Register = () => {
               <Input.Password placeholder="Enter your password" />
             </Form.Item>
 
-            {/* Confirm Password Field */}
-            <Form.Item<FieldType>
-              label="Confirm Password"
-              name="confirmPassword"
-              dependencies={["password"]}
-              rules={[
-                { required: true, message: "Please confirm your password!" },
-                ({ getFieldValue }) => ({
-                  validator(_, value) {
-                    if (!value || getFieldValue("password") === value) {
-                      return Promise.resolve();
-                    }
-                    return Promise.reject(
-                      new Error("The two passwords do not match!")
-                    );
-                  },
-                }),
-              ]}
-            >
-              <Input.Password placeholder="Confirm your password" />
-            </Form.Item>
-
-            {/* Remember Me Checkbox */}
-            <Form.Item<FieldType> name="remember" valuePropName="checked">
+            <Form.Item name="remember" valuePropName="checked">
               <Checkbox>Remember me</Checkbox>
             </Form.Item>
 
-            {/* Submit Button */}
+            {/* Use Ant Design Button for form submission */}
             <Form.Item>
-              <Button type="primary" htmlType="submit" block>
+              <Button
+                type="primary"
+                htmlType="submit"
+                block
+                loading={isLoading}
+              >
                 Register
               </Button>
             </Form.Item>
+
+            {/* Show error message if registration fails */}
+            {isError && <div style={{ color: "red" }}>{getErrorMessage()}</div>}
+
             <div style={{ textAlign: "center" }}>
-              <p style={{ marginRight: "10px" }}>Already have an account?</p>
               <NavLink to="/login">Login</NavLink>
             </div>
           </Form>

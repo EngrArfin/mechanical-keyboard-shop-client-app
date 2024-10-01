@@ -8,6 +8,9 @@ import WhyKeyboard from "../../pages/ProjectPage/WhyKeyboard";
 import Footers from "../../pages/ProjectPage/Footers";
 import { NavLink } from "react-router-dom";
 import CartProjectData from "../../pages/ProjectPage/CartProjectData";
+import FitureItem from "../../pages/ProjectPage/FitureItem";
+import ProductList from "../../pages/Cart/ProductList";
+import ProductDetails from "../../pages/Cart/ProductDetails";
 
 const { Header, Content, Footer } = Layout;
 
@@ -115,7 +118,10 @@ const LandingPageLayout = () => {
             }}
           >
             <HeaderPage></HeaderPage>
+            <ProductList></ProductList>
+            <ProductDetails></ProductDetails>
             <ServiceAdvertisement></ServiceAdvertisement>
+            <FitureItem></FitureItem>
             <CartProjectData></CartProjectData>
             <WhyKeyboard></WhyKeyboard>
             <TopFeaturedBrands></TopFeaturedBrands>

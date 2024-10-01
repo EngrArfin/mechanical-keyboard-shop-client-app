@@ -8,26 +8,22 @@ import {
   Col,
   Card,
 } from "antd";
-import type { FormProps } from "antd";
 import { NavLink } from "react-router-dom";
+import { useLoginUserMutation } from "../redux/api/api";
 
 const { Title } = Typography;
 
 const Login = () => {
-  type FieldType = {
-    username?: string;
-    password?: string;
-    remember?: boolean;
-  };
+  const [loginUser, { isLoading, isError, error }] = useLoginUserMutation();
 
-  const onFinish: FormProps<FieldType>["onFinish"] = (values) => {
-    console.log("Success:", values);
-  };
-
-  const onFinishFailed: FormProps<FieldType>["onFinishFailed"] = (
-    errorInfo
-  ) => {
-    console.log("Failed:", errorInfo);
+  const onFinish = async (values) => {
+    try {
+      const result = await loginUser(values).unwrap();
+      console.log("Login Successful:", result);
+      // You can save the JWT token or user info here if needed
+    } catch (err) {
+      console.error("Login Failed:", err);
+    }
   };
 
   return (
@@ -57,21 +53,18 @@ const Login = () => {
             layout="vertical"
             initialValues={{ remember: true }}
             onFinish={onFinish}
-            onFinishFailed={onFinishFailed}
           >
-            {/* Username Field */}
-            <Form.Item<FieldType>
-              label="Email/Username "
+            <Form.Item
+              label="Username"
               name="username"
               rules={[
                 { required: true, message: "Please input your username!" },
               ]}
             >
-              <Input placeholder="Enter your email / username" />
+              <Input placeholder="Enter your username" />
             </Form.Item>
 
-            {/* Password Field */}
-            <Form.Item<FieldType>
+            <Form.Item
               label="Password"
               name="password"
               rules={[
@@ -81,23 +74,28 @@ const Login = () => {
               <Input.Password placeholder="Enter your password" />
             </Form.Item>
 
-            {/* Remember Me Checkbox */}
-            <Form.Item<FieldType> name="remember" valuePropName="checked">
+            <Form.Item name="remember" valuePropName="checked">
               <Checkbox>Remember me</Checkbox>
             </Form.Item>
 
-            {/* Submit Button */}
             <Form.Item>
-              <Button type="primary" htmlType="submit" block>
+              <Button
+                type="primary"
+                htmlType="submit"
+                block
+                loading={isLoading}
+              >
                 Login
               </Button>
             </Form.Item>
 
-            {/* Optional Links */}
+            {isError && (
+              <div style={{ color: "red" }}>
+                {error?.data?.message || "Login failed"}
+              </div>
+            )}
+
             <div style={{ textAlign: "center" }}>
-              <a href="#forgot-password" style={{ marginRight: "10px" }}>
-                Forgot Password?
-              </a>
               <NavLink to="/register">Register Now</NavLink>
             </div>
           </Form>
