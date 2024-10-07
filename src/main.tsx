@@ -9,13 +9,16 @@ import { store } from "./redux/store.ts";
 import "./index.css";
 import { Layout } from "antd";
 import { Content } from "antd/es/layout/layout";
+import { AuthProvider } from "./pages/SecurityPage/AuthContext.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <Layout style={{ minHeight: "100vh", backgroundColor: "#00bfae" }}>
       <Content>
         <Provider store={store}>
-          <RouterProvider router={router} />
+          <AuthProvider>
+            <RouterProvider router={router} />
+          </AuthProvider>
         </Provider>
       </Content>
     </Layout>

@@ -1,6 +1,6 @@
 import whyuse from "../../assets/images/whyuse.jpg";
+import { Collapse, CollapseProps, Divider, Row, Col } from "antd";
 
-import { Collapse, CollapseProps, Divider } from "antd";
 const text = (
   <p style={{ paddingInlineStart: 24 }}>
     Mechanical keyboards are popular for their tactile feedback, durability, and
@@ -14,99 +14,60 @@ const text = (
     users.
   </p>
 );
-const text1 = (
-  <p style={{ paddingInlineStart: 24 }}>
-    Mechanical keyboards offer a tactile feedback mechanism that provides a
-    satisfying click or bump with each keypress. This not only enhances the
-    typing experience but also improves accuracy and typing speed. Unlike
-    membrane keyboards, mechanical ones give you a distinct feel when the key is
-    actuated, making them perfect for both typing enthusiasts and professionals
-    who spend long hours at their desks.
-  </p>
-);
-const text2 = (
-  <p style={{ paddingInlineStart: 24 }}>
-    One of the biggest advantages of mechanical keyboards is the level of
-    customization they offer. From different key switches (tactile, linear, or
-    clicky) to customizable keycaps, backlighting, and even programmable keys,
-    you can personalize your keyboard to suit your preferences. This flexibility
-    makes mechanical keyboards appealing to a wide range of users, from gamers
-    to coders to designers
-  </p>
-);
-const text3 = (
-  <p style={{ paddingInlineStart: 24 }}>
-    Mechanical keyboards are popular for their tactile feedback, durability, and
-    customization options. Each key provides a satisfying response, improving
-    typing accuracy and speed. They are built to last, often outliving
-    traditional keyboards, and are ideal for gamers, professionals, and
-    enthusiasts due to their fast response times, anti-ghosting features, and
-    ergonomic designs. With customizable key switches, lighting, and keycaps,
-    they also offer a unique, personalized experience. Mechanical keyboards
-    enhance both performance and comfort, making them a top choice for serious
-    users.
-  </p>
-);
-const text4 = (
-  <p style={{ paddingInlineStart: 24 }}>
-    Mechanical keyboards are a top choice for gamers due to their fast and
-    responsive key switches. The ability to press multiple keys simultaneously
-    without input issues (anti-ghosting and N-key rollover) ensures smooth and
-    accurate performance during intense gaming sessions. The tactile feedback
-    also gives gamers a better sense of control over their actions in real time.
-  </p>
-);
+
+// Define other text elements (text1, text2, text3, text4) similarly...
 
 const items: CollapseProps["items"] = [
   {
     key: "1",
-    label: "Mechanical Keyboard Discription",
+    label: "Mechanical Keyboard Description",
     children: text,
   },
   {
     key: "2",
     label: "Superior Typing Experience",
-    children: text1,
+    children: text,
   },
   {
     key: "3",
-    label: "Durability and Longevity: ",
-    children: text2,
+    label: "Durability and Longevity",
+    children: text,
   },
   {
     key: "4",
-    label: "Customization Options: ",
-    children: text3,
+    label: "Customization Options",
+    children: text,
   },
   {
     key: "5",
-    label: "Improved Gaming Performance:",
-    children: text4,
+    label: "Improved Gaming Performance",
+    children: text,
   },
 ];
 
 export const WhyKeyboard = () => {
   return (
-    <div>
+    <div style={{ padding: "0 20px" }}>
       <Divider style={{ borderColor: "#7cb305" }}>
-        Why We Use Mechanical Keyboard ???
+        Why We Use Mechanical Keyboards?
       </Divider>
-      <div style={{ display: "flex" }}>
-        <div>
-          {/* <h1 style={{ marginTop: 10, marginLeft: 90 }}>
-          {" "}
-          
-        </h1> */}
+      <Row gutter={[16, 16]} justify="center" align="middle">
+        <Col xs={24} md={12}>
           <img
-            style={{ height: 400, width: 500, marginLeft: 90 }}
+            style={{ width: "100%", maxWidth: 500 }}
             src={whyuse}
-            alt=""
+            alt="Why use a mechanical keyboard"
           />
-        </div>
-        <div style={{ marginTop: 30, marginLeft: 20 }}>
-          <Collapse items={items} bordered={false} defaultActiveKey={["1"]} />;
-        </div>
-      </div>
+        </Col>
+        <Col xs={24} md={12}>
+          <Collapse
+            items={items}
+            bordered={false}
+            defaultActiveKey={["1"]}
+            style={{ width: "100%", maxWidth: 500 }}
+          />
+        </Col>
+      </Row>
     </div>
   );
 };

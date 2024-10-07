@@ -16,7 +16,6 @@ const CartPage = () => {
     (state: RootState) => state.products
   );
 
-  // Dynamic shipping calculation (e.g., free shipping for orders over 1000 TK)
   const shipping = totalPrice > 1000 ? 0 : 48;
   const payableTotal = totalPrice + shipping;
 
@@ -37,12 +36,18 @@ const CartPage = () => {
   };
 
   return (
-    <div>
+    <div style={{ padding: "10px" }}>
       <div style={{ maxWidth: "900px", margin: "auto" }}>
         <Divider style={{ borderColor: "#7cb305" }}>Shopping Cart</Divider>
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
           {/* Cart Items Section */}
-          <div style={{ flex: 2 }}>
+          <div style={{ flex: 2, width: "100%" }}>
             {cartItems.length > 0 ? (
               <List
                 grid={{ gutter: 16, column: 1 }}
@@ -54,10 +59,11 @@ const CartPage = () => {
                         borderRadius: "10px",
                         boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
                         display: "flex",
+                        flexDirection: "column",
                         alignItems: "center",
                       }}
                     >
-                      <div style={{ display: "flex" }}>
+                      <div style={{ display: "flex", flexDirection: "row" }}>
                         <div>
                           <img
                             alt={product.productName}
@@ -67,7 +73,7 @@ const CartPage = () => {
                               height: "100px",
                               width: "100px",
                               borderRadius: "8px",
-                              marginRight: "60px",
+                              marginBottom: "10px",
                             }}
                           />
                         </div>
@@ -76,13 +82,17 @@ const CartPage = () => {
                           <p style={{ margin: "4px 0" }}>
                             Price: {product.price.toFixed(2)} TK
                           </p>
-
                           <div
-                            style={{ display: "flex", alignItems: "center" }}
+                            style={{
+                              display: "flex",
+                              justifyContent: "center",
+                              marginTop: "10px",
+                            }}
                           >
                             <Button
                               onClick={() => handleDecrease(product._id)}
                               disabled={product.quantity === 1}
+                              style={{ margin: "0 5px" }}
                             >
                               -
                             </Button>
@@ -94,13 +104,14 @@ const CartPage = () => {
                               disabled={
                                 product.quantity >= product.availableQuantity
                               }
+                              style={{ margin: "0 5px" }}
                             >
                               +
                             </Button>
                             <Button
                               type="primary"
                               danger
-                              style={{ marginLeft: "20px" }}
+                              style={{ marginLeft: "10px" }}
                               onClick={() => handleRemove(product._id)}
                             >
                               Remove
@@ -130,10 +141,10 @@ const CartPage = () => {
           </div>
 
           {/* Shipping and Checkout Section */}
-          <div style={{ flex: 1, marginLeft: "20px" }}>
+          <div style={{ flex: 1, width: "100%", marginTop: "20px" }}>
             {cartItems.length > 0 && (
               <>
-                <Card style={{ marginBottom: "20px" }}>
+                <Card style={{ marginBottom: "20px", width: "100%" }}>
                   <h3>Shipping Address (Home)</h3>
                   <p>
                     <strong>Name:</strong> Arfin
@@ -148,7 +159,7 @@ const CartPage = () => {
                   </p>
                 </Card>
 
-                <Card>
+                <Card style={{ width: "100%" }}>
                   <h3>Checkout Summary</h3>
                   <p>
                     <strong>Subtotal:</strong> {totalPrice.toFixed(2)} TK
@@ -163,12 +174,15 @@ const CartPage = () => {
                   </p>
                   <Divider />
                   <div
-                    style={{ display: "flex", justifyContent: "space-between" }}
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                    }}
                   >
                     <Button onClick={handleClearCart} danger>
                       Clear Cart
                     </Button>
-                    <Button type="primary" style={{ marginLeft: 5 }}>
+                    <Button type="primary">
                       <NavLink to="/checkout">Proceed to Checkout</NavLink>
                     </Button>
                   </div>
@@ -179,7 +193,7 @@ const CartPage = () => {
         </div>
       </div>
 
-      <ReviewRelatedProduct></ReviewRelatedProduct>
+      <ReviewRelatedProduct />
     </div>
   );
 };

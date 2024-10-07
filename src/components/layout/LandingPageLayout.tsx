@@ -12,7 +12,7 @@ import FitureItem from "../../pages/ProjectPage/FitureItem";
 import ProductList from "../../pages/Cart/ProductList";
 import ProductDetails from "../../pages/Cart/ProductDetails";
 
-const { Header, Content, Footer } = Layout;
+const { Header, Content } = Layout;
 
 const items: MenuProps["items"] = [
   {
@@ -126,18 +126,9 @@ const LandingPageLayout = () => {
             <WhyKeyboard></WhyKeyboard>
             <TopFeaturedBrands></TopFeaturedBrands>
             <CustomerReviews></CustomerReviews>
+            <Footers></Footers>
           </div>
         </Content>
-        <Footer
-          style={{
-            textAlign: "center",
-            background: "linear-gradient(45deg, #2e004f, #00bfae, #2e004f)",
-            color: "#ffffff",
-            boxShadow: "0px 4px 15px rgba(0.3, 1, 0, 0.3)",
-          }}
-        >
-          <Footers></Footers>
-        </Footer>
       </Layout>
     </div>
   );

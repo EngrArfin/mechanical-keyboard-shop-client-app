@@ -1,4 +1,3 @@
-/* import { Row, Col } from "antd"; */
 import { useGetProductsQuery } from "../../redux/api/api";
 import CardProject from "./CardProject";
 import { TProductCardProps } from "../../type";
@@ -6,18 +5,26 @@ import { Divider, Row, Col } from "antd";
 
 const CartProjectData = () => {
   const { data, isLoading } = useGetProductsQuery(undefined);
-  console.log(data);
+
   if (isLoading) {
     return <p>Loading ...</p>;
   }
 
   const { data: products } = data;
+
   return (
-    <div>
+    <div style={{ padding: "0 20px" }}>
       <Divider style={{ borderColor: "#7cb305" }}>Featured Products</Divider>
-      <Row gutter={[12, 12]} justify="center">
+      <Row gutter={[16, 16]} justify="center">
         {products.map((product: TProductCardProps) => (
-          <Col xs={12} sm={6} md={4} lg={4} key={product?._id}>
+          <Col
+            key={product?._id}
+            xs={24} // Full-width on extra small screens
+            sm={12} // Two columns on small screens
+            md={8} // Three columns on medium screens
+            lg={6} // Four columns on large screens
+            xl={4} // Five columns on extra-large screens
+          >
             <CardProject product={product} />
           </Col>
         ))}

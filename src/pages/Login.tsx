@@ -8,19 +8,24 @@ import {
   Col,
   Card,
 } from "antd";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom"; // Import useNavigate
 import { useLoginUserMutation } from "../redux/api/api";
 
 const { Title } = Typography;
 
 const Login = () => {
   const [loginUser, { isLoading, isError, error }] = useLoginUserMutation();
+  const navigate = useNavigate(); // Initialize the useNavigate hook
 
   const onFinish = async (values) => {
     try {
       const result = await loginUser(values).unwrap();
       console.log("Login Successful:", result);
-      // You can save the JWT token or user info here if needed
+
+      // Redirect to userDashboard after login
+      navigate("/user/dashboard");
+
+      // You can also save the JWT token or user info here if needed
     } catch (err) {
       console.error("Login Failed:", err);
     }

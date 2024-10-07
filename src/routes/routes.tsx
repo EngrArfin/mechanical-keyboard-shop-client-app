@@ -98,7 +98,10 @@ const router = createBrowserRouter([
   /* User Dashboard */
   {
     path: "/user",
-    element: <UserLayout></UserLayout>,
+    element: (
+      <UserLayout></UserLayout>
+      /* </ProtectedRoute> */
+    ),
     children: [
       {
         path: "dashboard",
