@@ -1,54 +1,114 @@
-import { Form, Input, Button, Row, Col, Card } from "antd";
+import { Row, Col, Typography, Input, Button } from "antd";
+import { CSSProperties } from "react";
+import backgroundImage from "../../assets/images/backgroundContact.jpg";
+import {
+  MailOutlined,
+  PhoneOutlined,
+  EnvironmentOutlined,
+} from "@ant-design/icons"; // Import icons for contact information
+
+const { Title, Paragraph } = Typography;
 
 const Contract = () => {
+  const sectionStyle: CSSProperties = {
+    padding: "50px 20px",
+    backgroundImage: `url(${backgroundImage})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    minHeight: "100vh",
+    display: "flex",
+    alignItems: "center",
+  };
+
+  const overlayStyle: CSSProperties = {
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    width: "100%",
+    padding: "40px",
+  };
+
+  const titleStyle: CSSProperties = {
+    textAlign: "center",
+    marginBottom: "30px",
+    color: "#fff",
+    fontFamily: "'Roboto', sans-serif",
+    fontWeight: "700",
+  };
+
+  const paragraphStyle: CSSProperties = {
+    fontSize: "18px",
+    lineHeight: "1.8",
+    color: "#fff",
+    marginBottom: "20px",
+  };
+
+  const iconStyle: CSSProperties = {
+    fontSize: "24px",
+    color: "#1890ff", // Ant Design primary color
+    marginRight: "10px",
+  };
+
   return (
-    <div style={{ padding: "50px 0", backgroundColor: "#fafafa" }}>
-      <Row justify="center">
-        <Col xs={24} sm={20} md={16} lg={12} xl={10}>
-          <Card title="Contact Us" bordered={false}>
-            <Form name="contact" layout="vertical">
-              <Form.Item
-                label="Name"
-                name="name"
-                rules={[{ required: true, message: "Please input your name!" }]}
-              >
-                <Input placeholder="Enter your name" />
-              </Form.Item>
+    <div style={sectionStyle}>
+      <div style={overlayStyle}>
+        <Title level={2} style={titleStyle}>
+          Contact Us
+        </Title>
 
-              <Form.Item
-                label="Email"
-                name="email"
-                rules={[
-                  { required: true, message: "Please input your email!" },
-                  { type: "email", message: "Please enter a valid email!" },
-                ]}
-              >
-                <Input placeholder="Enter your email" />
-              </Form.Item>
+        <Row gutter={[16, 16]} justify="center">
+          <Col xs={24} sm={20} md={16} lg={12}>
+            <Paragraph style={paragraphStyle}>
+              We would love to hear from you! Please fill out the form below or
+              contact us directly through the following methods:
+            </Paragraph>
 
-              <Form.Item
-                label="Message"
-                name="message"
-                rules={[
-                  { required: true, message: "Please input your message!" },
-                ]}
-              >
-                <Input.TextArea rows={4} placeholder="Enter your message" />
-              </Form.Item>
+            <Paragraph style={paragraphStyle}>
+              <MailOutlined style={iconStyle} />
+              Email: support@mechanicalkeyboardshop.com
+            </Paragraph>
 
-              <Form.Item>
-                <Button
-                  type="primary"
-                  htmlType="submit"
-                  style={{ width: "100%" }}
-                >
-                  Submit
-                </Button>
-              </Form.Item>
-            </Form>
-          </Card>
-        </Col>
-      </Row>
+            <Paragraph style={paragraphStyle}>
+              <PhoneOutlined style={iconStyle} />
+              Phone: +1 234 567 890
+            </Paragraph>
+
+            <Paragraph style={paragraphStyle}>
+              <EnvironmentOutlined style={iconStyle} />
+              Address: 123 Keyboard Lane, Tech City, CA 12345
+            </Paragraph>
+
+            <form style={{ marginTop: "30px" }}>
+              <Row gutter={[16, 16]}>
+                <Col xs={24} sm={12}>
+                  <Input
+                    placeholder="Your Name"
+                    style={{ marginBottom: "10px" }}
+                    size="large"
+                  />
+                </Col>
+                <Col xs={24} sm={12}>
+                  <Input
+                    placeholder="Your Email"
+                    style={{ marginBottom: "10px" }}
+                    size="large"
+                  />
+                </Col>
+                <Col xs={24}>
+                  <Input.TextArea
+                    rows={4}
+                    placeholder="Your Message"
+                    style={{ marginBottom: "10px" }}
+                  />
+                </Col>
+                <Col xs={24}>
+                  <Button type="primary" size="large" block>
+                    Send Message
+                  </Button>
+                </Col>
+              </Row>
+            </form>
+          </Col>
+        </Row>
+      </div>
     </div>
   );
 };
