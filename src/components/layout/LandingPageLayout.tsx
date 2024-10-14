@@ -1,5 +1,3 @@
-// LandingPageLayout.tsx
-
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { Layout, Menu, MenuProps } from "antd";
 import HeaderPage from "../../pages/ProjectPage/HeaderPage";
@@ -69,7 +67,15 @@ const LandingPageLayout = () => {
           boxShadow: "0px 4px 15px rgba(0.3, 1, 0, 0.3)",
         }}
       >
-        <Header style={{ display: "flex", alignItems: "center" }}>
+        <Header
+          style={{
+            display: "flex",
+            alignItems: "center",
+            position: "fixed", // Make the header fixed
+            width: "100%", // Ensure it takes the full width
+            zIndex: 1000, // Keep it above other elements
+          }}
+        >
           <div
             style={{
               color: "white",
@@ -79,9 +85,17 @@ const LandingPageLayout = () => {
               justifyItems: "center",
             }}
           >
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <div
+              style={{
+                display: "flex",
+                marginLeft: "10",
+                justifyContent: "space-between",
+              }}
+            >
               <div>
-                <h1 style={{ height: "100" }}>Mechanical Keyboard </h1>
+                <h1 style={{ height: "100", fontSize: 25 }}>
+                  Mechanical Keyboard{" "}
+                </h1>
               </div>
             </div>
           </div>
@@ -94,16 +108,19 @@ const LandingPageLayout = () => {
             style={{ flex: 1, minWidth: 0 }}
           />
 
-          {/* Add a Product Icon */}
-
-          <div style={{ color: "white", fontSize: 32 }}>
-            <NavLink to="/cart">
-              <ShoppingCartOutlined />
-            </NavLink>
+          <div className="flex justify-center items-center">
+            <h1 style={{ color: "white", fontSize: 32 }}>
+              <NavLink to="/cart">
+                <ShoppingCartOutlined />
+              </NavLink>
+            </h1>
+            <p className="badge text-black-400 mb-4">1</p>
           </div>
         </Header>
 
-        <Content style={{ padding: "0 48px" }}>
+        <Content style={{ padding: "0 48px", marginTop: "64px" }}>
+          {" "}
+          {/* Add marginTop to avoid overlap with the fixed header */}
           <div
             style={{
               minHeight: 280,

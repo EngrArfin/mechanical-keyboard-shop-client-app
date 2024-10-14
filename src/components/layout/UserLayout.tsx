@@ -86,7 +86,14 @@ const UserLayout = () => {
 
   return (
     <Layout style={{ height: "100vh" }}>
-      <Sider>
+      <Sider
+        style={{
+          position: "fixed", // Keep the sidebar fixed
+          height: "100vh",
+          overflow: "auto",
+          zIndex: 1, // Ensure it stays on top
+        }}
+      >
         <div style={{ padding: "20px", textAlign: "center" }}>
           <Avatar size={80} icon={<UserOutlined />} />
           <Title level={4} style={{ color: "white", marginTop: "10px" }}>
@@ -99,11 +106,20 @@ const UserLayout = () => {
           mode="inline"
           defaultSelectedKeys={["Dashboard"]}
           items={items}
+          style={{ marginTop: "64px" }} // Adjust to account for fixed header height
         />
       </Sider>
-      <Layout>
-        <Header style={{ padding: 0 }} />
-        <Content style={{ margin: "24px 16px 0" }}>
+      <Layout style={{ marginLeft: 200 }}>
+        {" "}
+        {/* Keep margin for the fixed sidebar */}
+        <Header
+          style={{ padding: 0, position: "fixed", width: "100%", zIndex: 1 }}
+        >
+          {/* Optionally, you can add any additional header content here */}
+        </Header>
+        <Content style={{ margin: "64px 16px 0" }}>
+          {" "}
+          {/* Adjust content margin */}
           <div style={{ padding: 24, minHeight: 360 }}>
             <Outlet />
           </div>

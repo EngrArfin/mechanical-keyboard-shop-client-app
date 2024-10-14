@@ -1,4 +1,4 @@
-import { Layout, Menu, MenuProps } from "antd";
+import { Divider, Layout, Menu, MenuProps } from "antd";
 import { NavLink, Outlet } from "react-router-dom";
 import {
   AppstoreAddOutlined,
@@ -9,14 +9,12 @@ import {
   UserOutlined,
 } from "@ant-design/icons";
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Header, Content, Sider } = Layout;
 
 const items: MenuProps["items"] = [
   {
     key: "Dashboard",
-    label: (
-      <NavLink to="/admin/dashboard">{<DashboardOutlined />}Dashboard</NavLink>
-    ),
+    label: <NavLink to="/admin">{<DashboardOutlined />}Dashboard</NavLink>,
   },
   {
     key: "Products",
@@ -47,8 +45,8 @@ const items: MenuProps["items"] = [
     ),
   },
   {
-    key: "Users",
-    label: <NavLink to="/admin/users">{<BarChartOutlined />}Reports</NavLink>,
+    key: "Report",
+    label: <NavLink to="/admin/report">{<BarChartOutlined />}Reports</NavLink>,
   },
 ];
 
@@ -64,6 +62,7 @@ const AdminLayout = () => {
         onCollapse={(collapsed, type) => {
           console.log(collapsed, type);
         }}
+        style={{ position: "fixed", height: "100vh", overflow: "auto" }} // Keep it fixed
       >
         <div
           style={{
@@ -71,33 +70,48 @@ const AdminLayout = () => {
             height: "4rem",
             display: "flex",
             justifyContent: "center",
-            justifyItems: "center",
+            alignItems: "center",
           }}
         >
-          <h1 style={{ height: "100" }}>Admin Keyboard </h1>
+          <h1 style={{ margin: 0 }}>Admin Keyboard</h1>
         </div>
         <Menu
           theme="dark"
           mode="inline"
           defaultSelectedKeys={["4"]}
           items={items}
+          style={{ marginTop: "64px" }} // Adjust for the fixed header height
         />
       </Sider>
-      <Layout>
-        <Header style={{ padding: 0 }} />
-        <Content style={{ margin: "24px 16px 0" }}>
+      <Layout style={{ marginLeft: 200 }}>
+        {" "}
+        {/* Maintain margin for fixed sidebar */}
+        <Header
+          style={{ zIndex: 1, width: "100%", padding: 0, position: "fixed" }}
+        >
+          {" "}
+          {/* Fixed header */}
           <div
             style={{
-              padding: 24,
-              minHeight: 360,
+              padding: "0 24px",
+              background: "#001529",
+              color: "white",
+              height: "64px",
+              display: "flex",
+              alignItems: "center",
             }}
           >
-            <Outlet></Outlet>
+            <h1 style={{ margin: 0 }}>Admin Dashboard</h1>
+          </div>
+        </Header>
+        <Content style={{ margin: "64px 16px 0" }}>
+          {" "}
+          {/* Adjust content margin */}
+          <div style={{ padding: 24, minHeight: 360 }}>
+            <Outlet />
           </div>
         </Content>
-        <Footer style={{ textAlign: "center" }}>
-          Ant Design ©{new Date().getFullYear()} Created by Ant UED
-        </Footer>
+        <Divider style={{ margin: 0 }}>{new Date().getFullYear()}</Divider>
       </Layout>
     </Layout>
   );

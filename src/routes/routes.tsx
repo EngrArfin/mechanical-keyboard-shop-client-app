@@ -22,6 +22,8 @@ import CartPage from "../pages/ProjectPage/CartPage";
 import Payment from "../pages/Cart/CheckoutPage";
 import Login from "../pages/Share/Login";
 import Register from "../pages/Share/Register";
+import UserList from "../pages/AdminPage/UserList";
+import Report from "../pages/AdminPage/Report";
 
 const router = createBrowserRouter([
   {
@@ -80,8 +82,16 @@ const router = createBrowserRouter([
     element: <AdminLayout></AdminLayout>,
     children: [
       {
-        path: "dashboard",
+        path: "",
         element: <AdminDashboard></AdminDashboard>,
+      },
+      {
+        path: "productlist",
+        element: <ProductList></ProductList>,
+      },
+      {
+        path: "users",
+        element: <UserList></UserList>,
       },
       {
         path: "listproduct-admin",
@@ -96,8 +106,8 @@ const router = createBrowserRouter([
         element: <ProductManagemen></ProductManagemen>,
       },
       {
-        path: "productlist",
-        element: <ProductList></ProductList>,
+        path: "report",
+        element: <Report></Report>,
       },
     ],
   },
