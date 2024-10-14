@@ -8,7 +8,11 @@ import { Button, Card, Flex, Rate } from "antd";
 import { TAllProductDataProps } from "../../type";
 const { Meta } = Card;
 
-export function AllProduct({ product }: { product: TAllProductDataProps }) {
+export function AllProduct({
+  allproduct,
+}: {
+  allproduct: TAllProductDataProps;
+}) {
   return (
     <div>
       <div style={{ display: "flex" }}>
@@ -25,21 +29,25 @@ export function AllProduct({ product }: { product: TAllProductDataProps }) {
             boxShadow: "0px 4px 15px rgba(0.3, 1, 0, 0.3)",
           }}
           cover={
-            <img style={{ height: 215 }} alt="example" src={product?.image} />
+            <img
+              style={{ height: 215 }}
+              alt="example"
+              src={allproduct?.image}
+            />
           }
         >
-          <Meta title={product?.productName} description="" />
+          <Meta title={allproduct?.productName} description="" />
           <div style={{ display: "flex", margin: 5 }}>
             <div style={{ display: "flex" }}>
               <div>Rating:</div>
               <Flex gap="small">
-                <Rate defaultValue={product?.rating} />
+                <Rate defaultValue={allproduct?.rating} />
               </Flex>
             </div>
           </div>
-          <p>Brand {product?.brand}</p>
-          <p>Available Quantity {product?.availableQuantity}</p>
-          <p>Price: {product?.price}</p>
+          <p>Brand {allproduct?.brand}</p>
+          <p>Available Quantity {allproduct?.availableQuantity}</p>
+          <p>Price: {allproduct?.price}</p>
           <Button style={{ marginTop: 6, marginLeft: 25 }}>
             <NavLink to="/product-details">See Details Product </NavLink>
           </Button>

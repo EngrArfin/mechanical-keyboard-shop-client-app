@@ -1,24 +1,24 @@
 /* import { Row, Col } from "antd"; */
-import { useGetProductsQuery } from "../../redux/api/api";
 import { TAllProductDataProps } from "../../type";
 import { Divider, Row, Col } from "antd";
 import AllProduct from "./AllProduct";
+import { useGetAllproductsQuery } from "../../redux/api/api";
 
-const CartProjectData = () => {
-  const { data, isLoading } = useGetProductsQuery(undefined);
+const AllProductData = () => {
+  const { data, isLoading } = useGetAllproductsQuery(undefined);
   console.log(data);
   if (isLoading) {
     return <p>Loading ...</p>;
   }
 
-  const { data: products } = data;
+  const { data: allproducts } = data;
   return (
     <div>
       <Divider style={{ borderColor: "#7cb305" }}>Featured Products</Divider>
       <Row gutter={[12, 12]} justify="center">
-        {products.map((product: TAllProductDataProps) => (
-          <Col xs={12} sm={6} md={4} lg={4} key={product?._id}>
-            <AllProduct product={product} />
+        {allproducts.map((allproduct: TAllProductDataProps) => (
+          <Col xs={12} sm={6} md={4} lg={4} key={allproduct?._id}>
+            <AllProduct allproduct={allproduct} />
           </Col>
         ))}
       </Row>
@@ -26,4 +26,4 @@ const CartProjectData = () => {
   );
 };
 
-export default CartProjectData;
+export default AllProductData;

@@ -63,17 +63,17 @@ const Contract = () => {
 
             <Paragraph style={paragraphStyle}>
               <MailOutlined style={iconStyle} />
-              Email: support@mechanicalkeyboardshop.com
+              Email: arfin.cse.green.edu.bd@gmail.com
             </Paragraph>
 
             <Paragraph style={paragraphStyle}>
               <PhoneOutlined style={iconStyle} />
-              Phone: +1 234 567 890
+              Phone: +88 01981-397907
             </Paragraph>
 
             <Paragraph style={paragraphStyle}>
               <EnvironmentOutlined style={iconStyle} />
-              Address: 123 Keyboard Lane, Tech City, CA 12345
+              Address: 123 Shawrapara, City Bazar, Mirpur-1216
             </Paragraph>
 
             <form style={{ marginTop: "30px" }}>

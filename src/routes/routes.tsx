@@ -24,6 +24,7 @@ import Login from "../pages/Share/Login";
 import Register from "../pages/Share/Register";
 import UserList from "../pages/AdminPage/UserList";
 import Report from "../pages/AdminPage/Report";
+import AllProductData from "../pages/AllProduct/AllProductData";
 
 const router = createBrowserRouter([
   {
@@ -35,8 +36,8 @@ const router = createBrowserRouter([
     element: <LandingPageLayout></LandingPageLayout>,
   },
   {
-    path: "/product",
-    element: <CartProjectData></CartProjectData>,
+    path: "/allproduct",
+    element: <AllProductData></AllProductData>,
   },
   {
     path: "/about",

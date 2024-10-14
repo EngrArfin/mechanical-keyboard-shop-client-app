@@ -19,6 +19,10 @@ export const baseApi = createApi({
     getProducts: builder.query({
       query: () => "/products", // Get products endpoint
     }),
+
+    getAllproducts: builder.query({
+      query: () => "/allproducts", // Get products endpoint
+    }),
     cartData: builder.query({
       query: () => "/carts", // Get cart data endpoint
     }),
@@ -45,6 +49,7 @@ export const baseApi = createApi({
 // Export hooks for using the defined queries and mutations
 export const {
   useGetProductsQuery,
+  useGetAllproductsQuery,
   useCartDataQuery,
   useUserDataQuery,
   useLoginUserMutation,

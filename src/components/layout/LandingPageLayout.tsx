@@ -11,6 +11,7 @@ import CartProjectData from "../../pages/ProjectPage/CartProjectData";
 import FitureItem from "../../pages/ProjectPage/FitureItem";
 import ProductList from "../../pages/Cart/ProductList";
 import ProductDetails from "../../pages/Cart/ProductDetails";
+import AllProductData from "../../pages/AllProduct/AllProductData";
 
 const { Header, Content } = Layout;
 
@@ -20,8 +21,8 @@ const items: MenuProps["items"] = [
     label: <NavLink to="/home">Home</NavLink>,
   },
   {
-    key: "Products",
-    label: <NavLink to="/product">Products</NavLink>,
+    key: "AllProducts",
+    label: <NavLink to="/allproduct">Products</NavLink>,
   },
   {
     key: "About",
@@ -32,11 +33,7 @@ const items: MenuProps["items"] = [
     label: <NavLink to="/contract">Contract</NavLink>,
   },
   {
-    key: "5",
-    label: "Product Management",
-  },
-  {
-    key: "6",
+    key: "Dashboard",
     label: "Dashboard",
     children: [
       {
@@ -128,6 +125,7 @@ const LandingPageLayout = () => {
             }}
           >
             <HeaderPage></HeaderPage>
+            <AllProductData></AllProductData>
             <ProductList></ProductList>
             <ProductDetails></ProductDetails>
             <ServiceAdvertisement></ServiceAdvertisement>
