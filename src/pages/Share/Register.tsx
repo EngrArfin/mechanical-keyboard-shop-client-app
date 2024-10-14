@@ -1,16 +1,12 @@
-import {
-  Form,
-  Input,
-  Checkbox,
-  Typography,
-  Row,
-  Col,
-  Card,
-  Button,
-} from "antd";
+import { Form, Input, Typography, Row, Col, Card, Button } from "antd";
 import { NavLink } from "react-router-dom";
-import { useRegisterUserMutation } from "../redux/api/api";
 import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
+import { useRegisterUserMutation } from "../../redux/api/api";
+
+// Define the structure of the expected error response
+interface ErrorResponse {
+  message?: string; // Optional to handle cases where message might not exist
+}
 
 const { Title } = Typography;
 
@@ -18,8 +14,16 @@ const Register = () => {
   const [registerUser, { isLoading, isError, error }] =
     useRegisterUserMutation();
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const onFinish = async (values: any) => {
+  // Define the values type for the form
+  interface RegisterValues {
+    name: string;
+    username: string;
+    email: string;
+    password: string;
+    remember: boolean;
+  }
+
+  const onFinish = async (values: RegisterValues) => {
     try {
       const result = await registerUser(values).unwrap();
       console.log("Registration Successful:", result);
@@ -30,9 +34,12 @@ const Register = () => {
 
   // Check if the error is FetchBaseQueryError and extract the message
   const getErrorMessage = () => {
-    if (error && "data" in error) {
+    if (isError && error) {
       const fetchError = error as FetchBaseQueryError;
-      return fetchError.data?.message || "Registration failed";
+
+      // Check if fetchError.data is defined and has a message property
+      const errorData = fetchError.data as ErrorResponse;
+      return errorData.message || "Registration failed";
     }
     return "Registration failed";
   };
@@ -65,6 +72,16 @@ const Register = () => {
             initialValues={{ remember: true }}
             onFinish={onFinish}
           >
+            <Form.Item
+              label="Name"
+              name="name"
+              rules={[
+                { required: true, message: "Please input your username!" },
+              ]}
+            >
+              <Input placeholder="Enter your Name" />
+            </Form.Item>
+
             <Form.Item
               label="Username"
               name="username"
@@ -103,11 +120,6 @@ const Register = () => {
               <Input.Password placeholder="Enter your password" />
             </Form.Item>
 
-            <Form.Item name="remember" valuePropName="checked">
-              <Checkbox>Remember me</Checkbox>
-            </Form.Item>
-
-            {/* Use Ant Design Button for form submission */}
             <Form.Item>
               <Button
                 type="primary"
@@ -119,7 +131,6 @@ const Register = () => {
               </Button>
             </Form.Item>
 
-            {/* Show error message if registration fails */}
             {isError && <div style={{ color: "red" }}>{getErrorMessage()}</div>}
 
             <div style={{ textAlign: "center" }}>

@@ -1,14 +1,13 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
-import Login from "../pages/Login";
-import Register from "../pages/Register";
+
 import UserLayout from "../components/layout/UserLayout";
 import ProductList from "../pages/AdminPage/ListProduct";
 import UserDashboard from "../pages/UserPage/UserDashboard";
 import LandingPageLayout from "../components/layout/LandingPageLayout";
 import AdminLayout from "../components/layout/AdminLayout";
-import About from "../pages/About";
-import Contract from "../pages/Contract";
+import About from "../pages/Share/About";
+import Contract from "../pages/Share/Contract";
 import AdminDashboard from "../pages/AdminPage/AdminDashboard";
 import UserProfile from "../pages/UserPage/UserProfile";
 import UserAddress from "../pages/UserPage/UserAddress";
@@ -21,6 +20,8 @@ import ProductDetails from "../pages/Cart/ProductDetails";
 import CartProjectData from "../pages/ProjectPage/CartProjectData";
 import CartPage from "../pages/ProjectPage/CartPage";
 import Payment from "../pages/Cart/CheckoutPage";
+import Login from "../pages/Share/Login";
+import Register from "../pages/Share/Register";
 
 const router = createBrowserRouter([
   {
@@ -59,10 +60,15 @@ const router = createBrowserRouter([
     path: "/register",
     element: <Register></Register>,
   },
-  /* {
+
+  {
     path: "/product-details",
     element: <ProductDetails></ProductDetails>,
-  }, */
+  },
+  {
+    path: "/checkoutss",
+    element: <ProductList></ProductList>,
+  },
   {
     path: "/product/:id",
     element: <ProductDetails></ProductDetails>,

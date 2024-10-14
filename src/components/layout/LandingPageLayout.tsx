@@ -1,3 +1,5 @@
+// LandingPageLayout.tsx
+
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { Layout, Menu, MenuProps } from "antd";
 import HeaderPage from "../../pages/ProjectPage/HeaderPage";
@@ -31,20 +33,9 @@ const items: MenuProps["items"] = [
     key: "Contract",
     label: <NavLink to="/contract">Contract</NavLink>,
   },
-
   {
     key: "5",
     label: "Product Management",
-    children: [
-      {
-        key: "11",
-        label: "Add Product",
-      },
-      {
-        key: "12",
-        label: "List Product",
-      },
-    ],
   },
   {
     key: "6",
@@ -60,7 +51,6 @@ const items: MenuProps["items"] = [
       },
     ],
   },
-
   {
     key: "Login",
     label: <NavLink to="/login">Login</NavLink>,
@@ -93,11 +83,6 @@ const LandingPageLayout = () => {
               <div>
                 <h1 style={{ height: "100" }}>Mechanical Keyboard </h1>
               </div>
-              <div style={{ color: "white", fontSize: 32 }}>
-                <NavLink to="/cart">
-                  <ShoppingCartOutlined />
-                </NavLink>
-              </div>
             </div>
           </div>
 
@@ -108,6 +93,14 @@ const LandingPageLayout = () => {
             items={items}
             style={{ flex: 1, minWidth: 0 }}
           />
+
+          {/* Add a Product Icon */}
+
+          <div style={{ color: "white", fontSize: 32 }}>
+            <NavLink to="/cart">
+              <ShoppingCartOutlined />
+            </NavLink>
+          </div>
         </Header>
 
         <Content style={{ padding: "0 48px" }}>

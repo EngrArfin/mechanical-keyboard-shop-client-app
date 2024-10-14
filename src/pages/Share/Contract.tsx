@@ -1,17 +1,11 @@
 import { Form, Input, Button, Row, Col, Card } from "antd";
-import { CSSProperties } from "react";
 
 const Contract = () => {
-  const cardStyle: CSSProperties = {
-    borderRadius: "10px",
-    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-    padding: "20px",
-  };
   return (
     <div style={{ padding: "50px 0", backgroundColor: "#fafafa" }}>
       <Row justify="center">
         <Col xs={24} sm={20} md={16} lg={12} xl={10}>
-          <Card title="Contact Us" bordered={false} style={cardStyle}>
+          <Card title="Contact Us" bordered={false}>
             <Form name="contact" layout="vertical">
               <Form.Item
                 label="Name"

@@ -8,26 +8,65 @@ import {
   Col,
   Card,
 } from "antd";
-import { NavLink, useNavigate } from "react-router-dom"; // Import useNavigate
-import { useLoginUserMutation } from "../redux/api/api";
+import { NavLink, useNavigate } from "react-router-dom";
+
+import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
+import { useAppDispatch } from "../../redux/hooks";
+import { useLoginUserMutation } from "../../redux/api/api";
+import { setUser } from "../../redux/features/authSlice";
+
+interface ErrorResponse {
+  message?: string;
+}
+
+interface LoginValues {
+  email: string;
+  password: string;
+  remember: boolean;
+}
 
 const { Title } = Typography;
 
 const Login = () => {
-  const [loginUser, { isLoading, isError, error }] = useLoginUserMutation();
-  const navigate = useNavigate(); // Initialize the useNavigate hook
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
-  const onFinish = async (values) => {
+  const [loginUser, { isLoading, isError, error }] = useLoginUserMutation();
+
+  const onFinish = async (values: LoginValues) => {
     try {
       const result = await loginUser(values).unwrap();
       console.log("Login Successful:", result);
 
-      // Redirect to userDashboard after login
-      navigate("/user/dashboard");
+      // Store the token in local storage
+      localStorage.setItem("token", result.token);
 
-      // You can also save the JWT token or user info here if needed
+      // Fetch user data after successful login
+      const userResponse = await fetchUserData(result.token);
+      if (userResponse) {
+        dispatch(setUser({ user: userResponse, token: result.token }));
+      }
+
+      navigate("/user/dashboard");
     } catch (err) {
       console.error("Login Failed:", err);
+    }
+  };
+
+  const fetchUserData = async (token: string) => {
+    try {
+      const response = await fetch("http://localhost:5000/users", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      if (!response.ok) {
+        throw new Error("Failed to fetch user data");
+      }
+      return await response.json();
+    } catch (error) {
+      console.error("Error fetching user data:", error);
+      throw error;
     }
   };
 
@@ -60,13 +99,11 @@ const Login = () => {
             onFinish={onFinish}
           >
             <Form.Item
-              label="Username"
-              name="username"
-              rules={[
-                { required: true, message: "Please input your username!" },
-              ]}
+              label="Email"
+              name="email"
+              rules={[{ required: true, message: "Please input your email!" }]}
             >
-              <Input placeholder="Enter your username" />
+              <Input type="email" placeholder="Enter your email" />
             </Form.Item>
 
             <Form.Item
@@ -96,7 +133,11 @@ const Login = () => {
 
             {isError && (
               <div style={{ color: "red" }}>
-                {error?.data?.message || "Login failed"}
+                {error && "data" in error
+                  ? (error as FetchBaseQueryError).data // Type assertion
+                    ? (error.data as ErrorResponse).message || "Login failed"
+                    : "Login failed"
+                  : "Login failed"}
               </div>
             )}
 
