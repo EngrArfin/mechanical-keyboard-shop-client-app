@@ -94,12 +94,10 @@ const LandingPageLayout = () => {
           <div style={{ minHeight: 280, padding: 24 }}>
             <HeaderPage />
             <Products></Products>
-            <Products></Products>
+            <CartProjectData />
             <AllProductData />
-
             <ServiceAdvertisement />
             <FitureItem />
-            <CartProjectData />
             <WhyKeyboard />
             <TopFeaturedBrands />
             <CustomerReviews />

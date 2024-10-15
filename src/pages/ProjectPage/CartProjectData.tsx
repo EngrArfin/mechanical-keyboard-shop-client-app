@@ -17,14 +17,7 @@ const CartProjectData = () => {
       <Divider style={{ borderColor: "#7cb305" }}>Featured Products</Divider>
       <Row gutter={[16, 16]} justify="center">
         {products.map((product: TProductCardProps) => (
-          <Col
-            key={product?._id}
-            xs={24} // Full-width on extra small screens
-            sm={12} // Two columns on small screens
-            md={8} // Three columns on medium screens
-            lg={6} // Four columns on large screens
-            xl={4} // Five columns on extra-large screens
-          >
+          <Col key={product?._id} xs={24} sm={12} md={8} lg={6} xl={4}>
             <CardProject product={product} />
           </Col>
         ))}

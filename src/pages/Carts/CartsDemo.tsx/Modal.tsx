@@ -10,12 +10,12 @@ const Modal = ({ product, onClose, handleAddToCart }: any) => {
           <img
             className="sm:order-2 w-full object-cover h-full max-sm:max-h-[300px]"
             src={product?.image}
-            alt={product?.name}
+            alt={product?.productName}
           />
           <div className="p-5 lg:p-11">
             <div>
               <h2 className="text-3xl lg:text-[50px] mb-2 font-bold text-green-700">
-                {product?.name}
+                {product?.productName}
               </h2>
               <p className="text-sm lg:text-base text-gray-800">
                 {product?.description}
@@ -30,7 +30,7 @@ const Modal = ({ product, onClose, handleAddToCart }: any) => {
 
             <div className="grid lg:grid-cols-2 gap-2">
               <a
-                className="bg-green-700 rounded-lg py-2 px-5 flex items-center justify-center gap-2 text-white font-semibold text-sm hover:bg-green-800 transition duration-300"
+                className="bg-purple-900 text-white py-2 px-5 rounded-lg hover:bg-sky-800 transition shadow-md hover:shadow-sm flex items-center justify-center gap-2  font-semibold text-sm  duration-300"
                 href="#"
                 onClick={(e) => handleAddToCart(e, product)}
               >
@@ -39,7 +39,7 @@ const Modal = ({ product, onClose, handleAddToCart }: any) => {
               </a>
               <a
                 onClick={onClose}
-                className="border border-red-600 rounded-lg py-2 px-5 flex items-center justify-center gap-2 text-red-600 font-semibold text-sm hover:bg-red-50 transition duration-300"
+                className="border border-sky-600 rounded-lg py-2 px-5 flex items-center justify-center gap-2 text-black-600 font-semibold text-sm hover:bg-red-50 transition duration-300"
                 href="#"
               >
                 Cancel

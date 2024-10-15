@@ -3,8 +3,8 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 // Define the CartState type
 interface Product {
-  id: string;
-  name: string;
+  _id: string;
+  productName: string;
   price: number;
   quantity: number;
 }
@@ -29,12 +29,12 @@ const initialState: CartState = {
 };
 
 export const cartSlice = createSlice({
-  name: "cart",
+  name: "carts",
   initialState,
   reducers: {
     addToCart: (state, action: PayloadAction<Product>) => {
       const isExist = state.products.find(
-        (product) => product.id === action.payload.id
+        (product) => product._id === action.payload._id
       );
       if (!isExist) {
         state.products.push({ ...action.payload, quantity: 1 });
@@ -46,10 +46,10 @@ export const cartSlice = createSlice({
     },
     updateQuantity: (
       state,
-      action: PayloadAction<{ id: string; type: "increment" | "decrement" }>
+      action: PayloadAction<{ _id: string; type: "increment" | "decrement" }>
     ) => {
       state.products = state.products.map((product) => {
-        if (product.id === action.payload.id) {
+        if (product._id === action.payload._id) {
           product.quantity += action.payload.type === "increment" ? 1 : -1;
         }
         return product;
@@ -64,7 +64,7 @@ export const cartSlice = createSlice({
     removeFromCart: (state, action) => {
       // Remove the product from the products array
       state.products = state.products.filter(
-        (product) => product.id !== action.payload.id
+        (product) => product._id !== action.payload._id
       );
       state.selectedItems = selectSelectedItems(state);
       state.totalPrice = selectTotalPrice(state);

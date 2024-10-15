@@ -8,8 +8,8 @@ import cartReducer from "./features/cartSlice";
 export const store = configureStore({
   reducer: {
     [baseApi.reducerPath]: baseApi.reducer, // Add baseApi reducer
-    products: productReducer, // Product slice
     cart: cartReducer, // Cart slice
+    products: productReducer, // Product slice
     auth: authReducer, // Auth slice
   },
 
