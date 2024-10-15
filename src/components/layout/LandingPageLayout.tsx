@@ -1,58 +1,41 @@
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { Layout, Menu, MenuProps } from "antd";
+import { NavLink } from "react-router-dom";
+import { useAppSelector } from "../../redux/hooks";
 import HeaderPage from "../../pages/ProjectPage/HeaderPage";
 import ServiceAdvertisement from "../../pages/ProjectPage/ServiceAdvertisement";
 import CustomerReviews from "../../pages/ProjectPage/CustomerReviews";
 import TopFeaturedBrands from "../../pages/ProjectPage/TopFeaturedBrands";
 import WhyKeyboard from "../../pages/ProjectPage/WhyKeyboard";
 import Footers from "../../pages/ProjectPage/Footers";
-import { NavLink } from "react-router-dom";
-import CartProjectData from "../../pages/ProjectPage/CartProjectData";
-import FitureItem from "../../pages/ProjectPage/FitureItem";
+import AllProductData from "../../pages/AllProduct/AllProductData";
 import ProductList from "../../pages/Cart/ProductList";
 import ProductDetails from "../../pages/Cart/ProductDetails";
-import AllProductData from "../../pages/AllProduct/AllProductData";
+import CartProjectData from "../../pages/ProjectPage/CartProjectData";
+import FitureItem from "../../pages/ProjectPage/FitureItem";
+import Products from "../../pages/Carts/Products";
 
 const { Header, Content } = Layout;
 
 const items: MenuProps["items"] = [
-  {
-    key: "Home",
-    label: <NavLink to="/home">Home</NavLink>,
-  },
-  {
-    key: "AllProducts",
-    label: <NavLink to="/allproduct">Products</NavLink>,
-  },
-  {
-    key: "About",
-    label: <NavLink to="/about">About</NavLink>,
-  },
-  {
-    key: "Contract",
-    label: <NavLink to="/contract">Contract</NavLink>,
-  },
+  { key: "Home", label: <NavLink to="/home">Home</NavLink> },
+  { key: "AllProducts", label: <NavLink to="/allproduct">Products</NavLink> },
+  { key: "About", label: <NavLink to="/about">About</NavLink> },
+  { key: "Contract", label: <NavLink to="/contract">Contract</NavLink> },
   {
     key: "Dashboard",
     label: "Dashboard",
     children: [
-      {
-        key: "Admin",
-        label: <NavLink to="/admin">Admin</NavLink>,
-      },
-      {
-        key: "User",
-        label: <NavLink to="/user">User</NavLink>,
-      },
+      { key: "Admin", label: <NavLink to="/admin">Admin</NavLink> },
+      { key: "User", label: <NavLink to="/user">User</NavLink> },
     ],
   },
-  {
-    key: "Login",
-    label: <NavLink to="/login">Login</NavLink>,
-  },
+  { key: "Login", label: <NavLink to="/login">Login</NavLink> },
 ];
 
 const LandingPageLayout = () => {
+  const products = useAppSelector((state) => state.carts.products);
+
   return (
     <div>
       <Layout
@@ -68,9 +51,9 @@ const LandingPageLayout = () => {
           style={{
             display: "flex",
             alignItems: "center",
-            position: "fixed", // Make the header fixed
-            width: "100%", // Ensure it takes the full width
-            zIndex: 1000, // Keep it above other elements
+            position: "fixed",
+            width: "100%",
+            zIndex: 1000,
           }}
         >
           <div
@@ -79,22 +62,9 @@ const LandingPageLayout = () => {
               height: "4rem",
               display: "flex",
               justifyContent: "center",
-              justifyItems: "center",
             }}
           >
-            <div
-              style={{
-                display: "flex",
-                marginLeft: "10",
-                justifyContent: "space-between",
-              }}
-            >
-              <div>
-                <h1 style={{ height: "100", fontSize: 25 }}>
-                  Mechanical Keyboard{" "}
-                </h1>
-              </div>
-            </div>
+            <h1 style={{ fontSize: 25 }}>Mechanical Keyboard</h1>
           </div>
 
           <Menu
@@ -111,30 +81,25 @@ const LandingPageLayout = () => {
                 <ShoppingCartOutlined />
               </NavLink>
             </h1>
-            <p className="badge text-black-400 mb-4">1</p>
+            {/* Display the number of products in the cart */}
+            <p className="badge text-black-400 mb-4">{products.length}</p>
           </div>
         </Header>
 
         <Content style={{ padding: "0 48px", marginTop: "64px" }}>
-          {" "}
-          {/* Add marginTop to avoid overlap with the fixed header */}
-          <div
-            style={{
-              minHeight: 280,
-              padding: 24,
-            }}
-          >
-            <HeaderPage></HeaderPage>
-            <AllProductData></AllProductData>
-            <ProductList></ProductList>
-            <ProductDetails></ProductDetails>
-            <ServiceAdvertisement></ServiceAdvertisement>
-            <FitureItem></FitureItem>
-            <CartProjectData></CartProjectData>
-            <WhyKeyboard></WhyKeyboard>
-            <TopFeaturedBrands></TopFeaturedBrands>
-            <CustomerReviews></CustomerReviews>
-            <Footers></Footers>
+          <div style={{ minHeight: 280, padding: 24 }}>
+            <HeaderPage />
+            <Products></Products>
+            <AllProductData />
+            <ProductList />
+            <ProductDetails />
+            <ServiceAdvertisement />
+            <FitureItem />
+            <CartProjectData />
+            <WhyKeyboard />
+            <TopFeaturedBrands />
+            <CustomerReviews />
+            <Footers />
           </div>
         </Content>
       </Layout>

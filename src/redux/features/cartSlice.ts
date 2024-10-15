@@ -1,51 +1,74 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { createSlice } from "@reduxjs/toolkit";
 
-// Define the type for each item in the cart
-export interface CartItem {
-  id: number;
-  name: string;
-  price: number;
-  quantity: number;
-}
-
-// Define the type for the cart state
-export interface CartState {
-  items: CartItem[]; // 'items' should be an array of cart items
-  totalQuantity: number;
-  totalPrice: number;
-}
-
-const initialState: CartState = {
-  items: [], // Initialize 'items' as an empty array
-  totalQuantity: 0,
+// Define the initial state using that type
+const initialState = {
+  products: [] as any,
+  selectedItems: 0,
   totalPrice: 0,
+  tax: 0,
+  taxRate: 0.1,
+  grandTotal: 0,
 };
 
-// Create the cart slice
-const cartSlice = createSlice({
+export const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    // Add item to the cart
-    addToCart(state, action: PayloadAction<CartItem>) {
-      const existingItem = state.items.find(
-        (item) => item.id === action.payload.id
+    addToCart: (state, action) => {
+      const isExist = state.products.find(
+        (product) => product.id === action.payload.id
       );
-      if (existingItem) {
-        existingItem.quantity += action.payload.quantity;
-      } else {
-        state.items.push(action.payload);
+      if (!isExist) {
+        state.products.push({ ...action.payload, quantity: 1 });
       }
-      state.totalQuantity += action.payload.quantity;
-      state.totalPrice += action.payload.price * action.payload.quantity;
+      state.selectedItems = selectSelectedItems(state);
+      state.totalPrice = selectTotalPrice(state);
+      state.tax = selectTax(state);
+      state.grandTotal = selectGrandTotal(state);
     },
-    // Remove item from the cart
-    removeFromCart(state, action: PayloadAction<number>) {
-      state.items = state.items.filter((item) => item.id !== action.payload);
+    updateQuantity: (state: any, action) => {
+      const products = state.products.map((product: any) => {
+        if (product.id === action.payload.id) {
+          if (action.payload.type === "increment") {
+            product.quantity += 1;
+          } else if (action.payload.type === "decrement") {
+            product.quantity -= 1;
+          }
+        }
+        return product;
+      });
+      state.selectedItems = selectSelectedItems(state);
+      state.totalPrice = selectTotalPrice(state);
+      state.tax = selectTax(state);
+      state.grandTotal = selectGrandTotal(state);
+    },
+    clearCart: (state) => {
+      state.products = [];
+      state.selectedItems = 0;
+      state.totalPrice = 0;
+      state.tax = 0;
+      state.grandTotal = 0;
     },
   },
 });
 
-export const { addToCart, removeFromCart } = cartSlice.actions;
+export const selectSelectedItems = (state: any) =>
+  state.products.reduce((total: number, product: any) => {
+    return Number(total + product.quantity);
+  }, 0);
 
-export default cartSlice.reducer; // Export the reducer
+export const selectTotalPrice = (state: any) =>
+  state.products.reduce((total: number, product: any) => {
+    return Number(total + product.quantity * product.price);
+  }, 0);
+
+export const selectTax = (state: any) =>
+  selectTotalPrice(state) * state.taxRate;
+
+export const selectGrandTotal = (state: any) => {
+  return selectTotalPrice(state) + selectTotalPrice(state) * state.taxRate;
+};
+export const { addToCart, updateQuantity, clearCart } = cartSlice.actions;
+
+export default cartSlice.reducer;

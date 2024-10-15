@@ -17,14 +17,15 @@ import ProductManagemen from "../pages/AdminPage/ProductManagemen";
 import AddProductAdmin from "../pages/AdminPage/AddProductAdmin";
 import ListProduct from "../pages/AdminPage/ListProduct";
 import ProductDetails from "../pages/Cart/ProductDetails";
-import CartProjectData from "../pages/ProjectPage/CartProjectData";
-import CartPage from "../pages/ProjectPage/CartPage";
-import Payment from "../pages/Cart/CheckoutPage";
+/* import CartPage from "../pages/ProjectPage/CartPage";
+ */ import Payment from "../pages/Cart/CheckoutPage";
 import Login from "../pages/Share/Login";
 import Register from "../pages/Share/Register";
 import UserList from "../pages/AdminPage/UserList";
 import Report from "../pages/AdminPage/Report";
 import AllProductData from "../pages/AllProduct/AllProductData";
+import OrderSummery from "../pages/Carts/OrderSummery";
+import Cart from "../pages/Carts/Cart";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,16 @@ const router = createBrowserRouter([
     path: "/home",
     element: <LandingPageLayout></LandingPageLayout>,
   },
+
+  {
+    path: "order-summery",
+    element: <OrderSummery />,
+  },
+  {
+    path: "order-cart",
+    element: <Cart />,
+  },
+
   {
     path: "/allproduct",
     element: <AllProductData></AllProductData>,
@@ -49,7 +60,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/cart",
-    element: <CartPage></CartPage>,
+    element: <Cart></Cart>,
   },
   {
     path: "/checkout",
@@ -115,10 +126,7 @@ const router = createBrowserRouter([
   /* User Dashboard */
   {
     path: "/user",
-    element: (
-      <UserLayout></UserLayout>
-      /* </ProtectedRoute> */
-    ),
+    element: <UserLayout></UserLayout> /* </ProtectedRoute> */,
     children: [
       {
         path: "dashboard",
