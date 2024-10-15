@@ -16,15 +16,11 @@ export type TProductCardProps = {
 export type TAllProductDataProps = {
   id: string; // Ensure this is a string
   _id: string;
-  productId: string;
-  productName: string;
-  rating: number;
-  brand: string;
-  availableQuantity: number;
-  price: number;
-  image: string;
-  quantity: number;
-  description: string; // Add description property here
+  name: string; // Name of the product
+  description: string; // Product description
+  price: string; // Price as a string
+  image: string; // URL of the product image
+  ratings: number; // Ratings as a number
 };
 
 export interface Product {

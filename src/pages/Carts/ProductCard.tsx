@@ -1,16 +1,15 @@
-// ProductCart.tsx
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
 import { useAppDispatch } from "../../redux/hooks";
 import { addToCart } from "../../redux/features/cartSlice";
-import { Modal, Rate } from "antd";
-import { Product } from "../../type"; // Import the Product type
+import Modal from "./CartsDemo.tsx/Modal";
 
-const ProductCart = ({ product }: { product: Product }) => {
+const ProductCart = ({ product }: { product: any }) => {
   const dispatch = useAppDispatch();
   const [showModal, setShowModal] = useState(false);
-  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [selectedProduct, setSelectedProduct] = useState<any>(null);
 
-  const handleShowModal = (product: Product) => {
+  const handleShowModal = (product: any) => {
     setSelectedProduct(product);
     setShowModal(true);
   };
@@ -19,22 +18,18 @@ const ProductCart = ({ product }: { product: Product }) => {
     setSelectedProduct(null);
     setShowModal(false);
   };
-
-  const handleAddToCart = (product: Product) => {
+  const handleAddToCart = (product: any) => {
     dispatch(addToCart(product));
   };
 
   return (
     <div className="relative">
-      {showModal && selectedProduct && (
-        <Modal visible={showModal} onCancel={handleCloseModal}>
-          <div>
-            <h2>{selectedProduct.name}</h2>
-            <p>{selectedProduct.description}</p>
-            <p>Price: ${selectedProduct.price}</p>
-            <Rate value={selectedProduct.rating} disabled />
-          </div>
-        </Modal>
+      {showModal && (
+        <Modal
+          product={selectedProduct}
+          onClose={handleCloseModal}
+          handleAddToCart={() => {}}
+        />
       )}
 
       <div
@@ -51,10 +46,7 @@ const ProductCart = ({ product }: { product: Product }) => {
             {product.name}
           </h3>
           <p className="text-gray-700 mb-4 flex-grow">{product.description}</p>
-          <Rate value={product.rating} disabled className="mb-4" />
-          <p className="text-lg font-bold text-red-600 mb-4">
-            ${product.price}
-          </p>
+          <p className="text-lg font-bold text-red-600 mb-4">{product.price}</p>
           <button
             onClick={(e) => {
               e.stopPropagation();

@@ -36,17 +36,16 @@ export function AllProduct({
             />
           }
         >
-          <Meta title={allproduct?.productName} description="" />
+          <Meta title={allproduct?.name} description="" />
           <div style={{ display: "flex", margin: 5 }}>
             <div style={{ display: "flex" }}>
               <div>Rating:</div>
               <Flex gap="small">
-                <Rate defaultValue={allproduct?.rating} />
+                <Rate defaultValue={allproduct?.ratings} />
               </Flex>
             </div>
           </div>
-          <p>Brand {allproduct?.brand}</p>
-          <p>Available Quantity {allproduct?.availableQuantity}</p>
+          <p>Discription {allproduct?.description}</p>
           <p>Price: {allproduct?.price}</p>
           <Button style={{ marginTop: 6, marginLeft: 25 }}>
             <NavLink to="/product-details">See Details Product </NavLink>

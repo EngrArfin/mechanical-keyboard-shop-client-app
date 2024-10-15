@@ -9,11 +9,10 @@ import TopFeaturedBrands from "../../pages/ProjectPage/TopFeaturedBrands";
 import WhyKeyboard from "../../pages/ProjectPage/WhyKeyboard";
 import Footers from "../../pages/ProjectPage/Footers";
 import AllProductData from "../../pages/AllProduct/AllProductData";
-import ProductList from "../../pages/Cart/ProductList";
-import ProductDetails from "../../pages/Cart/ProductDetails";
 import CartProjectData from "../../pages/ProjectPage/CartProjectData";
 import FitureItem from "../../pages/ProjectPage/FitureItem";
 import Products from "../../pages/Carts/Products";
+import { useState } from "react";
 
 const { Header, Content } = Layout;
 
@@ -34,7 +33,12 @@ const items: MenuProps["items"] = [
 ];
 
 const LandingPageLayout = () => {
-  const products = useAppSelector((state) => state.carts.products);
+  const products = useAppSelector((store) => store.cart.products);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleMenuToggle = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
     <div>
@@ -90,9 +94,9 @@ const LandingPageLayout = () => {
           <div style={{ minHeight: 280, padding: 24 }}>
             <HeaderPage />
             <Products></Products>
+            <Products></Products>
             <AllProductData />
-            <ProductList />
-            <ProductDetails />
+
             <ServiceAdvertisement />
             <FitureItem />
             <CartProjectData />

@@ -1,19 +1,14 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { useGetAllproductsQuery } from "../../redux/api/api";
+import { useAppSelector } from "../../redux/hooks";
+/* import getAllProducts from "../../type/products"; */
 import CartDetails from "./CartDetails";
-import OrderSummery from "./OrderSummery";
+import OrderSummary from "./OrderSummery";
 
 const Cart = () => {
-  const { data, isLoading } = useGetAllproductsQuery(undefined);
+  /* const products = getAllProducts(); */
 
-  if (isLoading) {
-    return <p>Loading ...</p>;
-  }
-
-  const { data: products } = data;
-
+  const products = useAppSelector((store) => store.cart.products);
   return (
     <div className="container mt-10 mx-auto">
       <div className="flex lg:flex-row flex-col-reverse justify-center lg:space-x-40 ">
@@ -26,7 +21,7 @@ const Cart = () => {
             <p className="text-2xl text-red-500"> not product found</p>
           )}
         </div>
-        <OrderSummery />
+        <OrderSummary />
       </div>
     </div>
   );

@@ -16,15 +16,11 @@ import AccountInformation from "../pages/UserPage/AccountInformation";
 import ProductManagemen from "../pages/AdminPage/ProductManagemen";
 import AddProductAdmin from "../pages/AdminPage/AddProductAdmin";
 import ListProduct from "../pages/AdminPage/ListProduct";
-import ProductDetails from "../pages/Cart/ProductDetails";
-/* import CartPage from "../pages/ProjectPage/CartPage";
- */ import Payment from "../pages/Cart/CheckoutPage";
 import Login from "../pages/Share/Login";
 import Register from "../pages/Share/Register";
 import UserList from "../pages/AdminPage/UserList";
 import Report from "../pages/AdminPage/Report";
 import AllProductData from "../pages/AllProduct/AllProductData";
-import OrderSummery from "../pages/Carts/OrderSummery";
 import Cart from "../pages/Carts/Cart";
 
 const router = createBrowserRouter([
@@ -35,15 +31,6 @@ const router = createBrowserRouter([
   {
     path: "/home",
     element: <LandingPageLayout></LandingPageLayout>,
-  },
-
-  {
-    path: "order-summery",
-    element: <OrderSummery />,
-  },
-  {
-    path: "order-cart",
-    element: <Cart />,
   },
 
   {
@@ -59,14 +46,6 @@ const router = createBrowserRouter([
     element: <Contract></Contract>,
   },
   {
-    path: "/cart",
-    element: <Cart></Cart>,
-  },
-  {
-    path: "/checkout",
-    element: <Payment></Payment>,
-  },
-  {
     path: "/login",
     element: <Login></Login>,
   },
@@ -74,18 +53,9 @@ const router = createBrowserRouter([
     path: "/register",
     element: <Register></Register>,
   },
-
   {
-    path: "/product-details",
-    element: <ProductDetails></ProductDetails>,
-  },
-  {
-    path: "/checkoutss",
-    element: <ProductList></ProductList>,
-  },
-  {
-    path: "/product/:id",
-    element: <ProductDetails></ProductDetails>,
+    path: "/cart",
+    element: <Cart />,
   },
 
   /* Admin Dashboard */

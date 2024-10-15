@@ -23,7 +23,7 @@ export const baseApi = createApi({
     getAllproducts: builder.query({
       query: () => "/allproducts", // Get products endpoint
     }),
-    cartData: builder.query({
+    getCartData: builder.query({
       query: () => "/carts", // Get cart data endpoint
     }),
     userData: builder.query({
@@ -43,6 +43,30 @@ export const baseApi = createApi({
         body: loginData,
       }),
     }),
+
+    /* -------------- */
+    addToCart: builder.mutation({
+      query: (cartItem) => ({
+        url: "/cart",
+        method: "POST",
+        body: cartItem,
+      }),
+    }),
+    removeFromCart: builder.mutation({
+      query: (id) => ({
+        url: `/cart/${id}`,
+        method: "DELETE",
+      }),
+    }),
+    updateCartItem: builder.mutation({
+      query: ({ id, cart }) => ({
+        url: `/cart/${id}`,
+        method: "PUT",
+        body: cart,
+      }),
+    }),
+
+    /*  ------ */
   }),
 });
 
@@ -50,8 +74,12 @@ export const baseApi = createApi({
 export const {
   useGetProductsQuery,
   useGetAllproductsQuery,
-  useCartDataQuery,
   useUserDataQuery,
   useLoginUserMutation,
   useRegisterUserMutation,
+
+  useGetCartDataQuery,
+  useAddToCartMutation,
+  useRemoveFromCartMutation,
+  useUpdateCartItemMutation,
 } = baseApi;

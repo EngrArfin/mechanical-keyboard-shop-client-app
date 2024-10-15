@@ -1,4 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ShoppingCart } from "lucide-react";
+import Rating from "../Ratings";
 
 const Modal = ({ product, onClose, handleAddToCart }: any) => {
   return (
@@ -33,7 +35,7 @@ const Modal = ({ product, onClose, handleAddToCart }: any) => {
                 onClick={(e) => handleAddToCart(e, product)}
               >
                 <ShoppingCart />
-                <span>${product?.price} | Add to Cart</span>
+                <span>${product?.price} | Add to Cart Data</span>
               </a>
               <a
                 onClick={onClose}

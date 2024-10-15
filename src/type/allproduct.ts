@@ -4,7 +4,7 @@
     name: "Classic Watch",
     description: "A timeless classic watch with a leather band.",
     price: 199.99,
-    image: "https://via.placeholder.com/150?text=Watch",
+    image: "https://i.ibb.co.com/j5PcmkR/card4.jpg",
     ratings: 5,
   },
   {
@@ -12,7 +12,7 @@
     name: "Bluetooth Speaker",
     description: "Portable Bluetooth speaker with excellent sound quality.",
     price: 89.99,
-    image: "https://via.placeholder.com/150?text=Speaker",
+    image: "https://i.ibb.co.com/SmN8xwp/card1.jpg",
     ratings: 2,
   },
   {
@@ -20,7 +20,7 @@
     name: "Wireless Earbuds",
     description: "Comfortable wireless earbuds with noise-cancellation.",
     price: 129.99,
-    image: "https://via.placeholder.com/150?text=Earbuds",
+    image: "https://i.ibb.co.com/QvPYB7G/card3.jpg",
     ratings: 6,
   },
   {
@@ -28,7 +28,7 @@
     name: "Smartphone Case",
     description: "Durable case for your smartphone with a sleek design.",
     price: 29.99,
-    image: "https://via.placeholder.com/150?text=Case",
+    image: "https://i.ibb.co.com/zGD9nNw/card6.jpg",
     ratings: 1,
   },
   {
@@ -36,7 +36,7 @@
     name: "Gaming Mouse",
     description: "High-precision gaming mouse with customizable buttons.",
     price: 69.99,
-    image: "https://via.placeholder.com/150?text=Mouse",
+    image: "https://i.ibb.co.com/zGD9nNw/card6.jpg",
     ratings: 9,
   },
   {
@@ -44,7 +44,7 @@
     name: "Laptop Stand",
     description: "Adjustable laptop stand for better ergonomics.",
     price: 49.99,
-    image: "https://via.placeholder.com/150?text=Stand",
+    image: "https://i.ibb.co.com/zGD9nNw/card6.jpg",
     ratings: 7,
   },
   {
@@ -52,7 +52,7 @@
     name: "Smartwatch",
     description: "Feature-packed smartwatch with fitness tracking.",
     price: 249.99,
-    image: "https://via.placeholder.com/150?text=Smartwatch",
+    image: "https://i.ibb.co.com/zGD9nNw/card6.jpg",
     ratings: 2,
   },
   {
@@ -60,7 +60,7 @@
     name: "Portable Charger",
     description: "Compact power bank to keep your devices charged on the go.",
     price: 39.99,
-    image: "https://via.placeholder.com/150?text=Charger",
+    image: "https://i.ibb.co.com/zGD9nNw/card6.jpg",
     ratings: 0,
   },
   {
