@@ -6,7 +6,7 @@ import { useGetAllproductsQuery } from "../../redux/api/api";
 
 const AllProductData = () => {
   const { data, isLoading } = useGetAllproductsQuery(undefined);
-  console.log(data);
+  /* console.log(data); */
   if (isLoading) {
     return <p>Loading ...</p>;
   }

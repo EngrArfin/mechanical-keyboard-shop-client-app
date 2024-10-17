@@ -32,10 +32,23 @@ const authSlice = createSlice({
     logOut: (state) => {
       state.user = null; // Clear user
       state.token = null; // Clear token
+      localStorage.removeItem("token");
+    },
+
+    // Optional: A new action to initialize the auth state from localStorage
+    initializeAuth: (state) => {
+      const token = localStorage.getItem("token");
+      if (token) {
+        state.token = token;
+        // You can also restore user data if you save it in localStorage
+        // For example:
+        // const user = JSON.parse(localStorage.getItem('user') || 'null');
+        // state.user = user;
+      }
     },
   },
 });
 
 // Export actions and reducer
-export const { setUser, logOut } = authSlice.actions;
+export const { setUser, logOut, initializeAuth } = authSlice.actions;
 export default authSlice.reducer;

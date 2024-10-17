@@ -22,6 +22,8 @@ import UserList from "../pages/AdminPage/UserList";
 import Report from "../pages/AdminPage/Report";
 import AllProductData from "../pages/AllProduct/AllProductData";
 import Cart from "../pages/Carts/Cart";
+/* import CheckoutForm from "../pages/UserPage/Payment/CheckoutForm";
+ */ import Payment from "../pages/UserPage/Payment/Payment";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +39,7 @@ const router = createBrowserRouter([
     path: "/allproduct",
     element: <AllProductData></AllProductData>,
   },
+
   {
     path: "/about",
     element: <About></About>,
@@ -101,6 +104,10 @@ const router = createBrowserRouter([
       {
         path: "dashboard",
         element: <UserDashboard></UserDashboard>,
+      },
+      {
+        path: "checkout",
+        element: <Payment></Payment>,
       },
       {
         path: "profile",

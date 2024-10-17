@@ -1,47 +1,44 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 import { Link } from "react-router-dom";
 import { useAppSelector } from "../../redux/hooks";
-/* import getAllProducts from "../../type/products"; */
 import CartDetails from "./CartDetails";
+import ShipingAddress from "../UserPage/Payment/ShipingAddress";
 import OrderSummary from "./OrderSummery";
-/* import CardProject from "../ProjectPage/CardProject";
-import { TProductCardProps } from "../../type"; */
 
 const Cart = () => {
-  /* const products = getAllProducts(); */
-
   const products = useAppSelector((store) => store.cart.products);
-  /* const allProducts = useAppSelector((store) => store.products.allProducts); */
+
   return (
-    <div className="container mt-10 mx-auto">
-      <div className="flex lg:flex-row flex-col-reverse justify-center lg:space-x-40 ">
-        <div className="space-y-5 lg:mt-0 mt-5">
+    <div className="w-full mt-10 px-4 lg:px-16 mx-auto space-y-1">
+      <div className="flex flex-col lg:flex-row lg:space-x-2 ">
+        {/* Products List */}
+        <div className="flex-1 space-y-4">
           {products.length ? (
             products.map((product: any) => (
               <CartDetails key={product.id} product={product} />
             ))
           ) : (
-            <div>
-              <p className="text-2xl text-red-500"> not product found</p>
+            <div className="text-center">
+              <p className="text-2xl text-red-500">No products found</p>
               <Link className="btn text-sky-500" to="/">
-                See Product
+                See Products
               </Link>
             </div>
           )}
         </div>
-        <OrderSummary />
+
+        {/* Sidebar for Shipping Address and Order Summary */}
+        <div className="lg:w-1/2 flex flex-col ">
+          <ShipingAddress />
+          <hr />
+          <OrderSummary />
+        </div>
       </div>
+
+      {/* Additional Products Section */}
       <div className="mt-10">
-        <h2 className="text-2xl font-bold">Add More Products</h2>
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 mt-5">
-          {/* {allProducts.length ? (
-            allProducts.map((product: TProductCardProps) => (
-              <CardProject key={product._id} product={product} />
-            ))
-          ) : (
-            <p>No products available</p>
-          )} */}
+        <h2 className="text-2xl font-bold mb-4">Add More Products</h2>
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10">
+          {/* Render more products or placeholders here */}
         </div>
       </div>
     </div>

@@ -1,13 +1,4 @@
-import {
-  Form,
-  Input,
-  Button,
-  Checkbox,
-  Typography,
-  Row,
-  Col,
-  Card,
-} from "antd";
+import { Form, Input, Button, Typography, Row, Col, Card } from "antd";
 import { NavLink, useNavigate } from "react-router-dom";
 
 import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
@@ -47,7 +38,7 @@ const Login = () => {
         dispatch(setUser({ user: userResponse, token: result.token }));
       }
 
-      navigate("/user/dashboard");
+      navigate("/user"); /* /user/dashboard */
     } catch (err) {
       console.error("Login Failed:", err);
     }
@@ -114,10 +105,6 @@ const Login = () => {
               ]}
             >
               <Input.Password placeholder="Enter your password" />
-            </Form.Item>
-
-            <Form.Item name="remember" valuePropName="checked">
-              <Checkbox>Remember me</Checkbox>
             </Form.Item>
 
             <Form.Item>
