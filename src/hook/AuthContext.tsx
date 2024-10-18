@@ -1,5 +1,7 @@
 // src/context/AuthContext.tsx
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+import { initializeAuth } from "../redux/features/authSlice";
+import { useDispatch } from "react-redux";
 
 interface AuthContextProps {
   isAuthenticated: boolean;
@@ -25,6 +27,17 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     localStorage.removeItem("authToken");
     setIsAuthenticated(false);
   };
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      dispatch(initializeAuth()); // Initialize as authenticated
+    } else {
+      dispatch(initializeAuth()); // Initialize as not authenticated
+    }
+  }, [dispatch]);
 
   return (
     <AuthContext.Provider value={{ isAuthenticated, login, logout }}>

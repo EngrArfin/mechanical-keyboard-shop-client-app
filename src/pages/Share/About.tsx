@@ -2,6 +2,8 @@ import { Row, Col, Typography } from "antd";
 import { CSSProperties } from "react";
 import backgroundImage from "../../assets/images/backgroundAbout.jpg";
 import { LaptopOutlined, StarOutlined, TeamOutlined } from "@ant-design/icons"; // Import icons from Ant Design
+import Footers from "../ProjectPage/Footers";
+import NavBar from "./NavBAr";
 
 const { Title, Paragraph } = Typography;
 
@@ -44,37 +46,41 @@ const About = () => {
   };
 
   return (
-    <div style={sectionStyle}>
-      <div style={overlayStyle}>
-        <Title level={2} style={titleStyle}>
-          About Us
-        </Title>
+    <div>
+      <NavBar />
+      <div style={sectionStyle}>
+        <div style={overlayStyle}>
+          <Title level={2} style={titleStyle}>
+            About Us
+          </Title>
 
-        <Row gutter={[16, 16]} justify="center">
-          <Col xs={24} sm={20} md={16} lg={12}>
-            <Paragraph style={paragraphStyle}>
-              <LaptopOutlined style={iconStyle} />
-              Welcome to our Mechanical Keyboard Shop! We are passionate about
-              providing high-quality mechanical keyboards that enhance your
-              typing and gaming experience.
-            </Paragraph>
+          <Row gutter={[16, 16]} justify="center">
+            <Col xs={24} sm={20} md={16} lg={12}>
+              <Paragraph style={paragraphStyle}>
+                <LaptopOutlined style={iconStyle} />
+                Welcome to our Mechanical Keyboard Shop! We are passionate about
+                providing high-quality mechanical keyboards that enhance your
+                typing and gaming experience.
+              </Paragraph>
 
-            <Paragraph style={paragraphStyle}>
-              <StarOutlined style={iconStyle} />
-              Our mission is to deliver top-notch products with exceptional
-              customer service. We offer a wide variety of customizable
-              mechanical keyboards to suit the needs of enthusiasts and
-              professionals alike.
-            </Paragraph>
+              <Paragraph style={paragraphStyle}>
+                <StarOutlined style={iconStyle} />
+                Our mission is to deliver top-notch products with exceptional
+                customer service. We offer a wide variety of customizable
+                mechanical keyboards to suit the needs of enthusiasts and
+                professionals alike.
+              </Paragraph>
 
-            <Paragraph style={paragraphStyle}>
-              <TeamOutlined style={iconStyle} />
-              Join our community and discover why mechanical keyboards are the
-              future of typing!
-            </Paragraph>
-          </Col>
-        </Row>
+              <Paragraph style={paragraphStyle}>
+                <TeamOutlined style={iconStyle} />
+                Join our community and discover why mechanical keyboards are the
+                future of typing!
+              </Paragraph>
+            </Col>
+          </Row>
+        </div>
       </div>
+      <Footers />
     </div>
   );
 };

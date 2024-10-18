@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 
-import UserLayout from "../components/layout/UserLayout";
+/* import UserLayout from "../components/layout/UserLayout"; */
 import ProductList from "../pages/AdminPage/ListProduct";
 import UserDashboard from "../pages/UserPage/UserDashboard";
 import LandingPageLayout from "../components/layout/LandingPageLayout";
@@ -10,7 +10,6 @@ import About from "../pages/Share/About";
 import Contract from "../pages/Share/Contract";
 import AdminDashboard from "../pages/AdminPage/AdminDashboard";
 import UserProfile from "../pages/UserPage/UserProfile";
-import UserAddress from "../pages/UserPage/UserAddress";
 import OrderHistory from "../pages/UserPage/OrderHistory";
 import AccountInformation from "../pages/UserPage/AccountInformation";
 import ProductManagemen from "../pages/AdminPage/ProductManagemen";
@@ -22,8 +21,10 @@ import UserList from "../pages/AdminPage/UserList";
 import Report from "../pages/AdminPage/Report";
 import AllProductData from "../pages/AllProduct/AllProductData";
 import Cart from "../pages/Carts/Cart";
-/* import CheckoutForm from "../pages/UserPage/Payment/CheckoutForm";
- */ import Payment from "../pages/UserPage/Payment/Payment";
+import Payment from "../pages/UserPage/Payment/Payment";
+import ProtectedRoute from "../hook/ProtectedRoute";
+import UserAddress from "../pages/UserPage/UserAddress";
+import UserLayout from "../components/layout/UserLayout";
 
 const router = createBrowserRouter([
   {
@@ -57,8 +58,12 @@ const router = createBrowserRouter([
     element: <Register></Register>,
   },
   {
-    path: "/cart",
+    path: "cart",
     element: <Cart />,
+  },
+  {
+    path: "checkout",
+    element: <Payment></Payment>,
   },
 
   /* Admin Dashboard */
@@ -99,20 +104,17 @@ const router = createBrowserRouter([
   /* User Dashboard */
   {
     path: "/user",
-    element: <UserLayout></UserLayout> /* </ProtectedRoute> */,
+    element: <UserLayout></UserLayout>,
     children: [
       {
         path: "dashboard",
         element: <UserDashboard></UserDashboard>,
       },
       {
-        path: "checkout",
-        element: <Payment></Payment>,
-      },
-      {
         path: "profile",
         element: <UserProfile></UserProfile>,
       },
+
       {
         path: "address",
         element: <UserAddress></UserAddress>,
@@ -123,14 +125,9 @@ const router = createBrowserRouter([
       },
       {
         path: "history",
-        element: <OrderHistory></OrderHistory>,
+        element: <OrderHistory />,
       },
     ],
-  },
-
-  {
-    path: "/userdashboard",
-    element: <UserLayout></UserLayout>,
   },
 ]);
 

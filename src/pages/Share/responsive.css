@@ -1,0 +1,6 @@
+@media (max-width: 576px) {
+  /* iPad landscape or similar */
+  .sectionStyle1 {
+    display: none;
+  }
+}

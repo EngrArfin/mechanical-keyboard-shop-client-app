@@ -1,6 +1,6 @@
-// src/components/ProtectedRoute.tsx
+/* // src/components/ProtectedRoute.tsx
 import { Navigate } from "react-router-dom";
-import { useAuth } from "../pages/SecurityPage/AuthContext";
+import { useAuth } from "../hook/AuthContext";
 
 const ProtectedRoute = ({ children }: { children: JSX.Element }) => {
   const { isAuthenticated } = useAuth();
@@ -12,4 +12,4 @@ const ProtectedRoute = ({ children }: { children: JSX.Element }) => {
   return children;
 };
 
-export default ProtectedRoute;
+export default ProtectedRoute; */

@@ -31,7 +31,7 @@ const OrderSummary = () => {
         <Trash2 />
       </button>
       <Link
-        to="/user/checkout"
+        to="/checkout"
         className="w-full bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded flex items-center justify-between"
       >
         <span>Proceed to Checkout</span>

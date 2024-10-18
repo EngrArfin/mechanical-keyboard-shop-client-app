@@ -1,6 +1,6 @@
 // src/hooks/useAuth.tsx
 import { useContext } from "react";
-import { AuthContext } from "../pages/SecurityPage/AuthContext";
+import { AuthContext } from "./AuthContext";
 
 const useAuth = () => {
   const context = useContext(AuthContext);

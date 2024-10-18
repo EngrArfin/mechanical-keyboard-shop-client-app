@@ -10,23 +10,14 @@ import {
 import { NavLink, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { ShoppingCartOutlined, UserOutlined } from "@ant-design/icons";
-import HeaderPage from "../../pages/ProjectPage/HeaderPage";
-import ServiceAdvertisement from "../../pages/ProjectPage/ServiceAdvertisement";
-import CustomerReviews from "../../pages/ProjectPage/CustomerReviews";
-import TopFeaturedBrands from "../../pages/ProjectPage/TopFeaturedBrands";
-import WhyKeyboard from "../../pages/ProjectPage/WhyKeyboard";
-import Footers from "../../pages/ProjectPage/Footers";
-import AllProductData from "../../pages/AllProduct/AllProductData";
-import CartProjectData from "../../pages/ProjectPage/CartProjectData";
-import FitureItem from "../../pages/ProjectPage/FitureItem";
-import Products from "../../pages/Carts/Products";
+
 import { logOut } from "../../redux/features/authSlice";
 import { useState } from "react";
 
 const { Header, Content } = Layout;
 const { Title } = Typography;
 
-const LandingPageLayout = () => {
+const NavBar = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const products = useAppSelector((store) => store.cart.products);
@@ -68,15 +59,7 @@ const LandingPageLayout = () => {
   );
 
   return (
-    <Layout
-      style={{
-        borderRadius: "8px",
-        background:
-          "linear-gradient(90deg, #2e004f, #00bfae, #2e004f, #00bfae)",
-        color: "#ffffff",
-        boxShadow: "0px 4px 15px rgba(0.3, 1, 0, 0.3)",
-      }}
-    >
+    <Layout>
       <Header
         style={{
           display: "flex",
@@ -91,7 +74,6 @@ const LandingPageLayout = () => {
           Mechanical Keyboard
         </Title>
 
-        {/* Navbar */}
         <Menu
           theme="dark"
           mode="horizontal"
@@ -100,7 +82,6 @@ const LandingPageLayout = () => {
           style={{ flex: 1 }}
         />
 
-        {/* Cart and User Menu */}
         <div style={{ display: "flex", alignItems: "center" }}>
           <NavLink to="/cart">
             <ShoppingCartOutlined style={{ fontSize: 32, color: "white" }} />
@@ -127,9 +108,6 @@ const LandingPageLayout = () => {
                   <Title level={5} style={{ margin: 0, color: "white" }}>
                     {user.name || "User"}
                   </Title>
-                  {/* <p style={{ margin: 0 }}>
-                    {user.email || "user@example.com"}
-                  </p> */}
                 </div>
               </div>
             </Dropdown>
@@ -144,24 +122,8 @@ const LandingPageLayout = () => {
           )}
         </div>
       </Header>
-
-      <Content style={{ padding: "0 48px", marginTop: "64px" }}>
-        <div style={{ minHeight: 280, padding: 24 }}>
-          <HeaderPage />
-
-          <Products />
-          <CartProjectData />
-          <AllProductData />
-          <ServiceAdvertisement />
-          <FitureItem />
-          <WhyKeyboard />
-          <TopFeaturedBrands />
-          <CustomerReviews />
-          <Footers />
-        </div>
-      </Content>
     </Layout>
   );
 };
 
-export default LandingPageLayout;
+export default NavBar;
